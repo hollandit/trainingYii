@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use app\models\Thema;
 use \Yii;
 use app\models\Questions;
 use yii\web\Controller;
@@ -45,6 +46,17 @@ class TestController extends Controller
         return $this->render('result', [
             'message' => $message,
             'right' => $right
+        ]);
+    }
+
+    public function actionTest()
+    {
+        $thema = Thema::find()->limit(1)->all();
+        $model = Questions::find()->all();
+
+        return $this->render('admin-test', [
+            'model' => $model,
+            'thema' => $thema
         ]);
     }
 }
