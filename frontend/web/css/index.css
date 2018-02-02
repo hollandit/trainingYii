@@ -1,0 +1,8 @@
+/* line 1, ../sass/index.scss */
+.test-block {
+  display: none;
+}
+/* line 3, ../sass/index.scss */
+.test-block:first-of-type {
+  display: block;
+}
