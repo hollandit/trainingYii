@@ -4,4 +4,10 @@ $(document).ready(function(){
             $('.test-block:visible').hide().next('.test-block').show();
         }
     });
+    $('.nextTestAdmin').click(function(){
+        $('.test-block-admin:visible').hide().next('.test-block-admin').show();
+    });
+    $('.prevTestAdmin').click(function(){
+        $('.test-block-admin:visible').hide().prev('.test-block-admin').show();
+    });
 });
