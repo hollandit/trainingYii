@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\models\query\AnswersQuery;
 use Yii;
 
 /**
@@ -10,6 +11,7 @@ use Yii;
  * @property int $id
  * @property string $text
  * @property int $id_question
+ * @property int $id_thema
  * @property int $answer
  *
  * @property Questions $question
@@ -32,7 +34,7 @@ class Answers extends \yii\db\ActiveRecord
     {
         return [
             [['text', 'id_question', 'answer'], 'required'],
-            [['id_question', 'answer'], 'integer'],
+            [['id_question', 'answer', 'id_thema'], 'integer'],
             [['text'], 'string', 'max' => 255],
             [['id_question'], 'exist', 'skipOnError' => true, 'targetClass' => Questions::className(), 'targetAttribute' => ['id_question' => 'id']],
         ];
@@ -47,8 +49,17 @@ class Answers extends \yii\db\ActiveRecord
             'id' => 'ID',
             'text' => 'Text',
             'id_question' => 'Id Question',
+            'id_thema' => 'Id Thema',
             'answer' => 'Answer',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getThema()
+    {
+        return $this->hasOne(Thema::className(), ['id' => 'id_thema']);
     }
 
     /**

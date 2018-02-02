@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\models\query\QuestionsQuery;
 use Yii;
 
 /**
@@ -9,6 +10,8 @@ use Yii;
  *
  * @property int $id
  * @property string $name
+ * @property string $answear
+ * @property string $correct
  * @property int $id_theme
  *
  * @property Answers[] $answers
@@ -31,7 +34,7 @@ class Questions extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'id_theme'], 'required'],
-            [['name'], 'string'],
+            [['name', 'answear', 'correct'], 'string'],
             [['id_theme'], 'integer'],
             [['id'], 'exist', 'skipOnError' => true, 'targetClass' => Thema::className(), 'targetAttribute' => ['id' => 'id']],
         ];
@@ -45,6 +48,8 @@ class Questions extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
+            'answear' => 'Answear',
+            'correct' => 'Correct',
             'id_theme' => 'Id Theme',
         ];
     }
@@ -60,7 +65,7 @@ class Questions extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getId0()
+    public function getIdThemeQuestion()
     {
         return $this->hasOne(Thema::className(), ['id' => 'id']);
     }
@@ -72,5 +77,11 @@ class Questions extends \yii\db\ActiveRecord
     public static function find()
     {
         return new QuestionsQuery(get_called_class());
+    }
+
+    public function afterFind()
+    {
+        $this->answear = json_decode($this->answear, true);
+        $this->correct = json_decode($this->correct, true);
     }
 }

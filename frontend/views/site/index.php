@@ -13,7 +13,7 @@ $this->title = 'Главная страница';
 
     <h3>Доступные тесты</h3>
         <?php foreach ($thema as $name){
-            echo Html::a($name->name, ['#']).'<br>';
+            echo Html::a($name->name, ['test/testing', 'id' => $name->id]).'<br>';
         } ?>
     <h3>Доступные тренинги</h3>
 
