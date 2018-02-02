@@ -31,7 +31,7 @@ AppAsset::register($this);
     <?php if(!Yii::$app->user->isGuest): ?>
         <?php
         NavBar::begin([
-            'brandLabel' => Yii::$app->name,
+            'brandLabel' => 'Holland',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
                     'class' => 'navbar-default navbar-fixed-top',
@@ -41,6 +41,7 @@ AppAsset::register($this);
             ['label' => 'Главная страница', 'url' => ['/site/index']],
             ['label' => 'База знание', 'url' => ['/site/knowledge']],
             ['label' => 'Треннинги', 'url' => ['/site/contact']],
+            ['label' => 'Тесты', 'url' => ['/test/test'], 'visible' => Yii::$app->user->can('hr')]
         ];
         if (Yii::$app->user->isGuest) {
             $menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup']];
