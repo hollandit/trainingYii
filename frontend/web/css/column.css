@@ -1,0 +1,26 @@
+/* line 3, ../sass/button.scss */
+.button-thema-test {
+  background: #312927;
+  border: none;
+}
+
+/* line 9, ../sass/column.scss */
+.navBar-Thema {
+  background: #231e1d;
+  height: 780px;
+}
+/* line 12, ../sass/column.scss */
+.navBar-Thema h3 {
+  margin-left: 13px;
+  color: #ffffff;
+  font-size: 18px;
+}
+/* line 17, ../sass/column.scss */
+.navBar-Thema a {
+  color: #BCBCBC;
+}
+/* line 19, ../sass/column.scss */
+.navBar-Thema a:hover {
+  color: #B3AE84;
+  background-color: #453e3a;
+}
