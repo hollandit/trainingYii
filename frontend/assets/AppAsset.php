@@ -13,7 +13,8 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
-        'css/index.css'
+        'css/index.css',
+        'https://fonts.googleapis.com/css?family=Oswald'
     ];
     public $js = [
         'js/index.js'
