@@ -1,4 +1,16 @@
-.test-block {
+@import "column";
+
+$beige: #c7c4a8;
+$margin: 50px;
+
+body{
+  font-family: 'Oswald', sans-serif;
+  background: $beige;
+}
+.contant{
+  margin-top: $margin;
+}
+.test-block, .test-block-admin {
   display: none;
   &:first-of-type {
     display: block;
