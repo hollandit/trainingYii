@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\models\query\ChoiceQuery;
 use Yii;
 
 /**
@@ -9,11 +10,10 @@ use Yii;
  *
  * @property int $id
  * @property int $id_user
- * @property int $id_answear
+ * @property string $answear
  * @property string $date
  *
  * @property User $user
- * @property Answers $answear
  */
 class Choice extends \yii\db\ActiveRecord
 {
@@ -31,12 +31,12 @@ class Choice extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'id_user', 'id_answear', 'date'], 'required'],
-            [['id', 'id_user', 'id_answear'], 'integer'],
+            [['id', 'id_user'], 'integer'],
+            [['answear'], 'string'],
+            ['id_user', 'default', 'value' => Yii::$app->user->id],
             [['date'], 'safe'],
             [['id'], 'unique'],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
-            [['id_answear'], 'exist', 'skipOnError' => true, 'targetClass' => Answers::className(), 'targetAttribute' => ['id_answear' => 'id']],
         ];
     }
 
@@ -48,7 +48,7 @@ class Choice extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'id_user' => 'Id User',
-            'id_answear' => 'Id Answear',
+            'answear' => 'Answear',
             'date' => 'Date',
         ];
     }
@@ -59,14 +59,6 @@ class Choice extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'id_user']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getAnswear()
-    {
-        return $this->hasOne(Answers::className(), ['id' => 'id_answear']);
     }
 
     /**
