@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use app\models\Choice;
 use app\models\Thema;
 use \Yii;
 use app\models\Questions;
@@ -27,6 +28,11 @@ class TestController extends Controller
                     };
                 }
             }
+            $choice = new Choice();
+            $choice->answear = json_encode(Yii::$app->request->post('Answear'), JSON_UNESCAPED_UNICODE);
+            if (!$choice->save()){
+                print_r($choice->getErrors());
+            }
             if ($right == 15){
                 return $this->redirect(['test/result', 'message' => 'Тест пройден', 'right' => $right]);
             } else {
@@ -37,7 +43,7 @@ class TestController extends Controller
         return $this->render('test', [
             'model' => $model,
             'right' => $right,
-            'done' => $done
+            'done' => $done,
         ]);
     }
 
