@@ -17,7 +17,8 @@ class AppAsset extends AssetBundle
         'https://fonts.googleapis.com/css?family=Oswald'
     ];
     public $js = [
-        'js/index.js'
+        'js/index.js',
+        'js/question.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
