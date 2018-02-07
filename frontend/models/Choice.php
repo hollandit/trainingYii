@@ -4,6 +4,7 @@ namespace app\models;
 
 use app\models\query\ChoiceQuery;
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "{{%choice}}".
@@ -15,7 +16,7 @@ use Yii;
  *
  * @property User $user
  */
-class Choice extends \yii\db\ActiveRecord
+class Choice extends ActiveRecord
 {
     /**
      * @inheritdoc
