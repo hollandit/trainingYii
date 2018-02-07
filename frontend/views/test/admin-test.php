@@ -1,83 +1,104 @@
 <?php
 
 use frontend\components\NavThema;
+use yii\bootstrap\Modal;
 use yii\helpers\Html;
+$lenght = count($model) - 1;
 ?>
 
 <div class="test-adminTest">
-    <div class="col-lg-3 navBar-Thema">
+    <div class="col-lg-2 navBar-Thema">
         <h3>Все тесты</h3>
         <?php echo NavThema::widget() ?>
-        <?php echo Html::a('Создать тесты', ['#'], ['class' => 'btn btn-primary btn-block button-thema-test']) ?>
+        <?php Modal::begin([
+            'header' => 'Создание теста',
+            'toggleButton' => [
+                'tag' => 'button',
+                'class' => 'btn btn-primary btn-block button-thema-test',
+                'label' => 'Создать тест'
+            ]
+        ]);
+
+        echo $this->render('create');
+
+        Modal::end()?>
     </div>
-    <div class="col-lg-6 container column-basic">
+    <div class="col-lg-6 column-basic">
         <h1><?php echo 'Тест '.$model[0]->idThemeQuestion->name ?></h1>
         <p>УСЛОВИЯ ПРОХОЖДЕНИЯ:</p>
         <p>Время на прохождение: 1 минута.</p>
         <p>Если Вы не прошли тест, пересдача возможна не ранее, чем через 14 дней. Результаты прохождения принимаются в расчет при начислении бонусов и премиальных, а также - при повышении должности.</p>
         <hr/>
         <?php foreach ($model as $count => $question){
-            $count = $count+1;
+            $number = $count+1;
             echo '<div class="test-block-admin">';
-                echo '<div> Вопрос '.$count.'</div>';
-                echo '<div>'.$question->name.'</div>';
-                foreach ($question->answear as $key => $answear) {
-                    echo Html::radio($question->id, false, ['label' => $answear]).'<br/>';
-                }
-                if ($count == 1){
-                    echo Html::submitButton('>', ['class' => 'nextTestAdmin']);
-                } else if ($count == 3){
+                echo '<div class="question-test-admin">';
+                    echo '<div><h3> Вопрос '.$number.'</h3></div>';
+                    echo '<div><p>'.$question->name.'</p></div>';
+                    foreach ($question->answear as $key => $answear) {
+                        echo '<label><input type="radio" class="radio" name="'.$question->id.'" value="'.$answear.'"><span>'.$answear.'</span></label><br/>';
+                    }
+                echo '</div>';
+                if ($count == 0){
+                    if ($lenght == 0) {
+                        echo '';
+                    } else {
+                        echo Html::submitButton('>', ['class' => 'nextTestAdmin']);
+                    }
+                } else if ($count == $lenght-1){
                     echo Html::submitButton('<', ['class' => 'prevTestAdmin']);
                 } else {
                     echo Html::submitButton('<', ['class' => 'prevTestAdmin']).' '.Html::submitButton('>', ['class' => 'nextTestAdmin']);
                 }
             echo '</div>';
         }
-        echo '<h3>'.$model->name.'</h3>';
-        ?>
+        echo Html::img('https://i.pinimg.com/736x/a9/2a/09/a92a09b5c34eb119081a75cf05e1d310.jpg', ['style' => 'width: 400px']);?>
     </div>
-    <div class="col-lg-3">
+    <div class="col-lg-3 statistics">
         <?= Html::a('Пройти тест', ['#'], ['class' => 'btn btn-success btn-lg btn-block']) ?>
         <p>СПИСОК НАНАЧЕНИЙ</p>
-        <ht/>
-        <div>
-            <span class="glyphicon glyphicon-check"></span>
-            <span>15 мар</span>
-            <span>Руслан Абсалямов</span>
-            <span>13/15</span>
+        <hr/>
+        <div class="statistics_appointment">
+            <span class="glyphicon glyphicon-check statistics_appointment-icon"></span>
+            <span class="statistics_appointment-date">15 мар</span>
+            <span class="statistics_appointment-name">Руслан Абсалямов</span>
+            <span class="statistics_appointment-result">13/15</span>
         </div>
-        <div>
-            <span class="glyphicon glyphicon-retweet"></span>
-            <span>15 мар</span>
-            <span>Альберт Закиров</span>
-            <span>8/15</span>
+        <div class="statistics_appointment">
+            <span class="glyphicon glyphicon-retweet statistics_appointment-icon"></span>
+            <span class="statistics_appointment-date">15 мар</span>
+            <span class="statistics_appointment-name">Альберт Закиров</span>
+            <span class="statistics_appointment-result">8/15</span>
         </div>
-        <div>
+        <div class="form-search">
             <div class="input-group">
-                <span class="input-group-addon glyphicon glyphicon-user"></span>
-                <input type="text" class="form-control" placeholder="Найти учстника">
+                <span class="input-group-addon glyphicon glyphicon-user form-search-icon"></span>
+                <input type="text" class="form-control form-search-input" placeholder="Найти учстника">
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Назначить</button>
+                    <button class="btn form-search-button" type="button">Назначить</button>
                 </span>
             </div>
-            <?= Html::submitButton('Создать ссылку на прохождение...', ['class' => 'btn']) ?>
+            <?= Html::submitButton('Создать ссылку на прохождение...', ['class' => 'btn btn-block addLinkButton']) ?>
+        </div>
+        <div class="statistics-paragraph">
             <p>СТАТИСТИКА</p>
-            <div class="col-lg-12">
+            <hr/>
+            <div class="col-lg-12 statistics-paragraph-result">
                 <div class="col-lg-4">
                     <?= Html::img('@web/images/u3146.png', ['alt' => 'Статистика']) ?>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-8 statistics-paragraph-interest">
                     <p>Отлично (без ошибок): 60%</p>
                     <p>Сдали (1-3 ошибки): 30%</p>
                     <p>Не сдали (более 3 ошибок: 10%</p>
                 </div>
             </div>
-            <div class="col-lg-12">
+            <div class="col-lg-12 statistics-paragraph-result">
                 <div class="col-lg-4">
                     <?= Html::img('@web/images/u3148.png', ['alt' => 'Статистика']) ?>
                 </div>
-                <div class="col-lg-8">
-                    <p>САМЫЕ ТЯЖЕЛЫЕ ВОПРОСЫ:</p>
+                <div class="col-lg-8 statistics-paragraph-interest">
+                    <p class="statistics-paragraph-interest_title">САМЫЕ ТЯЖЕЛЫЕ ВОПРОСЫ:</p>
                     <p>Вопрос №12 112 ошибок</p>
                     <p>Вопрос №2 89 ошибок</p>
                     <p>Вопрос №7 5 ошибок</p>
@@ -86,6 +107,5 @@ use yii\helpers\Html;
             <p>РЕКОМЕНДАЦИЯ</p>
             <hr/>
         </div>
-
     </div>
 </div>
