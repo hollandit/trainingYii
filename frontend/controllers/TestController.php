@@ -6,6 +6,7 @@ use app\models\Choice;
 use app\models\Thema;
 use \Yii;
 use app\models\Questions;
+use yii\helpers\Json;
 use yii\web\Controller;
 
 class TestController extends Controller
@@ -13,6 +14,32 @@ class TestController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
+    }
+
+    public function actionCreate()
+    {
+        $model = new Questions();
+        $themaModel = new Thema();
+        $request = Yii::$app->request;
+        $thema = $request->post('Thema');
+        $question = $request->post('Question');
+        $answer = $request->post('Answer');
+        $right = $request->post('right');
+        if ($request->post()){
+            $themaModel->name = $thema;
+            if (!$themaModel->save()) {
+                print_r($themaModel->getErrors());
+            }
+            $model->id_theme = $themaModel->id;
+            $model->name = $question;
+            $model->answear = Json::encode($answer, JSON_UNESCAPED_UNICODE);
+            $model->correct = '{"right": "'.$answer[$right].'"}';
+            if(!$model->save()){
+                print_r($model->getErrors());
+            }
+            return $this->redirect(['test/testing', 'id' => $model->id_theme]);
+        }
+        return $this->render('create', ['model' => $model]);
     }
 
     public function actionTesting($id)
@@ -55,10 +82,10 @@ class TestController extends Controller
         ]);
     }
 
-    public function actionTest()
+    public function actionTest($id)
     {
-        $thema = Thema::find()->limit(1)->all();
-        $model = Questions::find()->all();
+        $thema = Thema::find()->where(['id' => $id])->one();
+        $model = Questions::find()->where(['id_theme' => $id])->all();
 
         return $this->render('admin-test', [
             'model' => $model,
