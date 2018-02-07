@@ -1,36 +1,37 @@
 <?php
 
 use yii\bootstrap\Html;
-
 ?>
 
 <?= Html::beginForm(['test/create'], 'post'); ?>
-    <div>
-        <label>Название темы</label>
-        <?= Html::input('text', 'Thema') ?>
-    </div>
+        <?php if ($thema != null){
+            echo Html::hiddenInput('Thema', $thema->id);
+        } else {
+            echo '<div><label>Название темы</label>';
+            echo Html::input('text', 'Thema').'</div>';
+        } ?>
     <div>
         <label>Вопрос</label>
         <?= Html::input('text', 'Question') ?>
     </div>
     <div>
         <label>Ответ 1</label>
-        <?= Html::input('text', 'Answer[1]') ?>
+        <?= Html::input('text', 'Answer[1]', null, ['required' => true]) ?>
         <label><input type="radio" name="right" class="radio"><span>Правильный</span></label>
     </div>
     <div>
         <label>Ответ 2</label>
-        <?= Html::input('text', 'Answer[2]') ?>
+        <?= Html::input('text', 'Answer[2]', null, ['required' => true]) ?>
         <label><input type="radio" name="right" class="radio"><span>Правильный</span></label>
     </div>
     <div>
         <label>Ответ 3</label>
-        <?= Html::input('text', 'Answer[3]') ?>
+        <?= Html::input('text', 'Answer[3]', null, ['required' => true]) ?>
         <label><input type="radio" name="right" class="radio"><span>Правильный</span></label>
     </div>
     <div>
         <label>Ответ 4</label>
-        <?= Html::input('text', 'Answer[4]') ?>
+        <?= Html::input('text', 'Answer[4]', null, ['required' => true]) ?>
         <label><input type="radio" name="right" class="radio"><span>Правильный</span></label>
     </div>
     <?= Html::submitButton('Создать', ['class' => 'btn btn-primary']); ?>
