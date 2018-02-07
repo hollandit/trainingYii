@@ -26,20 +26,24 @@ class TestController extends Controller
         $answer = $request->post('Answer');
         $right = $request->post('right');
         if ($request->post()){
-            $themaModel->name = $thema;
-            if (!$themaModel->save()) {
-                print_r($themaModel->getErrors());
+            if ((int)$thema != 0){
+                $model->id_theme = (int)$thema;
+            } else {
+                $themaModel->name = $thema;
+                if (!$themaModel->save()) {
+                    print_r($themaModel->getErrors());
+                }
+                $model->id_theme = $themaModel->id;
             }
-            $model->id_theme = $themaModel->id;
             $model->name = $question;
             $model->answear = Json::encode($answer, JSON_UNESCAPED_UNICODE);
             $model->correct = '{"right": "'.$answer[$right].'"}';
             if(!$model->save()){
                 print_r($model->getErrors());
             }
-            return $this->redirect(['test/testing', 'id' => $model->id_theme]);
+            return $this->redirect(['test/test', 'id' => $model->id_theme]);
         }
-        return $this->render('create', ['model' => $model]);
+        return $this->renderAjax('create', ['model' => $model]);
     }
 
     public function actionTesting($id)
