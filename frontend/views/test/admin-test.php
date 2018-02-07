@@ -45,13 +45,24 @@ $lenght = count($model) - 1;
                     } else {
                         echo Html::submitButton('>', ['class' => 'nextTestAdmin']);
                     }
-                } else if ($count == $lenght-1){
+                } else if ($count == $lenght){
                     echo Html::submitButton('<', ['class' => 'prevTestAdmin']);
                 } else {
                     echo Html::submitButton('<', ['class' => 'prevTestAdmin']).' '.Html::submitButton('>', ['class' => 'nextTestAdmin']);
                 }
             echo '</div>';
         }
+        Modal::begin([
+            'header' => 'Создать вопрос',
+            'toggleButton' => [
+                'tag' => 'button',
+                'class' => 'btn',
+                'label' => '+'
+            ]
+        ]);
+        echo $this->render('create', ['thema' => $thema]);
+        Modal::end();
+        echo '<br/>';
         echo Html::img('https://i.pinimg.com/736x/a9/2a/09/a92a09b5c34eb119081a75cf05e1d310.jpg', ['style' => 'width: 400px']);?>
     </div>
     <div class="col-lg-3 statistics">
