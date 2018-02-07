@@ -33,9 +33,10 @@ class Thema extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'id_possition'], 'required'],
+            [['name'], 'required'],
             [['id_possition'], 'integer'],
             [['name'], 'string', 'max' => 200],
+            ['id_possition', 'default', 'value' => 1],
             [['id_possition'], 'exist', 'skipOnError' => true, 'targetClass' => Position::className(), 'targetAttribute' => ['id_possition' => 'id']],
         ];
     }
