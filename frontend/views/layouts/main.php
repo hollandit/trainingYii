@@ -41,7 +41,7 @@ AppAsset::register($this);
             ['label' => 'Главная страница', 'url' => ['/site/index']],
             ['label' => 'База знание', 'url' => ['/site/knowledge']],
             ['label' => 'Треннинги', 'url' => ['/site/contact']],
-            ['label' => 'Тесты', 'url' => ['/test/test'], 'visible' => Yii::$app->user->can('hr')]
+            ['label' => 'Тесты', 'url' => ['/test/test', 'id' => 1], 'visible' => Yii::$app->user->can('hr')]
         ];
         if (Yii::$app->user->isGuest) {
             $menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup']];
@@ -63,15 +63,14 @@ AppAsset::register($this);
         NavBar::end();
         ?>
     <?php endif; ?>
-        <div class="contant">
-<!--    <div class="container">-->
+
+    <div class="content">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
         <?= $content ?>
-<!--    </div>-->
-        </div>
+    </div>
 </div>
 
 <footer class="footer">
