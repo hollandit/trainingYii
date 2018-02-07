@@ -1,46 +1,221 @@
+/* line 12, ../sass/column.scss */
+.test-adminTest {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+}
+
+/* line 18, ../sass/column.scss */
+.navBar-Thema {
+  background: #544f46;
+}
+/* line 20, ../sass/column.scss */
+.navBar-Thema h3 {
+  margin-left: 13px;
+  color: #ffffff;
+  font-size: 18px;
+}
+/* line 25, ../sass/column.scss */
+.navBar-Thema a {
+  color: #BCBCBC;
+}
+/* line 27, ../sass/column.scss */
+.navBar-Thema a:hover {
+  color: #B3AE84;
+}
+/* line 31, ../sass/column.scss */
+.navBar-Thema .nav > li > a:hover, .navBar-Thema .nav > li > a:focus {
+  background-color: #453e3a;
+}
+
+/* line 35, ../sass/column.scss */
+.column-basic {
+  flex-grow: 1;
+}
+/* line 37, ../sass/column.scss */
+.column-basic h1 {
+  margin-left: -15px;
+  font-size: 40px;
+  color: #C7C4A8;
+  padding: 7px 1px 10px 19px;
+  background: #a29d88;
+}
+/* line 44, ../sass/column.scss */
+.column-basic p {
+  font-size: 13px;
+}
+/* line 47, ../sass/column.scss */
+.column-basic hr {
+  border: 0.5px solid #101010;
+}
+/* line 51, ../sass/column.scss */
+.column-basic .test-block-admin h3 {
+  font-size: 28px;
+  color: #675652;
+  font-weight: bold;
+}
+/* line 56, ../sass/column.scss */
+.column-basic .test-block-admin p {
+  font-size: 28px;
+  font-weight: 400;
+  color: #675652;
+}
+/* line 61, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin {
+  margin-left: 45px;
+}
+
+/* line 66, ../sass/column.scss */
+.statistics {
+  margin-top: 20px;
+}
+/* line 68, ../sass/column.scss */
+.statistics .form-search, .statistics p {
+  margin-top: 11px;
+}
+/* line 71, ../sass/column.scss */
+.statistics hr {
+  border: 0.5px solid black;
+  margin-top: 0;
+}
+/* line 75, ../sass/column.scss */
+.statistics .statistics_appointment {
+  font-size: 13px;
+}
+/* line 77, ../sass/column.scss */
+.statistics .statistics_appointment .statistics_appointment-date {
+  font-size: 10px;
+  margin-left: 10px;
+  color: #7C7768;
+}
+/* line 82, ../sass/column.scss */
+.statistics .statistics_appointment .statistics_appointment-name {
+  margin-left: 10px;
+}
+/* line 85, ../sass/column.scss */
+.statistics .statistics_appointment .statistics_appointment-result {
+  float: right;
+  color: #7C7768;
+}
+/* line 90, ../sass/column.scss */
+.statistics .statistics-paragraph {
+  margin-top: 25px;
+}
+/* line 92, ../sass/column.scss */
+.statistics .statistics-paragraph img {
+  width: 71px;
+}
+/* line 96, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result:last-of-type {
+  margin-top: 30px;
+}
+/* line 99, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest {
+  font-size: 11px;
+  line-height: 6px;
+}
+/* line 102, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest .statistics-paragraph-interest_title {
+  margin-bottom: 20px;
+}
+
+/* line 6, ../sass/form.scss */
+.column-basic .test-block-admin .radio {
+  display: none;
+}
+/* line 9, ../sass/form.scss */
+.column-basic .test-block-admin .radio:checked + span {
+  color: green;
+}
+
+/* line 14, ../sass/form.scss */
+.radio {
+  display: none;
+}
+
+/* line 17, ../sass/form.scss */
+.radio:checked + span {
+  color: green;
+}
+
+/* line 22, ../sass/form.scss */
+.statistics .form-search .form-search-icon {
+  color: #a29d88;
+  background: none;
+  border: none;
+  z-index: 1;
+}
+/* line 28, ../sass/form.scss */
+.statistics .form-search .form-search-input {
+  font-size: 13px;
+  margin-left: -37px;
+  padding-left: 26px;
+  width: 121%;
+  z-index: 0;
+  font-family: 'Oswald ExtraLight', 'Oswald Regular', 'Oswald', serif;
+  background: #d2d0ba;
+  border: 1px solid #a29d88;
+}
+/* line 38, ../sass/form.scss */
+.statistics .form-search .form-search-button {
+  background: #7c7768;
+  color: #C7C4A8;
+}
+
+/* line 45, ../sass/form.scss */
+.test-create-question_page {
+  margin-top: 15px;
+}
+
 /* line 3, ../sass/button.scss */
 .button-thema-test {
   background: #312927;
   border: none;
 }
 
-/* line 9, ../sass/column.scss */
-.navBar-Thema {
-  background: #231e1d;
-  height: 780px;
+/* line 9, ../sass/button.scss */
+.test-block-admin .nextTestAdmin {
+  background: none;
+  border: none;
+  font-size: 70px;
+  position: relative;
+  top: -151px;
+  left: 555px;
 }
-/* line 12, ../sass/column.scss */
-.navBar-Thema h3 {
-  margin-left: 13px;
-  color: #ffffff;
-  font-size: 18px;
-}
-/* line 17, ../sass/column.scss */
-.navBar-Thema a {
-  color: #BCBCBC;
-}
-/* line 19, ../sass/column.scss */
-.navBar-Thema a:hover {
-  color: #B3AE84;
-  background-color: #453e3a;
+/* line 17, ../sass/button.scss */
+.test-block-admin .prevTestAdmin {
+  background: none;
+  border: none;
+  font-size: 70px;
+  position: relative;
+  top: -151px;
 }
 
-/* line 6, ../sass/index.scss */
+/* line 27, ../sass/button.scss */
+.statistics .addLinkButton {
+  background: #a9a58e;
+  margin-top: 15px;
+  border-radius: 18px;
+  border: 1px solid #312927;
+  font-size: 13px;
+}
+
+/* line 7, ../sass/index.scss */
 body {
   font-family: 'Oswald', sans-serif;
   background: #c7c4a8;
 }
 
-/* line 10, ../sass/index.scss */
-.contant {
+/* line 11, ../sass/index.scss */
+.content {
   margin-top: 50px;
 }
 
-/* line 13, ../sass/index.scss */
+/* line 14, ../sass/index.scss */
 .test-block, .test-block-admin {
   display: none;
 }
-/* line 15, ../sass/index.scss */
+/* line 16, ../sass/index.scss */
 .test-block:first-of-type, .test-block-admin:first-of-type {
   display: block;
 }

@@ -1,14 +1,15 @@
 @import "column";
+@import "form";
+@import "button";
 
 $beige: #c7c4a8;
-$margin: 50px;
 
 body{
   font-family: 'Oswald', sans-serif;
   background: $beige;
 }
-.contant{
-  margin-top: $margin;
+.content{
+  margin-top: 50px;
 }
 .test-block, .test-block-admin {
   display: none;
