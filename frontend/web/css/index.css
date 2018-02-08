@@ -64,57 +64,65 @@
 .column-basic .test-block-admin .question-test-admin {
   margin-left: 45px;
 }
+/* line 63, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin .editQuestion {
+  position: relative;
+  float: right;
+  top: -35px;
+  font-size: 20px;
+  color: #675652;
+}
 
-/* line 66, ../sass/column.scss */
+/* line 73, ../sass/column.scss */
 .statistics {
   margin-top: 20px;
 }
-/* line 68, ../sass/column.scss */
+/* line 75, ../sass/column.scss */
 .statistics .form-search, .statistics p {
   margin-top: 11px;
 }
-/* line 71, ../sass/column.scss */
+/* line 78, ../sass/column.scss */
 .statistics hr {
   border: 0.5px solid black;
   margin-top: 0;
 }
-/* line 75, ../sass/column.scss */
+/* line 82, ../sass/column.scss */
 .statistics .statistics_appointment {
   font-size: 13px;
 }
-/* line 77, ../sass/column.scss */
+/* line 84, ../sass/column.scss */
 .statistics .statistics_appointment .statistics_appointment-date {
   font-size: 10px;
   margin-left: 10px;
   color: #7C7768;
 }
-/* line 82, ../sass/column.scss */
+/* line 89, ../sass/column.scss */
 .statistics .statistics_appointment .statistics_appointment-name {
   margin-left: 10px;
 }
-/* line 85, ../sass/column.scss */
+/* line 92, ../sass/column.scss */
 .statistics .statistics_appointment .statistics_appointment-result {
   float: right;
   color: #7C7768;
 }
-/* line 90, ../sass/column.scss */
+/* line 97, ../sass/column.scss */
 .statistics .statistics-paragraph {
   margin-top: 25px;
 }
-/* line 92, ../sass/column.scss */
+/* line 99, ../sass/column.scss */
 .statistics .statistics-paragraph img {
   width: 71px;
 }
-/* line 96, ../sass/column.scss */
+/* line 103, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result:last-of-type {
   margin-top: 30px;
 }
-/* line 99, ../sass/column.scss */
+/* line 106, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest {
   font-size: 11px;
   line-height: 6px;
 }
-/* line 102, ../sass/column.scss */
+/* line 109, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest .statistics-paragraph-interest_title {
   margin-bottom: 20px;
 }
