@@ -36,7 +36,7 @@ class Questions extends \yii\db\ActiveRecord
             [['name', 'id_theme'], 'required'],
             [['name', 'answear', 'correct'], 'string'],
             [['id_theme'], 'integer'],
-            [['id'], 'exist', 'skipOnError' => true, 'targetClass' => Thema::className(), 'targetAttribute' => ['id' => 'id']],
+            [['id_theme'], 'exist', 'skipOnError' => true, 'targetClass' => Thema::className(), 'targetAttribute' => ['id_theme' => 'id']],
         ];
     }
 
