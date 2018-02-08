@@ -6,7 +6,7 @@ use yii\helpers\Html;
 $lenght = count($model) - 1;
 ?>
 
-<div class="test-adminTest">
+<div class="test-adminTest row">
     <div class="col-lg-2 navBar-Thema">
         <h3>Все тесты</h3>
         <?php echo NavThema::widget() ?>
@@ -33,7 +33,7 @@ $lenght = count($model) - 1;
             $number = $count+1;
             echo '<div class="test-block-admin">';
                 echo '<div class="question-test-admin">';
-                    echo '<div><h3> Вопрос '.$number.'</h3></div>';
+                    echo '<div><h3> Вопрос '.$number.'</h3><span class="glyphicon glyphicon-edit editQuestion" data-path="'.\yii\helpers\Url::to(['test/update', 'id' => $question->id]).'"></span></div>';
                     echo '<div><p>'.$question->name.'</p></div>';
                     foreach ($question->answear as $key => $answear) {
                         echo '<label><input type="radio" class="radio" name="'.$question->id.'" value="'.$answear.'"><span>'.$answear.'</span></label><br/>';
@@ -120,3 +120,11 @@ $lenght = count($model) - 1;
         </div>
     </div>
 </div>
+<?php Modal::begin([
+    'id' => 'modal-editQuestion',
+    'header' => 'Редактировние вопроса',
+]);
+
+echo '<div class="modal-content"></div>';
+
+Modal::end(); ?>
