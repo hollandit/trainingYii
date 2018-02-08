@@ -16,23 +16,23 @@ use yii\bootstrap\Html;
     </div>
     <div>
         <label>Ответ 1</label>
-        <?= Html::input('text', 'Answer[1]', null, ['required' => true]) ?>
-        <label><input type="radio" name="right" class="radio"><span>Правильный</span></label>
+        <?= Html::input('text', 'Answer[1]', null, ['required' => true, 'class' => 'answer-1']) ?>
+        <label><input type="radio" name="right" class="radio radio-1"><span>Правильный</span></label>
     </div>
     <div>
         <label>Ответ 2</label>
-        <?= Html::input('text', 'Answer[2]', null, ['required' => true]) ?>
-        <label><input type="radio" name="right" class="radio"><span>Правильный</span></label>
+        <?= Html::input('text', 'Answer[2]', null, ['required' => true, 'class' => 'answer-2']) ?>
+        <label><input type="radio" name="right" class="radio radio-2"><span>Правильный</span></label>
     </div>
     <div>
         <label>Ответ 3</label>
-        <?= Html::input('text', 'Answer[3]', null, ['required' => true]) ?>
-        <label><input type="radio" name="right" class="radio"><span>Правильный</span></label>
+        <?= Html::input('text', 'Answer[3]', null, ['required' => true, 'class' => 'answer-3']) ?>
+        <label><input type="radio" name="right" class="radio radio-3"><span>Правильный</span></label>
     </div>
     <div>
         <label>Ответ 4</label>
-        <?= Html::input('text', 'Answer[4]', null, ['required' => true]) ?>
-        <label><input type="radio" name="right" class="radio"><span>Правильный</span></label>
+        <?= Html::input('text', 'Answer[4]', null, ['required' => true, 'class' => 'answer-4']) ?>
+        <label><input type="radio" name="right" class="radio radio-4"><span>Правильный</span></label>
     </div>
     <?= Html::submitButton('Создать', ['class' => 'btn btn-primary']); ?>
 <?= Html::endForm(); ?>
