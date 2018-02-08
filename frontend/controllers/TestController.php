@@ -43,7 +43,25 @@ class TestController extends Controller
             }
             return $this->redirect(['test/test', 'id' => $model->id_theme]);
         }
-        return $this->renderAjax('create', ['model' => $model]);
+    }
+
+    public function actionUpdate($id)
+    {
+        $model = Questions::findOne($id);
+        $request = Yii::$app->request;
+        if ($request->post()){
+            $model->name = $request->post('Question');
+            $model->answear = json_encode($request->post('Answer'), JSON_UNESCAPED_UNICODE);
+            $model->correct = '{"right": "'.$request->post('right').'"}';
+            if (!$model->save()){
+                print_r($model->getErrors());
+            }
+            return $this->redirect(['test/test', 'id' => $model->id_theme]);
+        }
+
+        return $this->renderAjax('update', [
+            'model' => $model
+        ]);
     }
 
     public function actionTesting($id)
@@ -60,6 +78,7 @@ class TestController extends Controller
                 }
             }
             $choice = new Choice();
+            $choice->id_theme = $model[0]->id_theme;
             $choice->answear = json_encode(Yii::$app->request->post('Answear'), JSON_UNESCAPED_UNICODE);
             if (!$choice->save()){
                 print_r($choice->getErrors());
