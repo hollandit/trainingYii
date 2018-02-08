@@ -26,7 +26,7 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
+<div class="wrap container">
 
     <?php if(!Yii::$app->user->isGuest): ?>
         <?php
