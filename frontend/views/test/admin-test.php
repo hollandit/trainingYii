@@ -3,6 +3,11 @@
 use frontend\components\NavThema;
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
+use yii\helpers\Url;
+
+/** @var $model \app\models\Questions */
+/** @var $thema \app\models\Thema */
+
 $lenght = count($model) - 1;
 ?>
 
@@ -24,7 +29,7 @@ $lenght = count($model) - 1;
         Modal::end()?>
     </div>
     <div class="col-lg-6 column-basic">
-        <h1><?php echo 'Тест '.$model[0]->idThemeQuestion->name ?></h1>
+        <h1 class="column-basic-title"><?php echo 'Тест '.$model[0]->idThemeQuestion->name ?></h1><span class="glyphicon glyphicon-edit editTitle" data-path="<?=Url::to(['test/update-theme', 'id' => $model[0]->id_theme])?>"></span>
         <p>УСЛОВИЯ ПРОХОЖДЕНИЯ:</p>
         <p>Время на прохождение: 1 минута.</p>
         <p>Если Вы не прошли тест, пересдача возможна не ранее, чем через 14 дней. Результаты прохождения принимаются в расчет при начислении бонусов и премиальных, а также - при повышении должности.</p>
@@ -33,10 +38,10 @@ $lenght = count($model) - 1;
             $number = $count+1;
             echo '<div class="test-block-admin">';
                 echo '<div class="question-test-admin">';
-                    echo '<div><h3> Вопрос '.$number.'</h3><span class="glyphicon glyphicon-edit editQuestion" data-path="'.\yii\helpers\Url::to(['test/update', 'id' => $question->id]).'"></span></div>';
+                    echo '<div><h3> Вопрос '.$number.'</h3><span class="glyphicon glyphicon-edit editQuestion" data-path="'. Url::to(['test/update', 'id' => $question->id]).'"></span></div>';
                     echo '<div><p>'.$question->name.'</p></div>';
                     foreach ($question->answear as $key => $answear) {
-                        echo '<label><input type="radio" class="radio" name="'.$question->id.'" value="'.$answear.'"><span>'.$answear.'</span></label><br/>';
+                        echo '<label><input type="radio" class="radio" name="'.$question->id.'" value="'.$answear.'"><span class="answer">'.$answear.'</span></label><br/>';
                     }
                 echo '</div>';
                 if ($count == 0){
@@ -66,7 +71,7 @@ $lenght = count($model) - 1;
         echo Html::img('https://i.pinimg.com/736x/a9/2a/09/a92a09b5c34eb119081a75cf05e1d310.jpg', ['style' => 'width: 400px']);?>
     </div>
     <div class="col-lg-3 statistics">
-        <?= Html::a('Пройти тест', ['#'], ['class' => 'btn btn-success btn-lg btn-block']) ?>
+        <?= Html::a('Пройти тест', ['#'], ['class' => 'btn btn-success btn-lg btn-block passTest']) ?>
         <p>СПИСОК НАНАЧЕНИЙ</p>
         <hr/>
         <div class="statistics_appointment">
