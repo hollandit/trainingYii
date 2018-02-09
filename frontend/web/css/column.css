@@ -1,128 +1,135 @@
-/* line 12, ../sass/column.scss */
+/* line 14, ../sass/column.scss */
 .test-adminTest {
   display: flex;
   flex-flow: row nowrap;
   align-items: stretch;
 }
 
-/* line 18, ../sass/column.scss */
+/* line 20, ../sass/column.scss */
 .navBar-Thema {
   background: #544f46;
 }
-/* line 20, ../sass/column.scss */
+/* line 22, ../sass/column.scss */
 .navBar-Thema h3 {
   margin-left: 13px;
   color: #ffffff;
   font-size: 18px;
 }
-/* line 25, ../sass/column.scss */
+/* line 27, ../sass/column.scss */
 .navBar-Thema a {
   color: #BCBCBC;
 }
-/* line 27, ../sass/column.scss */
+/* line 29, ../sass/column.scss */
 .navBar-Thema a:hover {
   color: #B3AE84;
 }
-/* line 31, ../sass/column.scss */
+/* line 33, ../sass/column.scss */
 .navBar-Thema .nav > li > a:hover, .navBar-Thema .nav > li > a:focus {
   background-color: #453e3a;
 }
+/* line 36, ../sass/column.scss */
+.navBar-Thema .nav-pills > li.active > a, .navBar-Thema .nav-pills > li.active > a:hover, .navBar-Thema .nav-pills > li.active > a:focus {
+  background-color: #453e3a;
+  color: #B3AE84;
+}
 
-/* line 35, ../sass/column.scss */
+/* line 41, ../sass/column.scss */
 .column-basic {
   flex-grow: 1;
 }
-/* line 37, ../sass/column.scss */
+/* line 43, ../sass/column.scss */
 .column-basic h1 {
   margin-left: -15px;
   font-size: 40px;
   color: #C7C4A8;
   padding: 7px 1px 10px 19px;
   background: #a29d88;
+  line-height: 58px;
 }
-/* line 44, ../sass/column.scss */
+/* line 51, ../sass/column.scss */
 .column-basic p {
   font-size: 13px;
 }
-/* line 47, ../sass/column.scss */
+/* line 54, ../sass/column.scss */
 .column-basic hr {
   border: 0.5px solid #101010;
 }
-/* line 51, ../sass/column.scss */
+/* line 58, ../sass/column.scss */
 .column-basic .test-block-admin h3 {
   font-size: 28px;
   color: #675652;
   font-weight: bold;
 }
-/* line 56, ../sass/column.scss */
+/* line 63, ../sass/column.scss */
 .column-basic .test-block-admin p {
   font-size: 28px;
   font-weight: 400;
   color: #675652;
 }
-/* line 61, ../sass/column.scss */
+/* line 68, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin {
   margin-left: 45px;
 }
-/* line 63, ../sass/column.scss */
-.column-basic .test-block-admin .question-test-admin .editQuestion {
-  position: relative;
-  float: right;
-  top: -35px;
-  font-size: 20px;
+/* line 70, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin .answer {
   color: #675652;
 }
 
-/* line 73, ../sass/column.scss */
+/* line 76, ../sass/column.scss */
 .statistics {
   margin-top: 20px;
 }
-/* line 75, ../sass/column.scss */
+/* line 78, ../sass/column.scss */
+.statistics .passTest {
+  font-size: 30px;
+  line-height: 54px;
+}
+/* line 82, ../sass/column.scss */
 .statistics .form-search, .statistics p {
   margin-top: 11px;
 }
-/* line 78, ../sass/column.scss */
+/* line 85, ../sass/column.scss */
 .statistics hr {
   border: 0.5px solid black;
   margin-top: 0;
 }
-/* line 82, ../sass/column.scss */
+/* line 89, ../sass/column.scss */
 .statistics .statistics_appointment {
   font-size: 13px;
 }
-/* line 84, ../sass/column.scss */
+/* line 91, ../sass/column.scss */
 .statistics .statistics_appointment .statistics_appointment-date {
   font-size: 10px;
   margin-left: 10px;
   color: #7C7768;
 }
-/* line 89, ../sass/column.scss */
+/* line 96, ../sass/column.scss */
 .statistics .statistics_appointment .statistics_appointment-name {
   margin-left: 10px;
 }
-/* line 92, ../sass/column.scss */
+/* line 99, ../sass/column.scss */
 .statistics .statistics_appointment .statistics_appointment-result {
   float: right;
   color: #7C7768;
 }
-/* line 97, ../sass/column.scss */
+/* line 104, ../sass/column.scss */
 .statistics .statistics-paragraph {
   margin-top: 25px;
 }
-/* line 99, ../sass/column.scss */
+/* line 106, ../sass/column.scss */
 .statistics .statistics-paragraph img {
   width: 71px;
 }
-/* line 103, ../sass/column.scss */
+/* line 110, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result:last-of-type {
   margin-top: 30px;
 }
-/* line 106, ../sass/column.scss */
+/* line 113, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest {
   font-size: 11px;
   line-height: 6px;
 }
-/* line 109, ../sass/column.scss */
+/* line 116, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest .statistics-paragraph-interest_title {
   margin-bottom: 20px;
 }

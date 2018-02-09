@@ -1,18 +1,23 @@
 /*
-Error: Undefined variable: "$small-text".
-        on line 32 of C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss
+Error: Undefined variable: "$red-brown".
+        on line 6 of C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss, in `edit'
+        from line 17 of C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss
 
-27:   .addLinkButton{
-28:     background: #a9a58e;
-29:     margin-top: 15px;
-30:     border-radius: 18px;
-31:     border: 1px solid $dark-brown;
-32:     font-size: $small-text;
-33:   }
-34: }
+1: $dark-brown: #312927;
+2: @mixin edit($top){
+3:   position: relative;
+4:   float: right;
+5:   font-size: 20px;
+6:   color: $red-brown;
+7:   cursor: pointer;
+8:   top: $top;
+9: }
+10: 
+11: .button-thema-test{
 
 Backtrace:
-C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss:32
+C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss:6:in `edit'
+C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss:17
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/script/tree/variable.rb:49:in `_perform'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/script/tree/node.rb:58:in `perform'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/tree/visitors/perform.rb:397:in `visit_prop'
@@ -22,11 +27,17 @@ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/stack.rb:79:in `bloc
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/stack.rb:115:in `with_frame'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/stack.rb:79:in `with_base'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/tree/visitors/perform.rb:160:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/tree/visitors/perform.rb:433:in `block (2 levels) in visit_rule'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/tree/visitors/perform.rb:433:in `map'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/tree/visitors/perform.rb:433:in `block in visit_rule'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/tree/visitors/perform.rb:366:in `block (4 levels) in visit_mixin'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/tree/visitors/perform.rb:366:in `map'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/tree/visitors/perform.rb:366:in `block (3 levels) in visit_mixin'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/tree/visitors/perform.rb:431:in `visit_rule'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/tree/visitors/perform.rb:366:in `block (2 levels) in visit_mixin'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/tree/visitors/perform.rb:84:in `perform_arguments'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/tree/visitors/perform.rb:361:in `block in visit_mixin'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/stack.rb:98:in `block in with_mixin'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/stack.rb:98:in `with_mixin'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/tree/visitors/perform.rb:349:in `visit_mixin'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/tree/visitors/base.rb:36:in `visit'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/stack.rb:79:in `block in with_base'
@@ -75,4 +86,4 @@ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/vendor/listen/lib/listen/adap
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$small-text\".\A         on line 32 of C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss\A \A 27:   .addLinkButton{\A 28:     background: #a9a58e;\A 29:     margin-top: 15px;\A 30:     border-radius: 18px;\A 31:     border: 1px solid $dark-brown;\A 32:     font-size: $small-text;\A 33:   }\A 34: }"; }
+  content: "Error: Undefined variable: \"$red-brown\".\A         on line 6 of C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss, in `edit'\A         from line 17 of C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss\A \A 1: $dark-brown: #312927;\A 2: @mixin edit($top){\A 3:   position: relative;\A 4:   float: right;\A 5:   font-size: 20px;\A 6:   color: $red-brown;\A 7:   cursor: pointer;\A 8:   top: $top;\A 9: }\A 10: \A 11: .button-thema-test{"; }
