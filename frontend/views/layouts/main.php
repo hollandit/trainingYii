@@ -41,7 +41,8 @@ AppAsset::register($this);
             ['label' => 'Главная страница', 'url' => ['/site/index']],
             ['label' => 'База знание', 'url' => ['/site/knowledge']],
             ['label' => 'Треннинги', 'url' => ['/site/contact']],
-            ['label' => 'Тесты', 'url' => ['/test/test', 'id' => 1], 'visible' => Yii::$app->user->can('hr')]
+            ['label' => 'Тесты', 'url' => ['/test/test', 'id' => 1], 'visible' => Yii::$app->user->can('hr')],
+            ['label' => 'Результаты', 'url' => ['/test/result-test'], 'visible' => Yii::$app->user->can('hr')]
         ];
         if (Yii::$app->user->isGuest) {
             $menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup']];
