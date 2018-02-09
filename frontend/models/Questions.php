@@ -12,6 +12,7 @@ use Yii;
  * @property string $name
  * @property string $answear
  * @property string $correct
+ * @property int $active
  * @property int $id_theme
  *
  * @property Answers[] $answers
@@ -19,6 +20,8 @@ use Yii;
  */
 class Questions extends \yii\db\ActiveRecord
 {
+    const ACTIVE = 1;
+    const NOT_ACTIVE = 0;
     /**
      * @inheritdoc
      */
@@ -35,7 +38,8 @@ class Questions extends \yii\db\ActiveRecord
         return [
             [['name', 'id_theme'], 'required'],
             [['name', 'answear', 'correct'], 'string'],
-            [['id_theme'], 'integer'],
+            [['id_theme', 'active'], 'integer'],
+            ['active', 'default', 'value' => self::ACTIVE],
             [['id_theme'], 'exist', 'skipOnError' => true, 'targetClass' => Thema::className(), 'targetAttribute' => ['id_theme' => 'id']],
         ];
     }
@@ -50,6 +54,7 @@ class Questions extends \yii\db\ActiveRecord
             'name' => 'Name',
             'answear' => 'Answear',
             'correct' => 'Correct',
+            'active' => 'Active',
             'id_theme' => 'Id Theme',
         ];
     }
