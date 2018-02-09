@@ -7,6 +7,9 @@ $(document).ready(function(){
     $('.nextTestAdmin').click(function(){
         $('.test-block-admin:visible').hide().next('.test-block-admin').show();
     });
+    $('.nextTestAdminSecond').click(function(){
+        $('.test-block-admin:visible').hide().next('.test-block-admin').show();
+    });
     $('.prevTestAdmin').click(function(){
         $('.test-block-admin:visible').hide().prev('.test-block-admin').show();
     });
