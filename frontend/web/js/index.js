@@ -10,17 +10,21 @@ $(document).ready(function(){
     $('.prevTestAdmin').click(function(){
         $('.test-block-admin:visible').hide().prev('.test-block-admin').show();
     });
-    $('.editQuestion').click(function(){
-        let path = $(this).data('path');
-        $('#modal-editQuestion').modal('show')
-            .find('.modal-content')
-            .load(path);
-    });
+    modal('.editQuestion', '#modal-editQuestion');
+    modal('.editTitle', '#modal-editQuestion');
 
     valueRadio('.answer-1', '.radio-1');
     valueRadio('.answer-2', '.radio-2');
     valueRadio('.answer-3', '.radio-3');
     valueRadio('.answer-4', '.radio-4');
+    function modal(id, value) {
+        $(id).click(function(){
+            let path = $(this).data('path');
+            $(value).modal('show')
+                .find('.modal-content')
+                .load(path);
+        });
+    }
 
     function valueRadio(answer, radio){
        $('body').on('change', answer, function () {
