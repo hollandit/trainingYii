@@ -6,11 +6,33 @@ use app\models\Choice;
 use app\models\Thema;
 use \Yii;
 use app\models\Questions;
+use yii\filters\AccessControl;
 use yii\helpers\Json;
 use yii\web\Controller;
 
 class TestController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['create', 'update', 'test', 'result-test'],
+                        'allow' => true,
+                        'roles' => ['hr']
+                    ],
+                    [
+                        'actions' => ['index', 'testing', 'result'],
+                        'allow' => true,
+                        'roles' => ['employee']
+                    ]
+                ]
+            ]
+        ];
+    }
+
     public function actionIndex()
     {
         return $this->render('index');
@@ -95,6 +117,12 @@ class TestController extends Controller
             'right' => $right,
             'done' => $done,
         ]);
+    }
+
+    public function actionResultTest()
+    {
+        $model = Choice::find()->all();
+        var_dump($model);
     }
 
     public function actionResult($message, $right)
