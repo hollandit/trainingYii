@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+
 $right = $model->correct['right'];
 function radio($answer, $right, $number){
     if ($answer == $right){
@@ -38,5 +39,8 @@ $answer = $model->answear;
         <?php echo Html::input('text', 'Answer[4]', $answer[4], ['class' => 'answer-4']);
         echo radio($answer[4], $right, 4); ?>
     </div>
-    <?= Html::submitButton('Редактировать', ['class' => 'btn btn-primary']); ?>
+    <div class="form-group">
+        <?= Html::submitButton('Редактировать', ['class' => 'btn btn-primary']); ?>
+        <?= Html::a('Удалить', ['test/delete', 'id' => $model->id], ['class' => 'btn btn-danger']) ?>
+    </div>
 <?= Html::endForm() ?>
