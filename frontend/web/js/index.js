@@ -16,10 +16,7 @@ $(document).ready(function(){
             .find('.modal-content')
             .load(path);
     });
-    // $('body').on('change', '.answer-1', function () {
-    //     let value = $(this).val();
-    //     $('.radio-1').attr('value', value)
-    // })
+
     valueRadio('.answer-1', '.radio-1');
     valueRadio('.answer-2', '.radio-2');
     valueRadio('.answer-3', '.radio-3');
