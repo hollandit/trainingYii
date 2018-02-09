@@ -1,7 +1,7 @@
 /*
 Error: Undefined variable: "$red-brown".
         on line 6 of C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss, in `edit'
-        from line 17 of C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss
+        from line 25 of C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss
 
 1: $dark-brown: #312927;
 2: @mixin edit($top){
@@ -12,12 +12,12 @@ Error: Undefined variable: "$red-brown".
 7:   cursor: pointer;
 8:   top: $top;
 9: }
-10: 
-11: .button-thema-test{
+10: @mixin nextButton($left){
+11:   background: none;
 
 Backtrace:
 C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss:6:in `edit'
-C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss:17
+C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss:25
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/script/tree/variable.rb:49:in `_perform'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/script/tree/node.rb:58:in `perform'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/tree/visitors/perform.rb:397:in `visit_prop'
@@ -86,4 +86,4 @@ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/vendor/listen/lib/listen/adap
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$red-brown\".\A         on line 6 of C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss, in `edit'\A         from line 17 of C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss\A \A 1: $dark-brown: #312927;\A 2: @mixin edit($top){\A 3:   position: relative;\A 4:   float: right;\A 5:   font-size: 20px;\A 6:   color: $red-brown;\A 7:   cursor: pointer;\A 8:   top: $top;\A 9: }\A 10: \A 11: .button-thema-test{"; }
+  content: "Error: Undefined variable: \"$red-brown\".\A         on line 6 of C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss, in `edit'\A         from line 25 of C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss\A \A 1: $dark-brown: #312927;\A 2: @mixin edit($top){\A 3:   position: relative;\A 4:   float: right;\A 5:   font-size: 20px;\A 6:   color: $red-brown;\A 7:   cursor: pointer;\A 8:   top: $top;\A 9: }\A 10: @mixin nextButton($left){\A 11:   background: none;"; }

@@ -71,65 +71,69 @@
   margin-left: 45px;
 }
 /* line 70, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin p {
+  padding-right: 45px;
+}
+/* line 73, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin .answer {
   color: #675652;
 }
 
-/* line 76, ../sass/column.scss */
+/* line 79, ../sass/column.scss */
 .statistics {
   margin-top: 20px;
 }
-/* line 78, ../sass/column.scss */
+/* line 81, ../sass/column.scss */
 .statistics .passTest {
   font-size: 30px;
   line-height: 54px;
 }
-/* line 82, ../sass/column.scss */
+/* line 85, ../sass/column.scss */
 .statistics .form-search, .statistics p {
   margin-top: 11px;
 }
-/* line 85, ../sass/column.scss */
+/* line 88, ../sass/column.scss */
 .statistics hr {
   border: 0.5px solid black;
   margin-top: 0;
 }
-/* line 89, ../sass/column.scss */
+/* line 92, ../sass/column.scss */
 .statistics .statistics_appointment {
   font-size: 13px;
 }
-/* line 91, ../sass/column.scss */
+/* line 94, ../sass/column.scss */
 .statistics .statistics_appointment .statistics_appointment-date {
   font-size: 10px;
   margin-left: 10px;
   color: #7C7768;
 }
-/* line 96, ../sass/column.scss */
+/* line 99, ../sass/column.scss */
 .statistics .statistics_appointment .statistics_appointment-name {
   margin-left: 10px;
 }
-/* line 99, ../sass/column.scss */
+/* line 102, ../sass/column.scss */
 .statistics .statistics_appointment .statistics_appointment-result {
   float: right;
   color: #7C7768;
 }
-/* line 104, ../sass/column.scss */
+/* line 107, ../sass/column.scss */
 .statistics .statistics-paragraph {
   margin-top: 25px;
 }
-/* line 106, ../sass/column.scss */
+/* line 109, ../sass/column.scss */
 .statistics .statistics-paragraph img {
   width: 71px;
 }
-/* line 110, ../sass/column.scss */
+/* line 113, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result:last-of-type {
   margin-top: 30px;
 }
-/* line 113, ../sass/column.scss */
+/* line 116, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest {
   font-size: 11px;
   line-height: 6px;
 }
-/* line 116, ../sass/column.scss */
+/* line 119, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest .statistics-paragraph-interest_title {
   margin-bottom: 20px;
 }
