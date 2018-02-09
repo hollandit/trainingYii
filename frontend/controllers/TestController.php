@@ -6,6 +6,7 @@ use app\models\Choice;
 use app\models\Thema;
 use \Yii;
 use app\models\Questions;
+use yii\data\Pagination;
 use yii\filters\AccessControl;
 use yii\helpers\Json;
 use yii\web\Controller;
@@ -102,6 +103,7 @@ class TestController extends Controller
             $choice = new Choice();
             $choice->id_theme = $model[0]->id_theme;
             $choice->answear = json_encode(Yii::$app->request->post('Answear'), JSON_UNESCAPED_UNICODE);
+            $choice->result = $right;
             if (!$choice->save()){
                 print_r($choice->getErrors());
             }
@@ -121,8 +123,15 @@ class TestController extends Controller
 
     public function actionResultTest()
     {
-        $model = Choice::find()->all();
-        var_dump($model);
+        $query = Choice::find();
+        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 10]);
+        $model = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+        return $this->render('result-test', [
+            'model' => $model,
+            'pages' => $pages
+        ]);
     }
 
     public function actionResult($message, $right)
