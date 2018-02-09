@@ -20,7 +20,7 @@ class TestController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['create', 'update', 'test', 'result-test'],
+                        'actions' => ['create', 'update', 'delete','update-theme','test', 'result-test'],
                         'allow' => true,
                         'roles' => ['hr']
                     ],
@@ -87,6 +87,31 @@ class TestController extends Controller
         ]);
     }
 
+    public function actionUpdateTheme($id)
+    {
+        $model = Thema::findOne($id);
+        if($model->load(Yii::$app->request->post())){
+            if (!$model->save()){
+                print_r($model->getErrors());
+            } else {
+                return $this->redirect(['test', 'id' => $id]);
+            }
+        }
+        return $this->renderAjax('update-theme', ['model' => $model]);
+    }
+
+    public function actionDelete($id)
+    {
+        $model = Questions::findOne($id);
+        $model->active = Questions::NOT_ACTIVE;
+        $model->correct = json_encode($model->correct, JSON_UNESCAPED_UNICODE);
+        $model->answear = json_encode($model->answear, JSON_UNESCAPED_UNICODE);
+        if(!$model->save()){
+            print_r($model->getErrors());
+        };
+        return $this->redirect(['test', 'id' => $model->id_theme]);
+    }
+
     public function actionTesting($id)
     {
         $model = Questions::find()->where(['id_theme' => $id])->all();
@@ -124,7 +149,7 @@ class TestController extends Controller
     public function actionResultTest()
     {
         $query = Choice::find();
-        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 10]);
+        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 5]);
         $model = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
@@ -145,7 +170,7 @@ class TestController extends Controller
     public function actionTest($id)
     {
         $thema = Thema::find()->where(['id' => $id])->one();
-        $model = Questions::find()->where(['id_theme' => $id])->all();
+        $model = Questions::find()->where(['id_theme' => $id, 'active' => Questions::ACTIVE])->all();
 
         return $this->render('admin-test', [
             'model' => $model,
