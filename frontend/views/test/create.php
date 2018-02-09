@@ -1,5 +1,6 @@
 <?php
 
+use kartik\file\FileInput;
 use yii\bootstrap\Html;
 ?>
 
@@ -33,6 +34,16 @@ use yii\bootstrap\Html;
         <label>Ответ 4</label>
         <?= Html::input('text', 'Answer[4]', null, ['required' => true, 'class' => 'answer-4']) ?>
         <label><input type="radio" name="right" class="radio radio-4"><span>Правильный</span></label>
+    </div>
+    <div>
+        <?php echo FileInput::widget([
+            'name' => 'attachment[]',
+            'options' => ['multiple' => true],
+            'pluginOptions' => [
+                'maxFileCount' => 4,
+                'maxFileSize' => 25600
+            ]
+        ]) ?>
     </div>
     <?= Html::submitButton('Создать', ['class' => 'btn btn-primary']); ?>
 <?= Html::endForm(); ?>
