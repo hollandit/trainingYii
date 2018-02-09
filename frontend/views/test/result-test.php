@@ -1,13 +1,13 @@
 <?php
+use yii\widgets\LinkPager;
+use yii\widgets\Pjax;
 
+/** @var \yii\data\Pagination $pages */
 ?>
 
 <div class="test-resultTest">
     <div>
-        <?php use yii\widgets\LinkPager;
-        use yii\widgets\Pjax;
-
-        Pjax::begin() ?>
+        <?php Pjax::begin() ?>
         <?php foreach ($model as $result): ?>
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -23,8 +23,12 @@
                                 <th>Ответ</th>
                             </tr>
                             <?php foreach ($result->answear as $key => $answer){
-                                $question = \app\models\Questions::find()->where(['id' => $key])->one();
-                                echo '<tr><td>'.$question->name. '</td><td>'.$answer.'</td></tr>';
+                                $question = \app\models\Questions::findOne($key);
+                                if ($answer != $question->correct['right']){
+                                    echo '<tr class="danger"><td>'.$question->name. '</td><td>'.$answer.'</td></tr>';
+                                } else {
+                                    echo '<tr><td>'.$question->name. '</td><td>'.$answer.'</td></tr>';
+                                }
                             } ?>
                         </table>
                     </div>
