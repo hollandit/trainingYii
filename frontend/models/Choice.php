@@ -3,7 +3,6 @@
 namespace app\models;
 
 use app\models\query\ChoiceQuery;
-use Yii;
 use yii\db\ActiveRecord;
 
 /**
@@ -12,9 +11,11 @@ use yii\db\ActiveRecord;
  * @property int $id
  * @property int $id_user
  * @property string $answear
+ * @property int $id_theme
  * @property string $date
  *
  * @property User $user
+ * @property Thema $theme
  */
 class Choice extends ActiveRecord
 {
@@ -32,12 +33,12 @@ class Choice extends ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'id_user'], 'integer'],
+            [['id_user', 'answear', 'id_theme'], 'required'],
+            [['id_user', 'id_theme'], 'integer'],
             [['answear'], 'string'],
-            ['id_user', 'default', 'value' => Yii::$app->user->id],
             [['date'], 'safe'],
-            [['id'], 'unique'],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
+            [['id_theme'], 'exist', 'skipOnError' => true, 'targetClass' => Thema::className(), 'targetAttribute' => ['id_theme' => 'id']],
         ];
     }
 
@@ -50,6 +51,7 @@ class Choice extends ActiveRecord
             'id' => 'ID',
             'id_user' => 'Id User',
             'answear' => 'Answear',
+            'id_theme' => 'Id Theme',
             'date' => 'Date',
         ];
     }
@@ -63,11 +65,24 @@ class Choice extends ActiveRecord
     }
 
     /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTheme()
+    {
+        return $this->hasOne(Thema::className(), ['id' => 'id_theme']);
+    }
+
+    /**
      * @inheritdoc
      * @return ChoiceQuery the active query used by this AR class.
      */
     public static function find()
     {
         return new ChoiceQuery(get_called_class());
+    }
+
+    public function afterFind()
+    {
+        $this->answear = json_decode($this->answear, true);
     }
 }
