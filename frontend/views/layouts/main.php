@@ -34,7 +34,7 @@ AppAsset::register($this);
             'brandLabel' => 'Holland',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
-                    'class' => 'navbar-default navbar-fixed-top',
+                    'class' => 'navbar-inverse navbar-fixed-top',
             ],
         ]);
         $menuItems = [
