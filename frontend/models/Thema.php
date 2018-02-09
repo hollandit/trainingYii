@@ -48,7 +48,7 @@ class Thema extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Название',
             'id_possition' => 'Id Possition',
         ];
     }
