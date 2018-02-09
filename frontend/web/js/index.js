@@ -11,7 +11,7 @@ $(document).ready(function(){
         $('.test-block-admin:visible').hide().prev('.test-block-admin').show();
     });
     $('.editQuestion').click(function(){
-        var path = $(this).data('path');
+        let path = $(this).data('path');
         $('#modal-editQuestion').modal('show')
             .find('.modal-content')
             .load(path);
