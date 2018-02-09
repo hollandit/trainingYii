@@ -29,7 +29,18 @@ $lenght = count($model) - 1;
         Modal::end()?>
     </div>
     <div class="col-lg-6 column-basic">
-        <h1 class="column-basic-title"><?php echo 'Тест '.$model[0]->idThemeQuestion->name ?></h1><span class="glyphicon glyphicon-edit editTitle" data-path="<?=Url::to(['test/update-theme', 'id' => $model[0]->id_theme])?>"></span>
+        <h1 class="column-basic-title"><?php echo 'Тест '.$model[0]->idThemeQuestion->name ?></h1>
+        <span class="glyphicon glyphicon-edit editTitle" data-path="<?=Url::to(['test/update-theme', 'id' => $model[0]->id_theme])?>"></span>
+        <span><?php Modal::begin([
+                'header' => 'Создать вопрос',
+                'toggleButton' => [
+                    'tag' => 'span',
+                    'class' => 'addQuestionButton',
+                    'label' => '+'
+                ]
+            ]);
+            echo $this->render('create', ['thema' => $thema]);
+            Modal::end(); ?></span>
         <p>УСЛОВИЯ ПРОХОЖДЕНИЯ:</p>
         <p>Время на прохождение: 1 минута.</p>
         <p>Если Вы не прошли тест, пересдача возможна не ранее, чем через 14 дней. Результаты прохождения принимаются в расчет при начислении бонусов и премиальных, а также - при повышении должности.</p>
@@ -39,7 +50,7 @@ $lenght = count($model) - 1;
             echo '<div class="test-block-admin">';
                 echo '<div class="question-test-admin">';
                     echo '<div><h3> Вопрос '.$number.'</h3><span class="glyphicon glyphicon-edit editQuestion" data-path="'. Url::to(['test/update', 'id' => $question->id]).'"></span></div>';
-                    echo '<div><p>'.$question->name.'</p></div>';
+                    echo '<div><p class="question-test-admin_name">'.$question->name.'</p></div>';
                     foreach ($question->answear as $key => $answear) {
                         echo '<label><input type="radio" class="radio" name="'.$question->id.'" value="'.$answear.'"><span class="answer">'.$answear.'</span></label><br/>';
                     }
@@ -53,21 +64,10 @@ $lenght = count($model) - 1;
                 } else if ($count == $lenght){
                     echo Html::submitButton('<', ['class' => 'prevTestAdmin']);
                 } else {
-                    echo Html::submitButton('<', ['class' => 'prevTestAdmin']).' '.Html::submitButton('>', ['class' => 'nextTestAdmin']);
+                    echo Html::submitButton('<', ['class' => 'prevTestAdmin']).' '.Html::submitButton('>', ['class' => 'nextTestAdminSecond']);
                 }
             echo '</div>';
         }
-        Modal::begin([
-            'header' => 'Создать вопрос',
-            'toggleButton' => [
-                'tag' => 'button',
-                'class' => 'btn',
-                'label' => '+'
-            ]
-        ]);
-        echo $this->render('create', ['thema' => $thema]);
-        Modal::end();
-        echo '<br/>';
         echo Html::img('https://i.pinimg.com/736x/a9/2a/09/a92a09b5c34eb119081a75cf05e1d310.jpg', ['style' => 'width: 400px']);?>
     </div>
     <div class="col-lg-3 statistics">
