@@ -12,6 +12,7 @@ use yii\db\ActiveRecord;
  * @property int $id_user
  * @property string $answear
  * @property int $id_theme
+ * @property int $result
  * @property string $date
  *
  * @property User $user
@@ -34,7 +35,7 @@ class Choice extends ActiveRecord
     {
         return [
             [['id_user', 'answear', 'id_theme'], 'required'],
-            [['id_user', 'id_theme'], 'integer'],
+            [['id_user', 'id_theme', 'result'], 'integer'],
             [['answear'], 'string'],
             [['date'], 'safe'],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
@@ -52,6 +53,7 @@ class Choice extends ActiveRecord
             'id_user' => 'Id User',
             'answear' => 'Answear',
             'id_theme' => 'Id Theme',
+            'result' => 'Result',
             'date' => 'Date',
         ];
     }
