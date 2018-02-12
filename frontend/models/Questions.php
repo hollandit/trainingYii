@@ -3,7 +3,9 @@
 namespace app\models;
 
 use app\models\query\QuestionsQuery;
+use app\models\Image;
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "{{%questions}}".
@@ -18,7 +20,7 @@ use Yii;
  * @property Answers[] $answers
  * @property Thema $id0
  */
-class Questions extends \yii\db\ActiveRecord
+class Questions extends ActiveRecord
 {
     const ACTIVE = 1;
     const NOT_ACTIVE = 0;
@@ -36,7 +38,6 @@ class Questions extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'id_theme'], 'required'],
             [['name', 'answear', 'correct'], 'string'],
             [['id_theme', 'active'], 'integer'],
             ['active', 'default', 'value' => self::ACTIVE],
@@ -88,5 +89,29 @@ class Questions extends \yii\db\ActiveRecord
     {
         $this->answear = json_decode($this->answear, true);
         $this->correct = json_decode($this->correct, true);
+    }
+
+    public function upload($id)
+    {
+        $file = $_FILES['attachment'];
+        $fileTempName = $file['tmp_name'];
+        foreach ($fileTempName as $key => $tmp){
+            if (is_uploaded_file($tmp)){
+                $newFilename = __DIR__.'../../web/images/'.time().'-'.$key;
+                if ($file['type'][$key] == 'image/png'){
+                    $newFilename .= '.png';
+                } else if ($file['type'][$key] == 'image/jpg' || $file['type'][$key] == 'image/jpeg'){
+                    $newFilename .= '.jpg';
+                }
+                if (move_uploaded_file($tmp, $newFilename)){
+                    $attachment = new Image();
+                    $attachment->path = $newFilename;
+                    $attachment->id_question = $id;
+                    $attachment->save();
+                }
+            } else {
+                echo 'Файлы не загрузились на сереер';
+            }
+        }
     }
 }
