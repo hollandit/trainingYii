@@ -63,8 +63,13 @@ class TestController extends Controller
             $model->correct = '{"right": "'.$answer[$right].'"}';
             if(!$model->save()){
                 print_r($model->getErrors());
+            } else {
+                $model->save();
+                if ($_FILES['attachment']){
+                    $model->upload($model->id);
+                };
+                return $this->redirect(['test/test', 'id' => $model->id_theme]);
             }
-            return $this->redirect(['test/test', 'id' => $model->id_theme]);
         }
     }
 
