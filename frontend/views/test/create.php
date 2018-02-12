@@ -4,16 +4,16 @@ use kartik\file\FileInput;
 use yii\bootstrap\Html;
 ?>
 
-<?= Html::beginForm(['test/create'], 'post'); ?>
+<?= Html::beginForm(['test/create'], 'post', ['enctype' => 'multipart/form-data']); ?>
         <?php if ($thema != null){
             echo Html::hiddenInput('Thema', $thema->id);
         } else {
             echo '<div><label>Название темы</label>';
-            echo Html::input('text', 'Thema').'</div>';
+            echo Html::input('text', 'Thema', null, ['required' => true]).'</div>';
         } ?>
     <div>
         <label>Вопрос</label>
-        <?= Html::input('text', 'Question') ?>
+        <?= Html::input('text', 'Question', null, ['required' => true]) ?>
     </div>
     <div>
         <label>Ответ 1</label>
@@ -40,6 +40,7 @@ use yii\bootstrap\Html;
             'name' => 'attachment[]',
             'options' => ['multiple' => true],
             'pluginOptions' => [
+                'showUpload' => false,
                 'maxFileCount' => 4,
                 'maxFileSize' => 25600
             ]
