@@ -18,7 +18,7 @@ class NavThema extends Widget
         parent::init();
         $themaArr = [];
         foreach (Thema::find()->all() as $thema){
-            $themaArr[] = ['label' => $thema->name, 'url' => ['test/test', 'id' => $thema->id]];
+            $themaArr[] = ['label' => $thema->name, 'url' => ['test/test', 'id' => $thema->id], 'options' => ['class' => 'navigation-menu']];
         }
 
         return Nav::widget([
