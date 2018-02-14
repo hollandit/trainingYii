@@ -12,6 +12,11 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
+    public $last_name;
+    public $name;
+    public $patronymic;
+    public $id_position;
+    public $date_birth;
 
 
     /**
@@ -33,6 +38,10 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+
+            [['last_name', 'name', 'patronymic'], 'string', 'max' => 86],
+            ['id_position', 'integer'],
+            ['date_birth', 'safe']
         ];
     }
 
@@ -52,7 +61,12 @@ class SignupForm extends Model
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();
-        
+        $user->last_name = $this->last_name;
+        $user->name = $this->name;
+        $user->patronymic = $this->patronymic;
+        $user->id_position = $this->id_position;
+        $user->date_birth = $this->date_birth;
+
         return $user->save() ? $user : null;
     }
 }
