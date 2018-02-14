@@ -13,7 +13,7 @@ use app\models\Image;
 $lenght = count($model) - 1;
 ?>
 
-<div class="test-adminTest row">
+<div class="test-adminTest">
     <div class="col-lg-2 navBar-Thema">
         <h3>Все тесты</h3>
         <?php echo NavThema::widget() ?>
@@ -21,7 +21,7 @@ $lenght = count($model) - 1;
             'header' => 'Создание теста',
             'toggleButton' => [
                 'tag' => 'button',
-                'class' => 'btn btn-primary btn-block button-thema-test',
+                'class' => 'btn btn-primary button-thema-test',
                 'label' => 'Создать тест'
             ]
         ]);
