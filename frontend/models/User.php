@@ -20,6 +20,7 @@ use Yii;
  * @property string $password_reset_token
  * @property string $email
  * @property int $status
+ * @property int $active
  * @property int $created_at
  * @property int $updated_at
  *
@@ -47,7 +48,7 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             [['username', 'last_name', 'name', 'patronymic', 'id_position', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
-            [['id_position', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['id_position', 'status', 'created_at', 'updated_at', 'active'], 'integer'],
             [['date_birth'], 'safe'],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['last_name', 'name', 'patronymic'], 'string', 'max' => 86],
@@ -79,6 +80,7 @@ class User extends \yii\db\ActiveRecord
             'status' => 'Status',
             'created_at' => 'Дата содание',
             'updated_at' => 'Updated At',
+            'active' => 'Active'
         ];
     }
 
