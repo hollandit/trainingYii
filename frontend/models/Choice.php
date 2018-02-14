@@ -12,6 +12,7 @@ use yii\db\ActiveRecord;
  * @property int $id_user
  * @property string $answear
  * @property int $id_theme
+ * @property int $done
  * @property int $result
  * @property string $date
  *
@@ -20,6 +21,8 @@ use yii\db\ActiveRecord;
  */
 class Choice extends ActiveRecord
 {
+    const PASS = 1;
+    const NOT_PASS = 0;
     /**
      * @inheritdoc
      */
@@ -35,7 +38,7 @@ class Choice extends ActiveRecord
     {
         return [
             [['id_user', 'answear', 'id_theme'], 'required'],
-            [['id_user', 'id_theme', 'result'], 'integer'],
+            [['id_user', 'id_theme', 'result', 'done'], 'integer'],
             [['answear'], 'string'],
             [['date'], 'safe'],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
@@ -53,6 +56,7 @@ class Choice extends ActiveRecord
             'id_user' => 'Id User',
             'answear' => 'Answear',
             'id_theme' => 'Id Theme',
+            'done' => 'Done',
             'result' => 'Result',
             'date' => 'Date',
         ];
