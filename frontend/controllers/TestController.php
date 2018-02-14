@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use app\models\Choice;
+use app\models\Image;
 use app\models\Thema;
 use \Yii;
 use app\models\Questions;
@@ -78,6 +79,9 @@ class TestController extends Controller
         $model = Questions::findOne($id);
         $request = Yii::$app->request;
         if ($request->post()){
+            if ($_FILES['attachment']){
+                $model->upload($id);
+            }
             $model->name = $request->post('Question');
             $model->answear = json_encode($request->post('Answer'), JSON_UNESCAPED_UNICODE);
             $model->correct = '{"right": "'.$request->post('right').'"}';
