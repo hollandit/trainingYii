@@ -96,16 +96,17 @@ class Questions extends ActiveRecord
         $file = $_FILES['attachment'];
         $fileTempName = $file['tmp_name'];
         foreach ($fileTempName as $key => $tmp){
+            $name = time().'-'.$key;
             if (is_uploaded_file($tmp)){
-                $newFilename = __DIR__.'../../web/images/'.time().'-'.$key;
                 if ($file['type'][$key] == 'image/png'){
-                    $newFilename .= '.png';
+                    $name .= '.png';
                 } else if ($file['type'][$key] == 'image/jpg' || $file['type'][$key] == 'image/jpeg'){
-                    $newFilename .= '.jpg';
+                    $name .= '.jpg';
                 }
+                $newFilename = __DIR__.'../../web/images/'.$name;
                 if (move_uploaded_file($tmp, $newFilename)){
                     $attachment = new Image();
-                    $attachment->path = $newFilename;
+                    $attachment->path = Yii::getAlias('@web').'/images/'.$name;
                     $attachment->id_question = $id;
                     $attachment->save();
                 }
