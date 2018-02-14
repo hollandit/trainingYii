@@ -33,8 +33,8 @@ class Image extends ActiveRecord
     {
         return [
             [['path'], 'string'],
-            [['id_question'], 'integer'],
-            [['create_At'], 'safe'],
+            [['id_question', 'create_at'], 'integer'],
+            [['create_at'], 'default', 'value' => time()],
             [['id_question'], 'exist', 'skipOnError' => true, 'targetClass' => Questions::className(), 'targetAttribute' => ['id_question' => 'id']],
         ];
     }
