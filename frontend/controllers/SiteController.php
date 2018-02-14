@@ -77,7 +77,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $user = User::findOne(Yii::$app->user->identity->id);
-        $thema = Thema::find()->where(['id_possition' => $user->id_position])->all();
+        $thema = Thema::find()->where(['id_possition' => $user->id_position])->limit(10)->all();
 
         if (Yii::$app->user->isGuest){
           return $this->redirect(['site/login']);
