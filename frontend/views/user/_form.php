@@ -27,10 +27,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'email') ?>
 
+    <?php if ($model->isNewRecord): ?>
     <?= $form->field($model, 'password')->passwordInput()->label('Пароль') ?>
-
+    <?php endif; ?>
     <div class="form-group">
-        <?= Html::submitButton('Создать', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Редактировать', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
