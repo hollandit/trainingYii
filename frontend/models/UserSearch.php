@@ -12,6 +12,7 @@ use app\models\User;
  */
 class UserSearch extends User
 {
+    public $nameEmployee;
     /**
      * @inheritdoc
      */
@@ -41,7 +42,7 @@ class UserSearch extends User
      */
     public function search($params)
     {
-        $query = User::find();
+        $query = User::find()->where(['active' => User::WORK]);
 
         // add conditions that should always apply here
 
@@ -68,9 +69,8 @@ class UserSearch extends User
         ]);
 
         $query->andFilterWhere(['like', 'username', $this->username])
-            ->andFilterWhere(['like', 'last_name', $this->last_name])
-            ->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'patronymic', $this->patronymic])
+            ->andFilterWhere(['like', 'last_name', $this->nameEmployee])
+            ->andFilterWhere(['like', 'name', $this->nameEmployee])
             ->andFilterWhere(['like', 'patronymic', $this->nameEmployee])
             ->andFilterWhere(['like', 'auth_key', $this->auth_key])
             ->andFilterWhere(['like', 'password_hash', $this->password_hash])
