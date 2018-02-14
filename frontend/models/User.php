@@ -14,6 +14,7 @@ use Yii;
  * @property string $name
  * @property string $patronymic
  * @property int $id_position
+ * @property int $date_birth
  * @property string $auth_key
  * @property string $password_hash
  * @property string $password_reset_token
@@ -29,6 +30,8 @@ use Yii;
  */
 class User extends \yii\db\ActiveRecord
 {
+    const WORK = 1;
+    const DISMISSED = 0;
     /**
      * @inheritdoc
      */
@@ -45,6 +48,7 @@ class User extends \yii\db\ActiveRecord
         return [
             [['username', 'last_name', 'name', 'patronymic', 'id_position', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
             [['id_position', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['date_birth'], 'safe'],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['last_name', 'name', 'patronymic'], 'string', 'max' => 86],
             [['auth_key'], 'string', 'max' => 32],
@@ -62,17 +66,18 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'username' => 'Username',
-            'last_name' => 'Last Name',
-            'name' => 'Name',
-            'patronymic' => 'Patronymic',
-            'id_position' => 'Id Position',
+            'username' => 'Логин',
+            'last_name' => 'Фамилия',
+            'name' => 'Имя',
+            'patronymic' => 'Отчетство',
+            'id_position' => 'Должность',
+            'date_birth' => 'Дата рождение',
             'auth_key' => 'Auth Key',
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',
             'email' => 'Email',
             'status' => 'Status',
-            'created_at' => 'Created At',
+            'created_at' => 'Дата содание',
             'updated_at' => 'Updated At',
         ];
     }
@@ -116,5 +121,10 @@ class User extends \yii\db\ActiveRecord
     public static function find()
     {
         return new UserQuery(get_called_class());
+    }
+
+    public function getNameEmployee()
+    {
+        return $this->last_name.' '.$this->name.' '.$this->patronymic;
     }
 }
