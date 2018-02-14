@@ -1,9 +1,11 @@
 <?php
 
+use app\models\Questions;
 use frontend\components\NavThema;
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use app\models\Image;
 
 /** @var $model \app\models\Questions */
 /** @var $thema \app\models\Thema */
@@ -49,7 +51,8 @@ $lenght = count($model) - 1;
             $number = $count+1;
             echo '<div class="test-block-admin">';
                 echo '<div class="question-test-admin">';
-                    echo '<div><h3> Вопрос '.$number.'</h3><span class="glyphicon glyphicon-edit editQuestion" data-path="'. Url::to(['test/update', 'id' => $question->id]).'"></span></div>';
+                    echo '<div><h3> Вопрос '.$number.'</h3>';
+                    echo '<span class="glyphicon glyphicon-edit editQuestion" data-path="'. Url::to(['test/update', 'id' => $question->id]).'"></span></div>';
                     echo '<div><p class="question-test-admin_name">'.$question->name.'</p></div>';
                     foreach ($question->answear as $key => $answear) {
                         echo '<label><input type="radio" class="radio" name="'.$question->id.'" value="'.$answear.'"><span class="answer">'.$answear.'</span></label><br/>';
@@ -66,9 +69,14 @@ $lenght = count($model) - 1;
                 } else {
                     echo Html::submitButton('<', ['class' => 'prevTestAdmin']).' '.Html::submitButton('>', ['class' => 'nextTestAdminSecond']);
                 }
+                $file = Image::find()->where(['id_question' => $question->id])->all();
+                echo '<div class="row">';
+                foreach ($file as $attachment){
+                    echo '<div class="col-lg-6">'.Html::img($attachment->path, ['style' => 'width:300px', 'class' => 'thumbnail']).'</div>';
+                }
+                echo '</div>';
             echo '</div>';
-        }
-        echo Html::img('https://i.pinimg.com/736x/a9/2a/09/a92a09b5c34eb119081a75cf05e1d310.jpg', ['style' => 'width: 400px']);?>
+        } ?>
     </div>
     <div class="col-lg-3 statistics">
         <?= Html::a('Пройти тест', ['#'], ['class' => 'btn btn-success btn-lg btn-block passTest']) ?>
