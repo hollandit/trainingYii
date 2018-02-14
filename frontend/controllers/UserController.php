@@ -2,6 +2,9 @@
 
 namespace frontend\controllers;
 
+use app\models\AuthAssignment;
+use app\models\Choice;
+use app\models\ChoiceSearch;
 use app\models\Position;
 use frontend\models\SignupForm;
 use Yii;
@@ -33,7 +36,7 @@ class UserController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index', 'create', 'update', 'view', 'create-position'],
+                        'actions' => ['index', 'create', 'update', 'view', 'create-position', 'dismised'],
                         'allow' => true,
                         'roles' => ['hr']
                     ]
@@ -67,8 +70,12 @@ class UserController extends Controller
      */
     public function actionView($id)
     {
+        $searchModel = new ChoiceSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -83,6 +90,10 @@ class UserController extends Controller
 
         if ($model->load(Yii::$app->request->post())){
             if ($model->signup()){
+                $role = new AuthAssignment();
+                $role->item_name = 'employee';
+                $role->user_id = $model->id;
+                $role->save();
                 return $this->redirect(['user/index']);
             }
         }
@@ -126,6 +137,16 @@ class UserController extends Controller
         return $this->render('update', [
             'model' => $model,
         ]);
+    }
+
+    public function actionDismised($id)
+    {
+        $model = User::findOne($id);
+        $model->active = User::DISMISSED;
+        if (!$model->save()){
+            print_r($model->getErrors());
+        };
+        return $this->redirect(['index']);
     }
 
     /**
