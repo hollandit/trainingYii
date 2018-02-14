@@ -1,9 +1,11 @@
 <?php
 
 use yii\bootstrap\Modal;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\ActiveForm;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\UserSearch */
@@ -43,34 +45,37 @@ $this->title = 'Картотека';
         Modal::end(); ?>
     </p>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            'id',
-            'username',
-            [
-                'attribute' => 'nameEmployee',
-                'label' => 'ФИО'
+    <?php Pjax::begin() ?>
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'columns' => [
+                'id',
+                'username',
+                [
+                    'attribute' => 'nameEmployee',
+                    'label' => 'ФИО'
+                ],
+                [
+                    'attribute' => 'date_birth',
+                    'format' => 'date',
+                ],
+                [
+                    'attribute' => 'id_position',
+                    'filter' => ArrayHelper::map(\app\models\Position::find()->all(), 'id', 'name'),
+                    'value' => function($value){
+                        return $value->position->name;
+                    },
+                    'label' => 'Должность'
+                ],
+                [
+                    'attribute' => 'created_at',
+                    'format' => 'datetime',
+                    'label' => 'Дата приема'
+                ],
+    
+                ['class' => 'yii\grid\ActionColumn'],
             ],
-            [
-                'attribute' => 'date_birth',
-                'format' => 'date',
-            ],
-            [
-                'attribute' => 'id_position',
-                'value' => function($value){
-                    return $value->position->name;
-                },
-                'label' => 'Должность'
-            ],
-            [
-                'attribute' => 'created_at',
-                'format' => 'datetime',
-                'label' => 'Дата приема'
-            ],
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+        ]); ?>
+    <?php Pjax::end() ?>
 </div>
