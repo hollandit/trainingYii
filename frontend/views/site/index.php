@@ -15,6 +15,7 @@ $this->title = 'Главная страница';
         <?php foreach ($thema as $name){
             echo Html::a($name->name, ['test/testing', 'id' => $name->id]).'<br>';
         } ?>
+        <?= Html::a('Все тесты', ['#'], ['class' => 'btn btn-link']) ?>
     <h3>Доступные тренинги</h3>
 
     <h3>Статистика</h3>
