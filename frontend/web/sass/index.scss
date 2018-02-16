@@ -8,8 +8,16 @@ body{
   font-family: 'Oswald', sans-serif;
   background: $beige;
 }
+.header_nav{
+  height: 71px;
+  padding-top: 13px;
+  border-radius: 0;
+}
 .content{
-  margin-top: 50px;
+  margin-top: -21px;
+}
+.test-contant{
+  padding-top: 15px;
 }
 .test-block, .test-block-admin {
   display: none;
