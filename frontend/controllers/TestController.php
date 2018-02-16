@@ -79,7 +79,7 @@ class TestController extends Controller
         $model = Questions::findOne($id);
         $request = Yii::$app->request;
         if ($request->post()){
-            if ($_FILES['attachment']){
+            if (is_uploaded_file($_FILES['attachment']['tmp'])){
                 $model->upload($id);
             }
             $model->name = $request->post('Question');
@@ -179,7 +179,7 @@ class TestController extends Controller
     public function actionTest($id)
     {
         $thema = Thema::find()->where(['id' => $id])->one();
-        $model = Questions::find()->where(['id_theme' => $id, 'active' => Questions::ACTIVE])->all();
+        $model = Questions::find()->with('idThemeQuestion')->where(['id_theme' => $id, 'active' => Questions::ACTIVE])->all();
 
         return $this->render('admin-test', [
             'model' => $model,
