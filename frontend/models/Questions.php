@@ -73,7 +73,7 @@ class Questions extends ActiveRecord
      */
     public function getIdThemeQuestion()
     {
-        return $this->hasOne(Thema::className(), ['id' => 'id']);
+        return $this->hasOne(Thema::className(), ['id' => 'id_theme']);
     }
 
     /**
