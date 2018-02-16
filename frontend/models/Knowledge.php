@@ -45,10 +45,10 @@ class Knowledge extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'create_At' => 'Create  At',
-            'text' => 'Text',
-            'video' => 'Video',
+            'title' => 'Заголовок',
+            'create_At' => 'Дата создания',
+            'text' => 'Статья',
+            'video' => 'Ссылка с youtube',
         ];
     }
 
