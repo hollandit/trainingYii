@@ -9,7 +9,7 @@ function radio($answer, $right, $number){
     if ($answer == $right){
         return '<label><input type="radio" name="right" class="radio radio-'.$number.'" value="'.$answer.'" checked><span>Правильный</span></label>';
     } else {
-        return '<label><input type="radio" name="right" class="radio radio-'.$number.'" value="'.$answer.'" checked><span>Правильный</span></label>';
+        return '<label><input type="radio" name="right" class="radio radio-'.$number.'" value="'.$answer.'"><span>Правильный</span></label>';
     }
 };
 $answer = $model->answear;
