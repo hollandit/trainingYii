@@ -41,6 +41,14 @@ $this->title = $model->name;
                 return $value->position->name;
               }
             ],
+            [
+                'attribute' => '',
+                'format' => 'raw',
+                'label' => 'Кол-во выполненых тестов',
+                'value' => function($value){
+                    return Choice::find()->where(['done' => Choice::PASS, 'id_user' => $value->id])->count().' из '.Choice::find()->where(['id_user' => $value->id])->count();
+                }
+            ],
             'email:email',
             'created_at:datetime',
         ],
