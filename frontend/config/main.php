@@ -1,4 +1,5 @@
 <?php
+use kartik\datecontrol\Module;
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -12,6 +13,18 @@ return [
     'bootstrap' => ['log'],
     'language' => 'ru-RU',
     'controllerNamespace' => 'frontend\controllers',
+    'modules' => [
+        'datecontrol' => [
+            'class' => 'kartik\datecontrol\Module',
+            'displaySettings' => [
+                Module::FORMAT_DATE => 'dd-MM-yyyy',
+                Module::FORMAT_TIME => 'hh-mm',
+                Module::FORMAT_DATETIME => 'dd-MM-yyyy hh:mm'
+            ],
+            'displayTimezone' => 'Europe/Moscow',
+            'saveTimezone' => 'UTC'
+        ]
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
