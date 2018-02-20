@@ -76,12 +76,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $user = User::findOne(Yii::$app->user->identity->id);
-        $thema = Thema::find()->where(['id_possition' => $user->id_position])->limit(10)->all();
-
         if (Yii::$app->user->isGuest){
           return $this->redirect(['site/login']);
         } else {
+            $user = User::findOne(Yii::$app->user->identity->id);
+            $thema = Thema::find()->where(['id_possition' => $user->id_position])->limit(10)->all();
             return $this->render('index', [
                 'user' => $user,
                 'thema' => $thema
@@ -94,7 +93,7 @@ class SiteController extends Controller
      */
     public function actionKnowledge()
     {
-        $model = Knowledge::find()->all();
+        $model = Knowledge::find()->limit(1)->all();
 
         return $this->render('knowledge', [
            'model' => $model,
