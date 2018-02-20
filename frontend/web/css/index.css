@@ -1,5 +1,5 @@
 /* line 15, ../sass/column.scss */
-.test-adminTest {
+.test-adminTest, .site-index, .site-post {
   display: flex;
   flex-flow: row nowrap;
   align-items: stretch;
@@ -541,30 +541,31 @@
 body {
   font-family: 'Oswald', sans-serif;
   background: #c7c4a8;
+  height: 100%;
 }
 
-/* line 11, ../sass/index.scss */
+/* line 12, ../sass/index.scss */
 .header_nav {
   height: 71px;
   padding-top: 13px;
   border-radius: 0;
 }
 
-/* line 16, ../sass/index.scss */
+/* line 17, ../sass/index.scss */
 .content {
   margin-top: -21px;
 }
 
-/* line 19, ../sass/index.scss */
+/* line 20, ../sass/index.scss */
 .test-contant {
   padding-top: 15px;
 }
 
-/* line 22, ../sass/index.scss */
+/* line 23, ../sass/index.scss */
 .test-block, .test-block-admin {
   display: none;
 }
-/* line 24, ../sass/index.scss */
+/* line 25, ../sass/index.scss */
 .test-block:first-of-type, .test-block-admin:first-of-type {
   display: block;
 }

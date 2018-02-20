@@ -1,5 +1,5 @@
 /* line 15, ../sass/column.scss */
-.test-adminTest {
+.test-adminTest, .site-index, .site-post {
   display: flex;
   flex-flow: row nowrap;
   align-items: stretch;
