@@ -79,7 +79,7 @@ class TestController extends Controller
         $model = Questions::findOne($id);
         $request = Yii::$app->request;
         if ($request->post()){
-            if (is_uploaded_file($_FILES['attachment']['tmp'])){
+            if (is_uploaded_file($_FILES['attachment']['tmp_name'][0])){
                 $model->upload($id);
             }
             $model->name = $request->post('Question');
