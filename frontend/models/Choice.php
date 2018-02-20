@@ -56,7 +56,7 @@ class Choice extends ActiveRecord
             'id_user' => 'Id User',
             'answear' => 'Answear',
             'id_theme' => 'Id Theme',
-            'done' => 'Done',
+            'done' => 'Выполнено',
             'result' => 'Result',
             'date' => 'Date',
         ];
