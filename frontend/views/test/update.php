@@ -42,15 +42,14 @@ $answer = $model->answear;
         <?php echo Html::input('text', 'Answer[4]', $answer[4], ['class' => 'answer-4']);
             echo radio($answer[4], $right, 4); ?>
     </div>
-        <?php
-        foreach ($attachment as $file){
-            echo $file->path.' '.
+        <?php foreach ($attachment as $file){
+            echo Html::img($file->path, ['style' => 'width:100px']).' '.
                 Html::a('Удалить файл', ['image/delete', 'id' => $file->id]).' '.
-                Html::input('file', 'attachment', $file->path, ['multiple' => true, 'accept' => 'image/png, image/jpg, image/jpeg']);
-            if (count($attachment) < 4){
-                echo 'Добавить файл '.Html::input('file', 'attachment[]', null, ['multiple' => true, 'accept' => 'image/png, image/jpg, image/jpeg']);
-            };
-        } ?>
+                Html::input('file', 'attachment', $file->path, ['multiple' => false, 'accept' => 'image/png, image/jpg, image/jpeg', 'id' => $file->path]);
+        }
+        if (count($attachment) < 4){
+            echo 'Добавить файл '.Html::input('file', 'attachment[]', null, ['multiple' => true, 'accept' => 'image/png, image/jpg, image/jpeg']);
+        }; ?>
     <div class="form-group">
         <?= Html::submitButton('Редактировать', ['class' => 'btn btn-primary']); ?>
         <?= Html::a('Удалить', ['test/delete', 'id' => $model->id], ['class' => 'btn btn-danger']) ?>
