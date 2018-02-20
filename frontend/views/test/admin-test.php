@@ -1,6 +1,5 @@
 <?php
 
-use app\models\Questions;
 use frontend\components\NavThema;
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
@@ -59,7 +58,6 @@ $lenght = count($model) - 1;
                     if ($lenght == 0) {
                         echo '';
                     } else {
-//                        echo Html::submitButton('>', ['class' => 'nextTestAdmin']);
                         echo Html::img('@web/images/u3087.png', ['class' => 'nextTestAdmin']);
                     }
                 } else if ($count == $lenght){
@@ -88,7 +86,19 @@ $lenght = count($model) - 1;
                 $file = Image::find()->where(['id_question' => $question->id])->all();
                 echo '<div class="row test-image">';
                 foreach ($file as $attachment){
-                    echo '<div class="col-lg-7">'.Html::img($attachment->path, ['style' => 'width:576px;height:257px; margin-left:22px']).'</div>';
+                    switch (count($file)){
+                        case 4:
+                            echo '<div class="col-lg-3">'.Html::img($attachment->path, ['style' => 'width:150px;', 'class' => 'thumbnail']).'</div>';
+                            break;
+                        case 3:
+                            echo '<div class="col-lg-4">'.Html::img($attachment->path, ['style' => 'width:200px;', 'class' => 'thumbnail']).'</div>';
+                            break;
+                        case 2:
+                            echo '<div class="col-lg-6">'.Html::img($attachment->path, ['style' => 'width:300px;margin-left:10px', 'class' => 'thumbnail']).'</div>';
+                            break;
+                        case 1:
+                            echo '<div class="col-lg-7">'.Html::img($attachment->path, ['style' => 'width:576px;height:257px; margin-left:22px']).'</div>';
+                    }
                 }
                 echo '</div>';
             echo '</div>';
