@@ -3,7 +3,6 @@
 namespace app\models;
 
 use app\models\query\UserQuery;
-use Yii;
 
 /**
  * This is the model class for table "{{%user}}".
@@ -80,7 +79,8 @@ class User extends \yii\db\ActiveRecord
             'status' => 'Status',
             'created_at' => 'Дата содание',
             'updated_at' => 'Updated At',
-            'active' => 'Active'
+            'active' => 'Active',
+            'nameEmployee' => 'ФИО'
         ];
     }
 
