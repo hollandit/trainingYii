@@ -3,7 +3,6 @@
 namespace app\models;
 
 use app\models\query\KnowledgeQuery;
-use Yii;
 
 /**
  * This is the model class for table "{{%knowledge}}".
@@ -30,7 +29,7 @@ class Knowledge extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'text', 'video'], 'required'],
+            [['title', 'text'], 'required'],
             [['create_At'], 'safe'],
             [['text'], 'string'],
             [['title'], 'string', 'max' => 100],
