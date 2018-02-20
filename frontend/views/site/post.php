@@ -6,7 +6,7 @@ $this->title = $model->title;
 ?>
 
 <div class="site-post">
-    <div class="col-lg-3">
+    <div class="col-lg-3 navBar-Thema test-contant">
         <?php echo NavKnowledge::widget() ?>
     </div>
     <div class="col-lg-9">
