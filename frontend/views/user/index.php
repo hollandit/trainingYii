@@ -1,5 +1,7 @@
 <?php
 
+use kartik\date\DatePicker;
+use kartik\datecontrol\DateControl;
 use yii\bootstrap\Modal;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -59,6 +61,13 @@ $this->title = 'Картотека';
                 [
                     'attribute' => 'date_birth',
                     'format' => 'date',
+                        'filter' => DateControl::widget([
+                            'model' => $searchModel,
+                            'attribute' => 'date_birth',
+                            'autoWidget' => true,
+                            'type' => DateControl::FORMAT_DATE,
+                            'displayFormat' => 'dd.MM.yyyy'
+                        ])
                 ],
                 [
                     'attribute' => 'id_position',
@@ -69,6 +78,15 @@ $this->title = 'Картотека';
                     'label' => 'Должность'
                 ],
                 [
+                    'filter' => DatePicker::widget([
+                        'model' => $searchModel,
+                        'language' => 'ru',
+                        'attribute' => 'date_from',
+                        'attribute2' => 'date_to',
+                        'type' => DatePicker::TYPE_RANGE,
+                        'separator' => '-',
+                        'pluginOptions' => ['format' => 'dd.mm.yyyy'],
+                    ]),
                     'attribute' => 'created_at',
                     'format' => 'datetime',
                     'label' => 'Дата приема'
