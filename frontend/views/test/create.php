@@ -2,7 +2,14 @@
 
 use kartik\file\FileInput;
 use yii\bootstrap\Html;
+
+/** @var $thema \app\models\Thema */
+
+$radio = function ($number){
+    echo '<label><input type="radio" name="right" class="radio radio-'.$number.'" required><span>Правильный</span></label>';
+}
 ?>
+
 
 <?= Html::beginForm(['test/create'], 'post', ['enctype' => 'multipart/form-data']); ?>
         <?php if ($thema != null){
@@ -17,34 +24,38 @@ use yii\bootstrap\Html;
     </div>
     <div>
         <label>Ответ 1</label>
-        <?= Html::input('text', 'Answer[1]', null, ['required' => true, 'class' => 'answer-1']) ?>
-        <label><input type="radio" name="right" class="radio radio-1"><span>Правильный</span></label>
+        <?= Html::input('text', 'Answer[1]', null, ['required' => true, 'class' => 'answer-1']);
+        $radio(1); ?>
     </div>
     <div>
         <label>Ответ 2</label>
-        <?= Html::input('text', 'Answer[2]', null, ['required' => true, 'class' => 'answer-2']) ?>
-        <label><input type="radio" name="right" class="radio radio-2"><span>Правильный</span></label>
+        <?= Html::input('text', 'Answer[2]', null, ['required' => true, 'class' => 'answer-2']);
+        $radio(2);?>
     </div>
     <div>
         <label>Ответ 3</label>
-        <?= Html::input('text', 'Answer[3]', null, ['required' => true, 'class' => 'answer-3']) ?>
-        <label><input type="radio" name="right" class="radio radio-3"><span>Правильный</span></label>
+        <?= Html::input('text', 'Answer[3]', null, ['required' => true, 'class' => 'answer-3']);
+        $radio(3); ?>
     </div>
     <div>
         <label>Ответ 4</label>
-        <?= Html::input('text', 'Answer[4]', null, ['required' => true, 'class' => 'answer-4']) ?>
-        <label><input type="radio" name="right" class="radio radio-4"><span>Правильный</span></label>
+        <?= Html::input('text', 'Answer[4]', null, ['required' => true, 'class' => 'answer-4']);
+        $radio(4); ?>
     </div>
     <div>
-        <?php echo FileInput::widget([
-            'name' => 'attachment[]',
-            'options' => ['multiple' => true],
-            'pluginOptions' => [
-                'showUpload' => false,
-                'maxFileCount' => 4,
-                'maxFileSize' => 25600
-            ]
-        ]) ?>
+        <?php try {
+            echo FileInput::widget([
+                'name' => 'attachment[]',
+                'options' => ['multiple' => true],
+                'pluginOptions' => [
+                    'showUpload' => false,
+                    'maxFileCount' => 4,
+                    'maxFileSize' => 25600
+                ]
+            ]);
+        } catch (Exception $e) {
+            echo $e;
+        } ?>
     </div>
     <?= Html::submitButton('Создать', ['class' => 'btn btn-primary']); ?>
 <?= Html::endForm(); ?>
