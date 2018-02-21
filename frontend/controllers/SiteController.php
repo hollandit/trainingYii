@@ -1,12 +1,12 @@
 <?php
 namespace frontend\controllers;
 
+use app\models\Choice;
 use app\models\Knowledge;
 use app\models\Thema;
 use app\models\User;
 use Yii;
 use yii\base\InvalidParamException;
-use yii\helpers\ArrayHelper;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -15,7 +15,6 @@ use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
-use frontend\models\ContactForm;
 
 /**
  * Site controller
@@ -76,15 +75,16 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        if (Yii::$app->user->isGuest){
-          return $this->redirect(['site/login']);
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect(['site/login']);
         } else {
             $user = User::findOne(Yii::$app->user->identity->id);
             $thema = Thema::find()->where(['id_possition' => $user->id_position])->limit(10)->all();
-            return $this->render('index', [
-                'user' => $user,
-                'thema' => $thema
-            ]);
+            $choice = Choice::find();
+            $count = $choice->where(['id_user' => $user->id])->count();
+            $done = $choice->where(['id_user' => $user->id, 'done' => Choice::PASS])->count();
+            $failed = $choice->where(['id_user' => $user->id, 'done' => Choice::NOT_PASS])->count();
+            return $this->render('index', compact('user', 'thema', 'count', 'done', 'failed'));
         }
     }
 
