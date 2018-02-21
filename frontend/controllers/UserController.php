@@ -3,7 +3,6 @@
 namespace frontend\controllers;
 
 use app\models\AuthAssignment;
-use app\models\Choice;
 use app\models\ChoiceSearch;
 use app\models\Position;
 use frontend\models\SignupForm;
@@ -90,10 +89,13 @@ class UserController extends Controller
 
         if ($model->load(Yii::$app->request->post())){
             if ($model->signup()){
+                $user = User::find()->select('id')->where(['username' => $model->username])->one();
                 $role = new AuthAssignment();
                 $role->item_name = 'employee';
-                $role->user_id = $model->id;
-                $role->save();
+                $role->user_id = $user->id;
+                if (!$role->save()){
+                    print_r($role->getErrors());
+                }
                 return $this->redirect(['user/index']);
             }
         }
