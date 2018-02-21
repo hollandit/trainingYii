@@ -13,6 +13,7 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['test/delete-theme', 'id' => $model->id], ['class' => 'btn btn-danger']) ?>
     </div>
     <?php ActiveForm::end() ?>
 </div>
