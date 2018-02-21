@@ -22,7 +22,7 @@ class NavThema extends Widget
         }
 
         return Nav::widget([
-            'options' => ['class' => 'nav nav-pills nav-stacked'],
+            'options' => ['class' => 'nav nav-pills nav-stacked upperCase'],
             'items' => $themaArr
         ]);
     }
