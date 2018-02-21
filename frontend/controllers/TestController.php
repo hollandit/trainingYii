@@ -3,7 +3,6 @@
 namespace frontend\controllers;
 
 use app\models\Choice;
-use app\models\Image;
 use app\models\Thema;
 use \Yii;
 use app\models\Questions;
@@ -21,7 +20,7 @@ class TestController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['create', 'update', 'delete','update-theme','test', 'result-test'],
+                        'actions' => ['create', 'update', 'delete','update-theme','delete-theme','test', 'result-test'],
                         'allow' => true,
                         'roles' => ['hr']
                     ],
@@ -61,12 +60,12 @@ class TestController extends Controller
             }
             $model->name = $question;
             $model->answear = Json::encode($answer, JSON_UNESCAPED_UNICODE);
-            $model->correct = '{"right": "'.$answer[$right].'"}';
+            $model->correct = '{"right": "'.$right.'"}';
             if(!$model->save()){
                 print_r($model->getErrors());
             } else {
                 $model->save();
-                if ($_FILES['attachment']){
+                if (is_uploaded_file($_FILES['attachment']['tmp_name'][0])){
                     $model->upload($model->id);
                 };
                 return $this->redirect(['test/test', 'id' => $model->id_theme]);
@@ -119,6 +118,12 @@ class TestController extends Controller
             print_r($model->getErrors());
         };
         return $this->redirect(['test', 'id' => $model->id_theme]);
+    }
+
+    public function actionDeleteTheme($id)
+    {
+        Thema::findOne($id)->delete();
+        return $this->redirect(['test/test', 'id' => 1]);
     }
 
     public function actionTesting($id)
