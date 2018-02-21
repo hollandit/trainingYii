@@ -16,29 +16,38 @@ $this->title = 'Создать сотрудника';
     <h1><?= Html::encode($this->title) ?></h1>
 
     <div class="user-form">
+        <div class="col-lg-6">
+            <?php $form = ActiveForm::begin(); ?>
 
-        <?php $form = ActiveForm::begin(); ?>
+            <?= $form->field($model, 'username')->textInput(['placeholder' => 'Логин'])->label(false) ?>
 
-        <?= $form->field($model, 'username')->label('Логин') ?>
+            <?= $form->field($model, 'last_name')->textInput(['maxlength' => true, 'placeholder' => 'Фамилия'])->label(false) ?>
 
-        <?= $form->field($model, 'last_name')->textInput(['maxlength' => true])->label('Фамилия') ?>
+            <?= $form->field($model, 'name')->textInput(['maxlength' => true, 'placeholder' => 'Имя'])->label(false) ?>
 
-        <?= $form->field($model, 'name')->textInput(['maxlength' => true])->label('Имя') ?>
+            <?= $form->field($model, 'patronymic')->textInput(['maxlength' => true, 'placeholder' => 'Отчество'])->label(false) ?>
 
-        <?= $form->field($model, 'patronymic')->textInput(['maxlength' => true])->label('Отчество') ?>
+            <?= $form->field($model, 'id_position')->dropDownList(
+                    ArrayHelper::map(
+                            Position::find()->all(),
+                            'id',
+                            'name'
+                    ), [
+                        'prompt' => 'Должность',
+                        'required' => true
+                    ])->label(false) ?>
 
-        <?= $form->field($model, 'id_position')->dropDownList(ArrayHelper::map(Position::find()->all(), 'id', 'name'))->label('Должность') ?>
+            <?= $form->field($model, 'date_birth')->textInput(['type' => 'date', 'placeholder' => 'Дата рождение'])->label(false) ?>
 
-        <?= $form->field($model, 'date_birth')->textInput(['type' => 'date']) ?>
+            <?= $form->field($model, 'email')->textInput(['placeholder' => 'Email'])->label(false) ?>
 
-        <?= $form->field($model, 'email') ?>
+            <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'Пароль'])->label(false) ?>
+            <div class="form-group">
+                <?= Html::submitButton('Создать', ['class' => 'btn btn-success']) ?>
+            </div>
 
-        <?= $form->field($model, 'password')->passwordInput()->label('Пароль') ?>
-        <div class="form-group">
-            <?= Html::submitButton('Создать', ['class' => 'btn btn-success']) ?>
+            <?php ActiveForm::end(); ?>
         </div>
-
-        <?php ActiveForm::end(); ?>
 
     </div>
 
