@@ -14,11 +14,13 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         'css/index.css',
+        'css/lightbox.min.css',
         'https://fonts.googleapis.com/css?family=Oswald'
     ];
     public $js = [
         'js/index.js',
-        'js/question.js'
+        'js/question.js',
+        'js/lightbox.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
