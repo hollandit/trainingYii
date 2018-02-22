@@ -20,10 +20,12 @@ class AppAsset extends AssetBundle
     public $js = [
         'js/index.js',
         'js/question.js',
-        'js/lightbox.min.js'
+        'js/lightbox.min.js',
+        'js/yii.confirm.overrides.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
+        'app\assets\SweetAlertAsset',
     ];
 }
