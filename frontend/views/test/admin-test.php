@@ -16,7 +16,11 @@ $lenght = count($model) - 1;
 <div class="test-adminTest">
     <div class="col-lg-2 navBar-Thema test-contant">
         <h3>ВCЕ ТЕСТЫ</h3>
-        <?php echo NavThema::widget() ?>
+        <?php try {
+            echo NavThema::widget();
+        } catch (Exception $e) {
+            echo $e;
+        } ?>
         <?php Modal::begin([
             'header' => 'Создание теста',
             'toggleButton' => [
