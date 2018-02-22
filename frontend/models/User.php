@@ -3,6 +3,7 @@
 namespace app\models;
 
 use app\models\query\UserQuery;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "{{%user}}".
@@ -13,7 +14,8 @@ use app\models\query\UserQuery;
  * @property string $name
  * @property string $patronymic
  * @property int $id_position
- * @property int $date_birth
+ * @property string $date_birth
+ * @property int $salary
  * @property string $auth_key
  * @property string $password_hash
  * @property string $password_reset_token
@@ -25,10 +27,11 @@ use app\models\query\UserQuery;
  *
  * @property Access[] $accesses
  * @property Choice[] $choices
+ * @property Depreming[] $depremings
  * @property Testing[] $testings
  * @property Position $position
  */
-class User extends \yii\db\ActiveRecord
+class User extends ActiveRecord
 {
     const WORK = 1;
     const DISMISSED = 0;
@@ -46,8 +49,8 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'last_name', 'name', 'patronymic', 'id_position', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
-            [['id_position', 'status', 'created_at', 'updated_at', 'active'], 'integer'],
+            [['username', 'last_name', 'name', 'patronymic', 'id_position', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at', 'salary'], 'required'],
+            [['id_position', 'status', 'salary','created_at', 'updated_at', 'active'], 'integer'],
             [['date_birth'], 'safe'],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['last_name', 'name', 'patronymic'], 'string', 'max' => 86],
@@ -72,6 +75,7 @@ class User extends \yii\db\ActiveRecord
             'patronymic' => 'Отчетство',
             'id_position' => 'Должность',
             'date_birth' => 'Дата рождение',
+            'salary' => 'Оклад',
             'auth_key' => 'Auth Key',
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',
@@ -98,6 +102,14 @@ class User extends \yii\db\ActiveRecord
     public function getChoices()
     {
         return $this->hasMany(Choice::className(), ['id_user' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDepremings()
+    {
+        return $this->hasMany(Depreming::className(), ['id_user' => 'id']);
     }
 
     /**
