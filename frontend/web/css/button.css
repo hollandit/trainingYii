@@ -1,4 +1,13 @@
 /* line 23, ../sass/button.scss */
+.buttonNavDelete {
+  position: absolute;
+  top: 10px;
+  left: 85%;
+  cursor: pointer;
+  color: #6b604b;
+}
+
+/* line 31, ../sass/button.scss */
 .button-thema-test {
   background: #37322f;
   border: none;
@@ -10,13 +19,13 @@
   border-radius: 5px;
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.34902);
 }
-/* line 33, ../sass/button.scss */
+/* line 41, ../sass/button.scss */
 .button-thema-test:hover {
   background: #302927;
   color: #a29d88;
 }
 
-/* line 38, ../sass/button.scss */
+/* line 46, ../sass/button.scss */
 .editTitle {
   position: relative;
   float: right;
@@ -27,7 +36,7 @@
   left: -13px;
 }
 
-/* line 41, ../sass/button.scss */
+/* line 49, ../sass/button.scss */
 .editQuestion {
   position: relative;
   float: right;
@@ -38,7 +47,7 @@
   left: -13px;
 }
 
-/* line 45, ../sass/button.scss */
+/* line 53, ../sass/button.scss */
 .passTest {
   background: #339900;
   text-transform: uppercase;
@@ -47,7 +56,7 @@
   border-radius: 10px;
 }
 
-/* line 54, ../sass/button.scss */
+/* line 62, ../sass/button.scss */
 .test-block-admin .nextTestAdmin {
   background: none;
   border: none;
@@ -56,7 +65,7 @@
   top: 57px;
   left: 94%;
 }
-/* line 57, ../sass/button.scss */
+/* line 65, ../sass/button.scss */
 .test-block-admin .prevTestAdmin {
   background: none;
   border: none;
@@ -65,7 +74,7 @@
   top: 57px;
   left: -46px;
 }
-/* line 65, ../sass/button.scss */
+/* line 73, ../sass/button.scss */
 .test-block-admin .nextTestAdminSecond {
   background: none;
   border: none;
@@ -75,7 +84,7 @@
   left: 90%;
 }
 
-/* line 71, ../sass/button.scss */
+/* line 79, ../sass/button.scss */
 .statistics .addLinkButton {
   background: #a9a58e;
   margin-top: 15px;
@@ -88,7 +97,7 @@
   margin-left: 24px;
 }
 
-/* line 83, ../sass/button.scss */
+/* line 91, ../sass/button.scss */
 .addQuestionButton {
   position: relative;
   float: right;
@@ -101,7 +110,7 @@
   font-size: 35px;
 }
 
-/* line 90, ../sass/button.scss */
+/* line 98, ../sass/button.scss */
 .footer-error button {
   color: #C7C4A8;
   background: #675652;
