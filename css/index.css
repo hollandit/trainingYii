@@ -1,0 +1,908 @@
+/* line 15, ../sass/column.scss */
+.test-adminTest, .site-index, .site-post {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  margin-left: -4%;
+}
+
+/* line 22, ../sass/column.scss */
+.navBar-Thema {
+  background: #544f46;
+  flex-grow: 1;
+}
+/* line 25, ../sass/column.scss */
+.navBar-Thema .navigation-menu {
+  border-radius: 0;
+  border-bottom: 0.1px solid #5f5a4f;
+  width: 112%;
+  margin-left: -6%;
+}
+/* line 30, ../sass/column.scss */
+.navBar-Thema .navigation-menu:hover {
+  border-bottom: none;
+}
+/* line 33, ../sass/column.scss */
+.navBar-Thema .navigation-menu a {
+  padding-left: 11%;
+  font-size: 13px;
+}
+/* line 38, ../sass/column.scss */
+.navBar-Thema h3 {
+  margin-left: 13px;
+  color: #ffffff;
+  font-size: 18px;
+  border-bottom: none;
+  margin-bottom: 15px;
+}
+/* line 45, ../sass/column.scss */
+.navBar-Thema a {
+  color: #BCBCBC;
+  line-height: 15px;
+}
+/* line 48, ../sass/column.scss */
+.navBar-Thema a:hover {
+  color: #cccccc;
+  border-radius: 0;
+}
+/* line 52, ../sass/column.scss */
+.navBar-Thema a:active {
+  color: #746a4f;
+}
+/* line 56, ../sass/column.scss */
+.navBar-Thema .nav > li > a:hover, .navBar-Thema .nav > li > a:focus {
+  background-color: #4d4840;
+}
+/* line 59, ../sass/column.scss */
+.navBar-Thema .nav-pills > li.active > a, .navBar-Thema .nav-pills > li.active > a:hover, .navBar-Thema .nav-pills > li.active > a:focus {
+  background-color: #453e3a;
+  color: #B3AE84;
+}
+
+/* line 64, ../sass/column.scss */
+.column-basic {
+  flex-grow: 1;
+}
+/* line 66, ../sass/column.scss */
+.column-basic .question-one {
+  margin-top: 68px;
+}
+/* line 69, ../sass/column.scss */
+.column-basic .title-test {
+  text-transform: uppercase;
+}
+/* line 72, ../sass/column.scss */
+.column-basic .column-basic-condition {
+  color: #675652;
+  line-height: 6px;
+  margin-left: 18px;
+  margin-top: 19px;
+}
+/* line 77, ../sass/column.scss */
+.column-basic .column-basic-condition p:first-child {
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+/* line 81, ../sass/column.scss */
+.column-basic .column-basic-condition p:nth-child(3) {
+  line-height: 14px;
+  margin-top: -5px;
+}
+/* line 85, ../sass/column.scss */
+.column-basic .column-basic-condition p {
+  font-size: 11px;
+  line-height: 5px;
+}
+/* line 90, ../sass/column.scss */
+.column-basic h1 {
+  margin-left: -15px;
+  font-size: 40px;
+  color: #C7C4A8;
+  padding: 12px 1px 13px 30px;
+  background: #a29d88;
+  line-height: 58px;
+}
+/* line 98, ../sass/column.scss */
+.column-basic hr {
+  border: 0.5px solid #101010;
+}
+/* line 102, ../sass/column.scss */
+.column-basic .test-block-admin h3 {
+  font-size: 28px;
+  color: #675652;
+  font-weight: bold;
+  margin-top: -45px;
+}
+/* line 108, ../sass/column.scss */
+.column-basic .test-block-admin p {
+  font-size: 28px;
+  font-weight: 400;
+  color: #675652;
+  line-height: 34px;
+}
+/* line 114, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin {
+  margin-left: 45px;
+}
+/* line 116, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin h3 {
+  text-transform: uppercase;
+}
+/* line 118, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin h3 button {
+  font-size: 13px;
+  width: 93px;
+  height: 28px;
+  color: #C7C4A8;
+  background: rgba(124, 119, 104, 0.49804);
+  border: none;
+  border-radius: 3px;
+  position: relative;
+  left: 45px;
+  top: -6px;
+}
+/* line 129, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin h3 button:focus {
+  outline: none;
+}
+/* line 134, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin .radio-answear {
+  line-height: 19px;
+  margin-bottom: 30px;
+}
+/* line 138, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin p {
+  padding-right: 45px;
+  line-height: 34px;
+  margin-bottom: 27px;
+}
+/* line 143, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin .answer {
+  color: #675652;
+  font-size: 16px;
+  font-weight: 400;
+}
+/* line 147, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin .answer .key-answear {
+  margin-right: 10px;
+}
+/* line 152, ../sass/column.scss */
+.column-basic .test-block-admin .test-image {
+  margin-bottom: 35px;
+}
+
+/* line 158, ../sass/column.scss */
+.statistics {
+  margin-top: 20px;
+}
+/* line 160, ../sass/column.scss */
+.statistics .purpose {
+  padding: 0 26px 0 19px;
+}
+/* line 162, ../sass/column.scss */
+.statistics .purpose p {
+  font-size: 13px;
+  color: #675652;
+}
+/* line 166, ../sass/column.scss */
+.statistics .purpose hr {
+  width: 103%;
+  margin-left: -7px;
+  border: 0.5px solid #675652;
+  margin-bottom: 6px;
+}
+/* line 173, ../sass/column.scss */
+.statistics .passTest {
+  font-size: 30px;
+  line-height: 54px;
+}
+/* line 177, ../sass/column.scss */
+.statistics .form-search, .statistics p {
+  margin-top: 11px;
+}
+/* line 180, ../sass/column.scss */
+.statistics hr {
+  border: 0.5px solid black;
+  margin-top: 0;
+}
+/* line 184, ../sass/column.scss */
+.statistics .statistics_appointment {
+  font-size: 13px;
+}
+/* line 186, ../sass/column.scss */
+.statistics .statistics_appointment .success {
+  color: #339900;
+}
+/* line 189, ../sass/column.scss */
+.statistics .statistics_appointment .error {
+  color: #871414;
+}
+/* line 192, ../sass/column.scss */
+.statistics .statistics_appointment .statistics_appointment-icon {
+  font-size: 10px;
+}
+/* line 195, ../sass/column.scss */
+.statistics .statistics_appointment .statistics_appointment-date {
+  font-size: 10px;
+  margin-left: 6px;
+  color: #7C7768;
+}
+/* line 200, ../sass/column.scss */
+.statistics .statistics_appointment .statistics_appointment-name {
+  margin-left: 10px;
+}
+/* line 203, ../sass/column.scss */
+.statistics .statistics_appointment .statistics_appointment-result {
+  float: right;
+  font-size: 10px;
+  color: #7C7768;
+}
+/* line 209, ../sass/column.scss */
+.statistics .statistics-paragraph {
+  font-size: 13px;
+  color: #675652;
+  margin-top: 25px;
+}
+/* line 213, ../sass/column.scss */
+.statistics .statistics-paragraph img {
+  margin-left: -33px;
+}
+/* line 216, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result {
+  margin-top: 15px;
+}
+/* line 218, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result:nth-child(4) {
+  margin-bottom: 30px;
+}
+/* line 221, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest {
+  font-size: 11px;
+  line-height: 6px;
+  text-align: right;
+}
+/* line 222, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest table {
+  font-size: 11px;
+  margin-top: 13px;
+  width: 128%;
+}
+/* line 226, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest table tr {
+  text-align: left;
+  line-height: 13px;
+}
+/* line 228, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest table tr .table-errors {
+  text-align: right;
+  color: #7C7768;
+}
+/* line 232, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest table tr .table-percent {
+  font-size: 10px;
+  color: #7C7768;
+  padding-left: 8px;
+}
+/* line 243, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest .statistics-paragraph-interest_title {
+  font-size: 11px;
+  margin-bottom: 20px;
+  margin-top: 0;
+  width: 119%;
+}
+
+/* line 254, ../sass/column.scss */
+.footer {
+  font-size: 18px;
+  background: #312927;
+  border-top: none;
+  height: 145px;
+  color: #675652;
+  padding-top: 33px;
+}
+/* line 261, ../sass/column.scss */
+.footer .footer-rights {
+  font-size: 26px;
+}
+/* line 264, ../sass/column.scss */
+.footer img {
+  float: left;
+}
+/* line 267, ../sass/column.scss */
+.footer .text-footer {
+  font-size: 11px;
+  position: relative;
+  top: 16px;
+  left: -83px;
+}
+/* line 274, ../sass/column.scss */
+.footer .footer-error img {
+  margin-right: 14px;
+}
+/* line 277, ../sass/column.scss */
+.footer .footer-error .footer-text_errors {
+  padding-left: 77px;
+  text-align: right;
+  font-size: 11px;
+  margin-right: 11%;
+}
+/* line 285, ../sass/column.scss */
+.footer .footer-contact img {
+  margin-right: 20px;
+}
+/* line 288, ../sass/column.scss */
+.footer .footer-contact .phone {
+  font-weight: bold;
+  font-size: 33px;
+  line-height: 29px;
+}
+/* line 293, ../sass/column.scss */
+.footer .footer-contact .footer-contact_text {
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+/* line 19, ../sass/form.scss */
+.column-basic .test-block-admin .radio {
+  display: none;
+}
+/* line 22, ../sass/form.scss */
+.column-basic .test-block-admin .radio:checked + span {
+  color: green;
+}
+
+/* line 27, ../sass/form.scss */
+.label-radio {
+  margin-bottom: 3px;
+}
+
+/* line 30, ../sass/form.scss */
+.radio {
+  opacity: 0;
+  position: absolute;
+}
+
+/* line 34, ../sass/form.scss */
+.radio + div {
+  background: black;
+  width: 17px;
+  height: 17px;
+  border-radius: 12px;
+  position: relative;
+  top: 6px;
+}
+
+/* line 42, ../sass/form.scss */
+.radio:checked + div {
+  background: green;
+}
+
+/* line 46, ../sass/form.scss */
+.test-create {
+  margin-top: -15px;
+}
+/* line 48, ../sass/form.scss */
+.test-create .create-test_thema {
+  width: 100%;
+  padding: 0 30px 0 25px;
+}
+/* line 52, ../sass/form.scss */
+.test-create .test-create_themaForm {
+  font-size: 20px;
+  width: 100%;
+  color: #675652;
+  border: none;
+  font-family: 'Oswald Light', 'Oswald Regular', 'Oswald', serif;
+  font-weight: 300;
+  border-bottom: 1px solid #675652;
+  background: none;
+  outline: none;
+}
+/* line 56, ../sass/form.scss */
+.test-create .test-create_themaForm::placeholder {
+  color: #675652;
+}
+/* line 60, ../sass/form.scss */
+.test-create .test-create_questionForm {
+  color: #675652;
+  border: none;
+  font-family: 'Oswald Light', 'Oswald Regular', 'Oswald', serif;
+  font-weight: 300;
+  border-bottom: 1px solid #675652;
+  background: none;
+  outline: none;
+}
+/* line 63, ../sass/form.scss */
+.test-create .test-create_answerForm {
+  color: #675652;
+  border: none;
+  font-family: 'Oswald Light', 'Oswald Regular', 'Oswald', serif;
+  font-weight: 300;
+  border-bottom: 1px solid #675652;
+  background: none;
+  outline: none;
+  width: 72%;
+  margin-left: -21px;
+  margin-right: 11px;
+  font-size: 14px;
+}
+/* line 70, ../sass/form.scss */
+.test-create .test-create_fileInput {
+  margin-left: -20px;
+  margin-top: 10px;
+}
+/* line 73, ../sass/form.scss */
+.test-create .test-create_fileInput input {
+  display: none;
+}
+/* line 76, ../sass/form.scss */
+.test-create .test-create_fileInput img {
+  width: 87px;
+  height: 97px;
+}
+/* line 80, ../sass/form.scss */
+.test-create .test-create_fileInput span {
+  position: relative;
+  top: -54px;
+  left: 18px;
+  font-size: 13px;
+  color: #675652;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+/* line 81, ../sass/form.scss */
+.test-create .test-create_fileInput span:nth-child(3) {
+  top: -34px;
+  left: -27px;
+}
+/* line 94, ../sass/form.scss */
+.test-create .test-create-question {
+  background: #d7d5c2;
+  padding: 15px;
+  padding-left: 30px;
+  padding-bottom: 28px;
+  margin-top: 20px;
+  border-radius: 6px;
+}
+/* line 101, ../sass/form.scss */
+.test-create .test-create-question .test-create-questionInput {
+  color: #675652;
+  font-size: 22px;
+  font-weight: 500;
+}
+/* line 105, ../sass/form.scss */
+.test-create .test-create-question .test-create-questionInput label {
+  margin-right: 20px;
+}
+/* line 108, ../sass/form.scss */
+.test-create .test-create-question .test-create-questionInput input {
+  font-size: 18px;
+  width: 386px;
+}
+
+/* line 118, ../sass/form.scss */
+.statistics .form-search .form-search-icon {
+  color: #a29d88;
+  background: none;
+  border: none;
+  z-index: 1;
+  position: relative;
+  left: 7px;
+}
+/* line 126, ../sass/form.scss */
+.statistics .form-search .form-search-input {
+  font-size: 13px;
+  margin-left: -25px;
+  padding-left: 26px;
+  width: 168px;
+  height: 29px;
+  z-index: 0;
+  font-family: 'Oswald ExtraLight', 'Oswald Regular', 'Oswald', serif;
+  background: #d2d0ba;
+  border: 1px solid #a29d88;
+}
+/* line 137, ../sass/form.scss */
+.statistics .form-search .form-search-button {
+  width: 71px;
+  height: 29px;
+  line-height: 11px;
+  background: #7c7768;
+  margin-right: 23px;
+  font-size: 13px;
+  color: #C7C4A8;
+}
+
+/* line 150, ../sass/form.scss */
+.footer-error input {
+  background: inherit;
+  padding: 8px 21px 9px 15px;
+  border: 1px solid;
+  position: relative;
+  top: -4px;
+  left: 10px;
+  border-right: none;
+  font-size: 9px;
+  color: #675652;
+  border-radius: 14px 0 0 14px;
+}
+/* line 161, ../sass/form.scss */
+.footer-error input::-webkit-input-placeholder {
+  color: #675652;
+}
+/* line 164, ../sass/form.scss */
+.footer-error input:focus {
+  outline: none;
+}
+
+/* line 170, ../sass/form.scss */
+.test-create-question_page {
+  margin-top: 15px;
+}
+
+/* line 33, ../sass/button.scss */
+.buttonNavDelete {
+  position: absolute;
+  top: 10px;
+  left: 85%;
+  cursor: pointer;
+  color: #6b604b;
+}
+
+/* line 41, ../sass/button.scss */
+.button-thema-test {
+  background: #37322f;
+  border: none;
+  color: #B3AE84;
+  width: 186px;
+  height: 40px;
+  margin-left: 11px;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.34902);
+}
+/* line 51, ../sass/button.scss */
+.button-thema-test:hover {
+  background: #302927;
+  color: #a29d88;
+}
+
+/* line 56, ../sass/button.scss */
+.editTitle {
+  position: relative;
+  float: right;
+  font-size: 20px;
+  color: #675652;
+  cursor: pointer;
+  top: -83px;
+  left: -13px;
+}
+
+/* line 59, ../sass/button.scss */
+.editQuestion {
+  position: relative;
+  float: right;
+  font-size: 20px;
+  color: #675652;
+  cursor: pointer;
+  top: -35px;
+  left: -13px;
+}
+
+/* line 63, ../sass/button.scss */
+.passTest {
+  background: #339900;
+  text-transform: uppercase;
+  width: 260px;
+  height: 82px;
+  border-radius: 10px;
+}
+
+/* line 72, ../sass/button.scss */
+.test-block-admin .nextTestAdmin {
+  background: none;
+  border: none;
+  font-size: 70px;
+  position: relative;
+  top: 57px;
+  left: 94%;
+}
+/* line 75, ../sass/button.scss */
+.test-block-admin .prevTestAdmin {
+  background: none;
+  border: none;
+  font-size: 70px;
+  position: relative;
+  top: 57px;
+  left: -46px;
+}
+/* line 83, ../sass/button.scss */
+.test-block-admin .nextTestAdminSecond {
+  background: none;
+  border: none;
+  font-size: 70px;
+  position: relative;
+  top: 57px;
+  left: 90%;
+}
+
+/* line 89, ../sass/button.scss */
+.statistics .addLinkButton {
+  background: #a9a58e;
+  margin-top: 15px;
+  border-radius: 18px;
+  border: 1px solid #7c7768;
+  color: #675652;
+  font-size: 13px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-left: 24px;
+}
+
+/* line 101, ../sass/button.scss */
+.addQuestionButton {
+  position: relative;
+  float: right;
+  font-size: 20px;
+  color: #675652;
+  cursor: pointer;
+  top: -100px;
+  left: -22px;
+  color: #7e7a6b;
+  font-size: 35px;
+}
+
+/* line 108, ../sass/button.scss */
+.create-test_control button {
+  width: 116px;
+  height: 31px;
+  margin-left: 354px;
+  margin-top: 9px;
+  background: #7c7768;
+  border: none;
+  color: #B3AE84;
+  outline: none;
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.35);
+}
+/* line 121, ../sass/button.scss */
+.create-test_control button:hover {
+  background: #312927;
+}
+/* line 124, ../sass/button.scss */
+.create-test_control button:active {
+  background: #7a7667;
+  color: black;
+}
+
+/* line 132, ../sass/button.scss */
+.test-create .closeModal {
+  width: 220px;
+  height: 52px;
+  font-size: 16px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.35);
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  margin-left: 32px;
+  background: #871414;
+  color: #ffffff;
+}
+/* line 137, ../sass/button.scss */
+.test-create .closeModal:hover {
+  background: #37322f;
+  color: #B3AE84;
+}
+/* line 142, ../sass/button.scss */
+.test-create .createTest-modal {
+  width: 220px;
+  height: 52px;
+  font-size: 16px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.35);
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  margin-left: 7px;
+  background: #37322f;
+  color: #B3AE84;
+}
+/* line 147, ../sass/button.scss */
+.test-create .createTest-modal:hover {
+  background: #312927;
+}
+/* line 150, ../sass/button.scss */
+.test-create .createTest-modal:active {
+  background: #7a7667;
+  color: black;
+}
+
+/* line 158, ../sass/button.scss */
+.footer-error button {
+  color: #C7C4A8;
+  background: #675652;
+  border: none;
+  font-size: 9px;
+  padding: 10px;
+  font-weight: 400;
+  position: relative;
+  top: -4px;
+  left: 11px;
+  border-radius: 0 5px 5px 0;
+}
+
+/* line 11, ../sass/modal.scss */
+.modal-dialog {
+  border-radius: 0 32px 0 32px;
+  width: 575px;
+  height: 524px;
+  border: 4px solid #4a42348c;
+}
+
+/* line 15, ../sass/modal.scss */
+.modal-header {
+  font-size: 30px;
+  color: #675652;
+  font-weight: 500;
+  font-family: 'Oswald Medium', 'Oswald Regular', 'Oswald', serif;
+  border-bottom: 1px solid #675652;
+  text-transform: uppercase;
+  width: 86%;
+  padding-left: 0;
+  padding-bottom: 0;
+  margin-left: 38px;
+}
+/* line 26, ../sass/modal.scss */
+.modal-header .close {
+  display: none;
+}
+
+/* line 30, ../sass/modal.scss */
+.modal-content {
+  border-radius: 0 32px 0 32px;
+  width: 575px;
+  height: 524px;
+  background: #C7C4AA;
+}
+
+/* line 34, ../sass/modal.scss */
+.create-test_control {
+  padding-left: 33px;
+  padding-right: 42px;
+}
+/* line 37, ../sass/modal.scss */
+.create-test_control hr {
+  border: 0.5px solid #787878;
+  margin-top: 7px;
+  margin-bottom: 15px;
+}
+/* line 41, ../sass/modal.scss */
+.create-test_control hr:nth-child(5) {
+  margin-top: 60px;
+}
+/* line 45, ../sass/modal.scss */
+.create-test_control p {
+  font-size: 18px;
+}
+/* line 48, ../sass/modal.scss */
+.create-test_control input {
+  width: 21px;
+  height: 29px;
+  font-size: 19px;
+  font-weight: 700;
+  font-family: 'GOST type B Standard Bold', 'GOST type B Standard', serif;
+  border-radius: 1px;
+  background: #d8d6c2;
+  padding-left: 3px;
+  border: 2px solid #7c7768;
+  color: #7C7768;
+  outline: none;
+}
+/* line 60, ../sass/modal.scss */
+.create-test_control input::-webkit-inner-spin-button {
+  display: none;
+}
+/* line 64, ../sass/modal.scss */
+.create-test_control .control-operator {
+  width: 21px;
+  height: 29px;
+  text-align: center;
+  background: #7c7768;
+  color: black;
+}
+
+/* line 9, ../sass/index.scss */
+body {
+  font-family: 'Oswald', sans-serif;
+  background: #c7c4a8;
+  height: 100%;
+}
+
+/* line 14, ../sass/index.scss */
+.header_nav {
+  height: 71px;
+  padding-top: 13px;
+  border-radius: 0;
+}
+
+/* line 19, ../sass/index.scss */
+.content {
+  margin-top: -21px;
+}
+
+/* line 22, ../sass/index.scss */
+.test-contant {
+  padding-top: 15px;
+}
+
+/* line 25, ../sass/index.scss */
+.test-block, .test-block-admin {
+  display: none;
+}
+/* line 27, ../sass/index.scss */
+.test-block:first-of-type, .test-block-admin:first-of-type {
+  display: block;
+}
+
+/* line 31, ../sass/index.scss */
+.upperCase {
+  text-transform: uppercase;
+}
+
+/* line 35, ../sass/index.scss */
+.delete-modal {
+  text-align: left;
+  padding: 19% 32% 103px 34%;
+  color: white;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, 0.45);
+  margin-right: -100px;
+  margin-bottom: -20px;
+  display: block;
+  overflow: hidden;
+  opacity: 1;
+}
+/* line 49, ../sass/index.scss */
+.delete-modal h1 {
+  font-size: 48px;
+  text-transform: uppercase;
+}
+/* line 53, ../sass/index.scss */
+.delete-modal p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+/* line 57, ../sass/index.scss */
+.delete-modal input {
+  font-size: 13px;
+  text-transform: uppercase;
+  text-align: center;
+  background: none;
+  border: 2px solid;
+  width: 158px;
+  height: 42px;
+  margin-right: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.35);
+}
+/* line 67, ../sass/index.scss */
+.delete-modal input:hover {
+  background: rgba(49, 41, 39, 0.5);
+}
+/* line 72, ../sass/index.scss */
+.delete-modal .delete-button:hover {
+  border: 2px solid #ff6666;
+  color: #ff6666;
+}
+/* line 76, ../sass/index.scss */
+.delete-modal .delete-button:active {
+  color: #ffffff;
+  border-color: #ff6666;
+  background: rgba(255, 102, 102, 0.5);
+  box-shadow: inset 0 0 15px rgba(49, 41, 39, 0.4);
+  outline: none;
+}

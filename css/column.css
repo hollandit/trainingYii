@@ -1,0 +1,343 @@
+/* line 15, ../sass/column.scss */
+.test-adminTest, .site-index, .site-post {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  margin-left: -4%;
+}
+
+/* line 22, ../sass/column.scss */
+.navBar-Thema {
+  background: #544f46;
+  flex-grow: 1;
+}
+/* line 25, ../sass/column.scss */
+.navBar-Thema .navigation-menu {
+  border-radius: 0;
+  border-bottom: 0.1px solid #5f5a4f;
+  width: 112%;
+  margin-left: -6%;
+}
+/* line 30, ../sass/column.scss */
+.navBar-Thema .navigation-menu:hover {
+  border-bottom: none;
+}
+/* line 33, ../sass/column.scss */
+.navBar-Thema .navigation-menu a {
+  padding-left: 11%;
+  font-size: 13px;
+}
+/* line 38, ../sass/column.scss */
+.navBar-Thema h3 {
+  margin-left: 13px;
+  color: #ffffff;
+  font-size: 18px;
+  border-bottom: none;
+  margin-bottom: 15px;
+}
+/* line 45, ../sass/column.scss */
+.navBar-Thema a {
+  color: #BCBCBC;
+  line-height: 15px;
+}
+/* line 48, ../sass/column.scss */
+.navBar-Thema a:hover {
+  color: #cccccc;
+  border-radius: 0;
+}
+/* line 52, ../sass/column.scss */
+.navBar-Thema a:active {
+  color: #746a4f;
+}
+/* line 56, ../sass/column.scss */
+.navBar-Thema .nav > li > a:hover, .navBar-Thema .nav > li > a:focus {
+  background-color: #4d4840;
+}
+/* line 59, ../sass/column.scss */
+.navBar-Thema .nav-pills > li.active > a, .navBar-Thema .nav-pills > li.active > a:hover, .navBar-Thema .nav-pills > li.active > a:focus {
+  background-color: #453e3a;
+  color: #B3AE84;
+}
+
+/* line 64, ../sass/column.scss */
+.column-basic {
+  flex-grow: 1;
+}
+/* line 66, ../sass/column.scss */
+.column-basic .question-one {
+  margin-top: 68px;
+}
+/* line 69, ../sass/column.scss */
+.column-basic .title-test {
+  text-transform: uppercase;
+}
+/* line 72, ../sass/column.scss */
+.column-basic .column-basic-condition {
+  color: #675652;
+  line-height: 6px;
+  margin-left: 18px;
+  margin-top: 19px;
+}
+/* line 77, ../sass/column.scss */
+.column-basic .column-basic-condition p:first-child {
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+/* line 81, ../sass/column.scss */
+.column-basic .column-basic-condition p:nth-child(3) {
+  line-height: 14px;
+  margin-top: -5px;
+}
+/* line 85, ../sass/column.scss */
+.column-basic .column-basic-condition p {
+  font-size: 11px;
+  line-height: 5px;
+}
+/* line 90, ../sass/column.scss */
+.column-basic h1 {
+  margin-left: -15px;
+  font-size: 40px;
+  color: #C7C4A8;
+  padding: 12px 1px 13px 30px;
+  background: #a29d88;
+  line-height: 58px;
+}
+/* line 98, ../sass/column.scss */
+.column-basic hr {
+  border: 0.5px solid #101010;
+}
+/* line 102, ../sass/column.scss */
+.column-basic .test-block-admin h3 {
+  font-size: 28px;
+  color: #675652;
+  font-weight: bold;
+  margin-top: -45px;
+}
+/* line 108, ../sass/column.scss */
+.column-basic .test-block-admin p {
+  font-size: 28px;
+  font-weight: 400;
+  color: #675652;
+  line-height: 34px;
+}
+/* line 114, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin {
+  margin-left: 45px;
+}
+/* line 116, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin h3 {
+  text-transform: uppercase;
+}
+/* line 118, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin h3 button {
+  font-size: 13px;
+  width: 93px;
+  height: 28px;
+  color: #C7C4A8;
+  background: rgba(124, 119, 104, 0.49804);
+  border: none;
+  border-radius: 3px;
+  position: relative;
+  left: 45px;
+  top: -6px;
+}
+/* line 129, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin h3 button:focus {
+  outline: none;
+}
+/* line 134, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin .radio-answear {
+  line-height: 19px;
+  margin-bottom: 30px;
+}
+/* line 138, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin p {
+  padding-right: 45px;
+  line-height: 34px;
+  margin-bottom: 27px;
+}
+/* line 143, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin .answer {
+  color: #675652;
+  font-size: 16px;
+  font-weight: 400;
+}
+/* line 147, ../sass/column.scss */
+.column-basic .test-block-admin .question-test-admin .answer .key-answear {
+  margin-right: 10px;
+}
+/* line 152, ../sass/column.scss */
+.column-basic .test-block-admin .test-image {
+  margin-bottom: 35px;
+}
+
+/* line 158, ../sass/column.scss */
+.statistics {
+  margin-top: 20px;
+}
+/* line 160, ../sass/column.scss */
+.statistics .purpose {
+  padding: 0 26px 0 19px;
+}
+/* line 162, ../sass/column.scss */
+.statistics .purpose p {
+  font-size: 13px;
+  color: #675652;
+}
+/* line 166, ../sass/column.scss */
+.statistics .purpose hr {
+  width: 103%;
+  margin-left: -7px;
+  border: 0.5px solid #675652;
+  margin-bottom: 6px;
+}
+/* line 173, ../sass/column.scss */
+.statistics .passTest {
+  font-size: 30px;
+  line-height: 54px;
+}
+/* line 177, ../sass/column.scss */
+.statistics .form-search, .statistics p {
+  margin-top: 11px;
+}
+/* line 180, ../sass/column.scss */
+.statistics hr {
+  border: 0.5px solid black;
+  margin-top: 0;
+}
+/* line 184, ../sass/column.scss */
+.statistics .statistics_appointment {
+  font-size: 13px;
+}
+/* line 186, ../sass/column.scss */
+.statistics .statistics_appointment .success {
+  color: #339900;
+}
+/* line 189, ../sass/column.scss */
+.statistics .statistics_appointment .error {
+  color: #871414;
+}
+/* line 192, ../sass/column.scss */
+.statistics .statistics_appointment .statistics_appointment-icon {
+  font-size: 10px;
+}
+/* line 195, ../sass/column.scss */
+.statistics .statistics_appointment .statistics_appointment-date {
+  font-size: 10px;
+  margin-left: 6px;
+  color: #7C7768;
+}
+/* line 200, ../sass/column.scss */
+.statistics .statistics_appointment .statistics_appointment-name {
+  margin-left: 10px;
+}
+/* line 203, ../sass/column.scss */
+.statistics .statistics_appointment .statistics_appointment-result {
+  float: right;
+  font-size: 10px;
+  color: #7C7768;
+}
+/* line 209, ../sass/column.scss */
+.statistics .statistics-paragraph {
+  font-size: 13px;
+  color: #675652;
+  margin-top: 25px;
+}
+/* line 213, ../sass/column.scss */
+.statistics .statistics-paragraph img {
+  margin-left: -33px;
+}
+/* line 216, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result {
+  margin-top: 15px;
+}
+/* line 218, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result:nth-child(4) {
+  margin-bottom: 30px;
+}
+/* line 221, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest {
+  font-size: 11px;
+  line-height: 6px;
+  text-align: right;
+}
+/* line 222, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest table {
+  font-size: 11px;
+  margin-top: 13px;
+  width: 128%;
+}
+/* line 226, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest table tr {
+  text-align: left;
+  line-height: 13px;
+}
+/* line 228, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest table tr .table-errors {
+  text-align: right;
+  color: #7C7768;
+}
+/* line 232, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest table tr .table-percent {
+  font-size: 10px;
+  color: #7C7768;
+  padding-left: 8px;
+}
+/* line 243, ../sass/column.scss */
+.statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest .statistics-paragraph-interest_title {
+  font-size: 11px;
+  margin-bottom: 20px;
+  margin-top: 0;
+  width: 119%;
+}
+
+/* line 254, ../sass/column.scss */
+.footer {
+  font-size: 18px;
+  background: #312927;
+  border-top: none;
+  height: 145px;
+  color: #675652;
+  padding-top: 33px;
+}
+/* line 261, ../sass/column.scss */
+.footer .footer-rights {
+  font-size: 26px;
+}
+/* line 264, ../sass/column.scss */
+.footer img {
+  float: left;
+}
+/* line 267, ../sass/column.scss */
+.footer .text-footer {
+  font-size: 11px;
+  position: relative;
+  top: 16px;
+  left: -83px;
+}
+/* line 274, ../sass/column.scss */
+.footer .footer-error img {
+  margin-right: 14px;
+}
+/* line 277, ../sass/column.scss */
+.footer .footer-error .footer-text_errors {
+  padding-left: 77px;
+  text-align: right;
+  font-size: 11px;
+  margin-right: 11%;
+}
+/* line 285, ../sass/column.scss */
+.footer .footer-contact img {
+  margin-right: 20px;
+}
+/* line 288, ../sass/column.scss */
+.footer .footer-contact .phone {
+  font-weight: bold;
+  font-size: 33px;
+  line-height: 29px;
+}
+/* line 293, ../sass/column.scss */
+.footer .footer-contact .footer-contact_text {
+  font-size: 11px;
+  margin-top: 4px;
+}

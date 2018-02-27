@@ -1,0 +1,196 @@
+/* line 19, ../sass/form.scss */
+.column-basic .test-block-admin .radio {
+  display: none;
+}
+/* line 22, ../sass/form.scss */
+.column-basic .test-block-admin .radio:checked + span {
+  color: green;
+}
+
+/* line 27, ../sass/form.scss */
+.label-radio {
+  margin-bottom: 3px;
+}
+
+/* line 30, ../sass/form.scss */
+.radio {
+  opacity: 0;
+  position: absolute;
+}
+
+/* line 34, ../sass/form.scss */
+.radio + div {
+  background: black;
+  width: 17px;
+  height: 17px;
+  border-radius: 12px;
+  position: relative;
+  top: 6px;
+}
+
+/* line 42, ../sass/form.scss */
+.radio:checked + div {
+  background: green;
+}
+
+/* line 46, ../sass/form.scss */
+.test-create {
+  margin-top: -15px;
+}
+/* line 48, ../sass/form.scss */
+.test-create .create-test_thema {
+  width: 100%;
+  padding: 0 30px 0 25px;
+}
+/* line 52, ../sass/form.scss */
+.test-create .test-create_themaForm {
+  font-size: 20px;
+  width: 100%;
+  color: #675652;
+  border: none;
+  font-family: 'Oswald Light', 'Oswald Regular', 'Oswald', serif;
+  font-weight: 300;
+  border-bottom: 1px solid #675652;
+  background: none;
+  outline: none;
+}
+/* line 56, ../sass/form.scss */
+.test-create .test-create_themaForm::placeholder {
+  color: #675652;
+}
+/* line 60, ../sass/form.scss */
+.test-create .test-create_questionForm {
+  color: #675652;
+  border: none;
+  font-family: 'Oswald Light', 'Oswald Regular', 'Oswald', serif;
+  font-weight: 300;
+  border-bottom: 1px solid #675652;
+  background: none;
+  outline: none;
+}
+/* line 63, ../sass/form.scss */
+.test-create .test-create_answerForm {
+  color: #675652;
+  border: none;
+  font-family: 'Oswald Light', 'Oswald Regular', 'Oswald', serif;
+  font-weight: 300;
+  border-bottom: 1px solid #675652;
+  background: none;
+  outline: none;
+  width: 72%;
+  margin-left: -21px;
+  margin-right: 11px;
+  font-size: 14px;
+}
+/* line 70, ../sass/form.scss */
+.test-create .test-create_fileInput {
+  margin-left: -20px;
+  margin-top: 10px;
+}
+/* line 73, ../sass/form.scss */
+.test-create .test-create_fileInput input {
+  display: none;
+}
+/* line 76, ../sass/form.scss */
+.test-create .test-create_fileInput img {
+  width: 87px;
+  height: 97px;
+}
+/* line 80, ../sass/form.scss */
+.test-create .test-create_fileInput span {
+  position: relative;
+  top: -54px;
+  left: 18px;
+  font-size: 13px;
+  color: #675652;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+/* line 81, ../sass/form.scss */
+.test-create .test-create_fileInput span:nth-child(3) {
+  top: -34px;
+  left: -27px;
+}
+/* line 94, ../sass/form.scss */
+.test-create .test-create-question {
+  background: #d7d5c2;
+  padding: 15px;
+  padding-left: 30px;
+  padding-bottom: 28px;
+  margin-top: 20px;
+  border-radius: 6px;
+}
+/* line 101, ../sass/form.scss */
+.test-create .test-create-question .test-create-questionInput {
+  color: #675652;
+  font-size: 22px;
+  font-weight: 500;
+}
+/* line 105, ../sass/form.scss */
+.test-create .test-create-question .test-create-questionInput label {
+  margin-right: 20px;
+}
+/* line 108, ../sass/form.scss */
+.test-create .test-create-question .test-create-questionInput input {
+  font-size: 18px;
+  width: 386px;
+}
+
+/* line 118, ../sass/form.scss */
+.statistics .form-search .form-search-icon {
+  color: #a29d88;
+  background: none;
+  border: none;
+  z-index: 1;
+  position: relative;
+  left: 7px;
+}
+/* line 126, ../sass/form.scss */
+.statistics .form-search .form-search-input {
+  font-size: 13px;
+  margin-left: -25px;
+  padding-left: 26px;
+  width: 168px;
+  height: 29px;
+  z-index: 0;
+  font-family: 'Oswald ExtraLight', 'Oswald Regular', 'Oswald', serif;
+  background: #d2d0ba;
+  border: 1px solid #a29d88;
+}
+/* line 137, ../sass/form.scss */
+.statistics .form-search .form-search-button {
+  width: 71px;
+  height: 29px;
+  line-height: 11px;
+  background: #7c7768;
+  margin-right: 23px;
+  font-size: 13px;
+  color: #C7C4A8;
+}
+
+/* line 150, ../sass/form.scss */
+.footer-error input {
+  background: inherit;
+  padding: 8px 21px 9px 15px;
+  border: 1px solid;
+  position: relative;
+  top: -4px;
+  left: 10px;
+  border-right: none;
+  font-size: 9px;
+  color: #675652;
+  border-radius: 14px 0 0 14px;
+}
+/* line 161, ../sass/form.scss */
+.footer-error input::-webkit-input-placeholder {
+  color: #675652;
+}
+/* line 164, ../sass/form.scss */
+.footer-error input:focus {
+  outline: none;
+}
+
+/* line 170, ../sass/form.scss */
+.test-create-question_page {
+  margin-top: 15px;
+}
