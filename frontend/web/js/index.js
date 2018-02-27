@@ -21,6 +21,13 @@ $(document).ready(function(){
         $(this).find('span:last').remove();
     });
 
+    //FileImage
+    $('body').on('change', '.test-created-input', function(){
+        console.log('Hello world');
+        $('.test-created-span').remove();
+        uploadFile(this, '.test-created-image');
+    });
+
     //Modal view
     $('body').on('click', '.buttonNavDelete',function (e) {
         e.preventDefault();
@@ -62,5 +69,17 @@ $(document).ready(function(){
            let value = $(this).val();
            $(radio).attr('value', value)
        })
+    }
+
+    function uploadFile(input, className){
+        if(input.files && input.files[0]){
+            let reader = new FileReader();
+
+            reader.onload = (e) => {
+                $(className).attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
     }
 });
