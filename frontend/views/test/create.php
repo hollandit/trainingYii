@@ -1,64 +1,81 @@
 <?php
 
-use kartik\file\FileInput;
 use yii\bootstrap\Html;
 
 /** @var $thema \app\models\Thema */
 
 $radio = function ($number){
-    echo '<label><input type="radio" name="right" class="radio radio-'.$number.'" required><span>Правильный</span></label>';
+    echo '<label class="label-radio"><input type="radio" name="right" class="radio radio-'.$number.'" required><div></div></label>';
 }
 ?>
+<div class="test-create">
+    <?= Html::beginForm(['test/create'], 'post', ['enctype' => 'multipart/form-data']); ?>
+            <?php if ($thema != null){
+                echo Html::hiddenInput('Thema', $thema->id);
+            } else {
+                echo '<div class="create-test_thema">'. Html::input('text', 'Thema', null, ['required' => true, 'placeholder' => 'Введите название теста', 'class' => 'test-create_themaForm']).'</div>';
+            } ?>
+        <div class="test-create-question">
+            <div class="test-create-questionInput">
+                <label>Вопрос 1.</label>
+                <?= Html::input('text', 'Question', null, ['required' => true, 'placeholder' => 'Введтие вопрос', 'class' => 'test-create_questionForm']) ?>
+            </div>
+            <div class="col-lg-3">
+                <div class="test-create_fileInput">
+                    <label>
+                        <div>
+                            <?= Html::img('@web/images/u1503.png', ['class' => 'test-created-image']) ?>
+                            <span class="test-created-span">Загрузите</span>
+                            <span class="test-created-span">фото</span>
+                        </div>
+                        <?= Html::input('file', 'attachment[]', null, ['multiple' => true, 'class' => 'test-created-input', 'accept' => 'image/jpeg, image/jpg, image/png']) ?>
+                    </label>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <?= Html::input('text', 'Answer[1]', null, ['required' => true, 'class' => 'answer-1 test-create_answerForm', 'placeholder' => 'Введите вариант ответа']);
+                    $radio(1); ?>
+                </div>
+                <div>
+                    <?= Html::input('text', 'Answer[2]', null, ['required' => true, 'class' => 'answer-2 test-create_answerForm', 'placeholder' => 'Введите вариант ответа']);
+                    $radio(2);?>
+                </div>
+                <div>
+                    <?= Html::input('text', 'Answer[3]', null, ['required' => true, 'class' => 'answer-3 test-create_answerForm', 'placeholder' => 'Введите вариант ответа']);
+                    $radio(3); ?>
+                </div>
+                <div>
+                    <?= Html::input('text', 'Answer[4]', null, ['required' => true, 'class' => 'answer-4 test-create_answerForm', 'placeholder' => 'Введите вариант ответа']);
+                    $radio(4); ?>
+                </div>
+            </div>
+        </div>
+        <div class="create-test_control">
+            <?= Html::button('Еще вопрос',['class' => 'create-test_addQuest']) ?>
+            <hr>
+            <div class="col-lg-8">
+                <p>Укажите количество времени для теста:</p>
+            </div>
+            <div class="col-lg-4">
+                <?=
+                    Html::input('number', null, null, ['class' => 'create-test_timeInput']).
+                    Html::input('number', null, null, ['class' => 'create-test_timeInput']).
+                    Html::input('text', null, ':', ['class' => 'control-operator', 'disabled' => true]).
+                    Html::input('number', null, null, ['class' => 'create-test_timeInput']).
+                    Html::input('number', null, null, ['class' => 'create-test_timeInput'])
+                ?>
+            </div>
+            <hr>
+        </div>
+        <p>
+            <?= Html::button('Отмена', ['class' => 'closeModal', 'data-dismiss' => 'modal']); ?>
+            <?= Html::submitButton('Создать', ['class' => 'createTest-modal']); ?>
+        </p>
+    <?= Html::endForm(); ?>
 
+</div>
 
-<?= Html::beginForm(['test/create'], 'post', ['enctype' => 'multipart/form-data']); ?>
-        <?php if ($thema != null){
-            echo Html::hiddenInput('Thema', $thema->id);
-        } else {
-            echo '<div><label>Название темы</label>';
-            echo Html::input('text', 'Thema', null, ['required' => true]).'</div>';
-        } ?>
-    <div>
-        <label>Вопрос</label>
-        <?= Html::input('text', 'Question', null, ['required' => true]) ?>
-    </div>
-    <div>
-        <label>Ответ 1</label>
-        <?= Html::input('text', 'Answer[1]', null, ['required' => true, 'class' => 'answer-1']);
-        $radio(1); ?>
-    </div>
-    <div>
-        <label>Ответ 2</label>
-        <?= Html::input('text', 'Answer[2]', null, ['required' => true, 'class' => 'answer-2']);
-        $radio(2);?>
-    </div>
-    <div>
-        <label>Ответ 3</label>
-        <?= Html::input('text', 'Answer[3]', null, ['required' => true, 'class' => 'answer-3']);
-        $radio(3); ?>
-    </div>
-    <div>
-        <label>Ответ 4</label>
-        <?= Html::input('text', 'Answer[4]', null, ['required' => true, 'class' => 'answer-4']);
-        $radio(4); ?>
-    </div>
-    <div>
-        <?php try {
-            echo FileInput::widget([
-                'name' => 'attachment[]',
-                'options' => ['multiple' => true],
-                'pluginOptions' => [
-                    'showUpload' => false,
-                    'maxFileCount' => 4,
-                    'maxFileSize' => 25600
-                ]
-            ]);
-        } catch (Exception $e) {
-            echo $e;
-        } ?>
-    </div>
-    <?= Html::submitButton('Создать', ['class' => 'btn btn-primary']); ?>
-<?= Html::endForm(); ?>
 
 <!--<div class="test-create">-->
 <!--    <h1>--><?//= Html::encode($this->title) ?><!--</h1>-->
