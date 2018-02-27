@@ -342,27 +342,145 @@
   margin-top: 4px;
 }
 
-/* line 9, ../sass/form.scss */
+/* line 19, ../sass/form.scss */
 .column-basic .test-block-admin .radio {
   display: none;
 }
-/* line 12, ../sass/form.scss */
+/* line 22, ../sass/form.scss */
 .column-basic .test-block-admin .radio:checked + span {
   color: green;
 }
 
-/* line 17, ../sass/form.scss */
+/* line 27, ../sass/form.scss */
+.label-radio {
+  margin-bottom: 3px;
+}
+
+/* line 30, ../sass/form.scss */
 .radio {
   opacity: 0;
   position: absolute;
 }
 
-/* line 21, ../sass/form.scss */
-.radio:checked + span {
-  color: green;
+/* line 34, ../sass/form.scss */
+.radio + div {
+  background: black;
+  width: 17px;
+  height: 17px;
+  border-radius: 12px;
+  position: relative;
+  top: 6px;
 }
 
-/* line 26, ../sass/form.scss */
+/* line 42, ../sass/form.scss */
+.radio:checked + div {
+  background: green;
+}
+
+/* line 46, ../sass/form.scss */
+.test-create {
+  margin-top: -15px;
+}
+/* line 48, ../sass/form.scss */
+.test-create .create-test_thema {
+  width: 100%;
+  padding: 0 30px 0 25px;
+}
+/* line 52, ../sass/form.scss */
+.test-create .test-create_themaForm {
+  font-size: 20px;
+  width: 100%;
+  color: #675652;
+  border: none;
+  font-family: 'Oswald Light', 'Oswald Regular', 'Oswald', serif;
+  font-weight: 300;
+  border-bottom: 1px solid #675652;
+  background: none;
+  outline: none;
+}
+/* line 56, ../sass/form.scss */
+.test-create .test-create_themaForm::placeholder {
+  color: #675652;
+}
+/* line 60, ../sass/form.scss */
+.test-create .test-create_questionForm {
+  color: #675652;
+  border: none;
+  font-family: 'Oswald Light', 'Oswald Regular', 'Oswald', serif;
+  font-weight: 300;
+  border-bottom: 1px solid #675652;
+  background: none;
+  outline: none;
+}
+/* line 63, ../sass/form.scss */
+.test-create .test-create_answerForm {
+  color: #675652;
+  border: none;
+  font-family: 'Oswald Light', 'Oswald Regular', 'Oswald', serif;
+  font-weight: 300;
+  border-bottom: 1px solid #675652;
+  background: none;
+  outline: none;
+  width: 72%;
+  margin-left: -21px;
+  margin-right: 11px;
+  font-size: 14px;
+}
+/* line 70, ../sass/form.scss */
+.test-create .test-create_fileInput {
+  margin-left: -20px;
+  margin-top: 10px;
+}
+/* line 73, ../sass/form.scss */
+.test-create .test-create_fileInput input {
+  display: none;
+}
+/* line 76, ../sass/form.scss */
+.test-create .test-create_fileInput img {
+  width: 87px;
+  height: 97px;
+}
+/* line 80, ../sass/form.scss */
+.test-create .test-create_fileInput span {
+  position: relative;
+  top: -54px;
+  left: 18px;
+  font-size: 13px;
+  color: #675652;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+/* line 81, ../sass/form.scss */
+.test-create .test-create_fileInput span:nth-child(3) {
+  top: -34px;
+  left: -27px;
+}
+/* line 94, ../sass/form.scss */
+.test-create .test-create-question {
+  background: #d7d5c2;
+  padding: 15px;
+  padding-left: 30px;
+  padding-bottom: 28px;
+  margin-top: 20px;
+  border-radius: 6px;
+}
+/* line 101, ../sass/form.scss */
+.test-create .test-create-question .test-create-questionInput {
+  color: #675652;
+  font-size: 22px;
+  font-weight: 500;
+}
+/* line 105, ../sass/form.scss */
+.test-create .test-create-question .test-create-questionInput label {
+  margin-right: 20px;
+}
+/* line 108, ../sass/form.scss */
+.test-create .test-create-question .test-create-questionInput input {
+  font-size: 18px;
+  width: 386px;
+}
+
+/* line 118, ../sass/form.scss */
 .statistics .form-search .form-search-icon {
   color: #a29d88;
   background: none;
@@ -371,7 +489,7 @@
   position: relative;
   left: 7px;
 }
-/* line 34, ../sass/form.scss */
+/* line 126, ../sass/form.scss */
 .statistics .form-search .form-search-input {
   font-size: 13px;
   margin-left: -25px;
@@ -383,7 +501,7 @@
   background: #d2d0ba;
   border: 1px solid #a29d88;
 }
-/* line 45, ../sass/form.scss */
+/* line 137, ../sass/form.scss */
 .statistics .form-search .form-search-button {
   width: 71px;
   height: 29px;
@@ -394,7 +512,7 @@
   color: #C7C4A8;
 }
 
-/* line 58, ../sass/form.scss */
+/* line 150, ../sass/form.scss */
 .footer-error input {
   background: inherit;
   padding: 8px 21px 9px 15px;
@@ -407,21 +525,21 @@
   color: #675652;
   border-radius: 14px 0 0 14px;
 }
-/* line 69, ../sass/form.scss */
+/* line 161, ../sass/form.scss */
 .footer-error input::-webkit-input-placeholder {
   color: #675652;
 }
-/* line 72, ../sass/form.scss */
+/* line 164, ../sass/form.scss */
 .footer-error input:focus {
   outline: none;
 }
 
-/* line 78, ../sass/form.scss */
+/* line 170, ../sass/form.scss */
 .test-create-question_page {
   margin-top: 15px;
 }
 
-/* line 23, ../sass/button.scss */
+/* line 33, ../sass/button.scss */
 .buttonNavDelete {
   position: absolute;
   top: 10px;
@@ -430,7 +548,7 @@
   color: #6b604b;
 }
 
-/* line 31, ../sass/button.scss */
+/* line 41, ../sass/button.scss */
 .button-thema-test {
   background: #37322f;
   border: none;
@@ -442,13 +560,13 @@
   border-radius: 5px;
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.34902);
 }
-/* line 41, ../sass/button.scss */
+/* line 51, ../sass/button.scss */
 .button-thema-test:hover {
   background: #302927;
   color: #a29d88;
 }
 
-/* line 46, ../sass/button.scss */
+/* line 56, ../sass/button.scss */
 .editTitle {
   position: relative;
   float: right;
@@ -459,7 +577,7 @@
   left: -13px;
 }
 
-/* line 49, ../sass/button.scss */
+/* line 59, ../sass/button.scss */
 .editQuestion {
   position: relative;
   float: right;
@@ -470,7 +588,7 @@
   left: -13px;
 }
 
-/* line 53, ../sass/button.scss */
+/* line 63, ../sass/button.scss */
 .passTest {
   background: #339900;
   text-transform: uppercase;
@@ -479,7 +597,7 @@
   border-radius: 10px;
 }
 
-/* line 62, ../sass/button.scss */
+/* line 72, ../sass/button.scss */
 .test-block-admin .nextTestAdmin {
   background: none;
   border: none;
@@ -488,7 +606,7 @@
   top: 57px;
   left: 94%;
 }
-/* line 65, ../sass/button.scss */
+/* line 75, ../sass/button.scss */
 .test-block-admin .prevTestAdmin {
   background: none;
   border: none;
@@ -497,7 +615,7 @@
   top: 57px;
   left: -46px;
 }
-/* line 73, ../sass/button.scss */
+/* line 83, ../sass/button.scss */
 .test-block-admin .nextTestAdminSecond {
   background: none;
   border: none;
@@ -507,7 +625,7 @@
   left: 90%;
 }
 
-/* line 79, ../sass/button.scss */
+/* line 89, ../sass/button.scss */
 .statistics .addLinkButton {
   background: #a9a58e;
   margin-top: 15px;
@@ -520,7 +638,7 @@
   margin-left: 24px;
 }
 
-/* line 91, ../sass/button.scss */
+/* line 101, ../sass/button.scss */
 .addQuestionButton {
   position: relative;
   float: right;
@@ -533,7 +651,75 @@
   font-size: 35px;
 }
 
-/* line 98, ../sass/button.scss */
+/* line 108, ../sass/button.scss */
+.create-test_control button {
+  width: 116px;
+  height: 31px;
+  margin-left: 354px;
+  margin-top: 9px;
+  background: #7c7768;
+  border: none;
+  color: #B3AE84;
+  outline: none;
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.35);
+}
+/* line 121, ../sass/button.scss */
+.create-test_control button:hover {
+  background: #312927;
+}
+/* line 124, ../sass/button.scss */
+.create-test_control button:active {
+  background: #7a7667;
+  color: black;
+}
+
+/* line 132, ../sass/button.scss */
+.test-create .closeModal {
+  width: 220px;
+  height: 52px;
+  font-size: 16px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.35);
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  margin-left: 32px;
+  background: #871414;
+  color: #ffffff;
+}
+/* line 137, ../sass/button.scss */
+.test-create .closeModal:hover {
+  background: #37322f;
+  color: #B3AE84;
+}
+/* line 142, ../sass/button.scss */
+.test-create .createTest-modal {
+  width: 220px;
+  height: 52px;
+  font-size: 16px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.35);
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  margin-left: 7px;
+  background: #37322f;
+  color: #B3AE84;
+}
+/* line 147, ../sass/button.scss */
+.test-create .createTest-modal:hover {
+  background: #312927;
+}
+/* line 150, ../sass/button.scss */
+.test-create .createTest-modal:active {
+  background: #7a7667;
+  color: black;
+}
+
+/* line 158, ../sass/button.scss */
 .footer-error button {
   color: #C7C4A8;
   background: #675652;
@@ -547,45 +733,125 @@
   border-radius: 0 5px 5px 0;
 }
 
-/* line 8, ../sass/index.scss */
+/* line 11, ../sass/modal.scss */
+.modal-dialog {
+  border-radius: 0 32px 0 32px;
+  width: 575px;
+  height: 524px;
+  border: 4px solid #4a42348c;
+}
+
+/* line 15, ../sass/modal.scss */
+.modal-header {
+  font-size: 30px;
+  color: #675652;
+  font-weight: 500;
+  font-family: 'Oswald Medium', 'Oswald Regular', 'Oswald', serif;
+  border-bottom: 1px solid #675652;
+  text-transform: uppercase;
+  width: 86%;
+  padding-left: 0;
+  padding-bottom: 0;
+  margin-left: 38px;
+}
+/* line 26, ../sass/modal.scss */
+.modal-header .close {
+  display: none;
+}
+
+/* line 30, ../sass/modal.scss */
+.modal-content {
+  border-radius: 0 32px 0 32px;
+  width: 575px;
+  height: 524px;
+  background: #C7C4AA;
+}
+
+/* line 34, ../sass/modal.scss */
+.create-test_control {
+  padding-left: 33px;
+  padding-right: 42px;
+}
+/* line 37, ../sass/modal.scss */
+.create-test_control hr {
+  border: 0.5px solid #787878;
+  margin-top: 7px;
+  margin-bottom: 15px;
+}
+/* line 41, ../sass/modal.scss */
+.create-test_control hr:nth-child(5) {
+  margin-top: 60px;
+}
+/* line 45, ../sass/modal.scss */
+.create-test_control p {
+  font-size: 18px;
+}
+/* line 48, ../sass/modal.scss */
+.create-test_control input {
+  width: 21px;
+  height: 29px;
+  font-size: 19px;
+  font-weight: 700;
+  font-family: 'GOST type B Standard Bold', 'GOST type B Standard', serif;
+  border-radius: 1px;
+  background: #d8d6c2;
+  padding-left: 3px;
+  border: 2px solid #7c7768;
+  color: #7C7768;
+  outline: none;
+}
+/* line 60, ../sass/modal.scss */
+.create-test_control input::-webkit-inner-spin-button {
+  display: none;
+}
+/* line 64, ../sass/modal.scss */
+.create-test_control .control-operator {
+  width: 21px;
+  height: 29px;
+  text-align: center;
+  background: #7c7768;
+  color: black;
+}
+
+/* line 9, ../sass/index.scss */
 body {
   font-family: 'Oswald', sans-serif;
   background: #c7c4a8;
   height: 100%;
 }
 
-/* line 13, ../sass/index.scss */
+/* line 14, ../sass/index.scss */
 .header_nav {
   height: 71px;
   padding-top: 13px;
   border-radius: 0;
 }
 
-/* line 18, ../sass/index.scss */
+/* line 19, ../sass/index.scss */
 .content {
   margin-top: -21px;
 }
 
-/* line 21, ../sass/index.scss */
+/* line 22, ../sass/index.scss */
 .test-contant {
   padding-top: 15px;
 }
 
-/* line 24, ../sass/index.scss */
+/* line 25, ../sass/index.scss */
 .test-block, .test-block-admin {
   display: none;
 }
-/* line 26, ../sass/index.scss */
+/* line 27, ../sass/index.scss */
 .test-block:first-of-type, .test-block-admin:first-of-type {
   display: block;
 }
 
-/* line 30, ../sass/index.scss */
+/* line 31, ../sass/index.scss */
 .upperCase {
   text-transform: uppercase;
 }
 
-/* line 34, ../sass/index.scss */
+/* line 35, ../sass/index.scss */
 .delete-modal {
   text-align: left;
   padding: 19% 32% 103px 34%;
@@ -601,17 +867,17 @@ body {
   overflow: hidden;
   opacity: 1;
 }
-/* line 48, ../sass/index.scss */
+/* line 49, ../sass/index.scss */
 .delete-modal h1 {
   font-size: 48px;
   text-transform: uppercase;
 }
-/* line 52, ../sass/index.scss */
+/* line 53, ../sass/index.scss */
 .delete-modal p {
   font-size: 20px;
   margin-bottom: 30px;
 }
-/* line 56, ../sass/index.scss */
+/* line 57, ../sass/index.scss */
 .delete-modal input {
   font-size: 13px;
   text-transform: uppercase;
@@ -623,16 +889,16 @@ body {
   margin-right: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.35);
 }
-/* line 66, ../sass/index.scss */
+/* line 67, ../sass/index.scss */
 .delete-modal input:hover {
   background: rgba(49, 41, 39, 0.5);
 }
-/* line 71, ../sass/index.scss */
+/* line 72, ../sass/index.scss */
 .delete-modal .delete-button:hover {
   border: 2px solid #ff6666;
   color: #ff6666;
 }
-/* line 75, ../sass/index.scss */
+/* line 76, ../sass/index.scss */
 .delete-modal .delete-button:active {
   color: #ffffff;
   border-color: #ff6666;
