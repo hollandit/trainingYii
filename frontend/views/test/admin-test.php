@@ -10,6 +10,7 @@ use app\models\Image;
 /** @var $thema \app\models\Thema */
 
 $lenght = count($model) - 1;
+$this->title = 'Тестирование';
 
 ?>
 
@@ -110,7 +111,7 @@ $lenght = count($model) - 1;
         </div>
     </div>
     <div class="col-lg-3 statistics test-contant">
-        <?= Html::a('Пройти тест', ['#'], ['class' => 'btn btn-success btn-lg passTest']) ?>
+        <?= Html::a('Пройти тест', ['test/testing', 'id' => $model[0]->id_theme], ['class' => 'btn btn-success btn-lg passTest']) ?>
         <div class="purpose">
             <p>СПИСОК НАЗНАЧЕНИЯ <?= Html::img('@web/images/u3045.png', ['style' => 'float:right']) ?></p>
             <hr/>
@@ -210,7 +211,6 @@ $lenght = count($model) - 1;
             <div class="recomendation">
                 <p>РЕКОМЕНДАЦИЯ</p>
                 <hr/>
-                <?= Html::img('@web/images/u3192.png', ['style' => 'margin-left: -20px;margin-top:5px']) ?>
             </div>
         </div>
     </div>
