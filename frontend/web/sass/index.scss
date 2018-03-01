@@ -1,10 +1,19 @@
+@font-face {
+  font-family: 'GOST type B Standard';
+  src: url('../fonts/GOST type B.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+$middle-text: 18px;
+$beige: #c7c4a8;
+$salmon: #ff6666;
+$pale-blue: #999999;
+$greenish-gray: #7C7768;
+
 @import "column";
 @import "form";
 @import "button";
 @import 'modal';
-
-$beige: #c7c4a8;
-$salmon: #ff6666;
 
 body{
   font-family: 'Oswald', sans-serif;
@@ -16,9 +25,102 @@ body{
   padding-top: 13px;
   border-radius: 0;
 }
-.content{
-  margin-top: -21px;
+.header{
+  height: 71px;
+  line-height: 69px;
+  background: rgba(49, 41, 39, 1);
+  .header-test-logo{
+    float: left;
+    width: 20%;
+    padding-left: 10px;
+    .test-title{
+      text-transform: uppercase;
+    }
+    img{
+      width: 30px;
+      height: 28px;
+      margin-right: 9px;
+    }
+    span{
+      font-size: $middle-text + 2;
+      color: $pale-blue;
+      position: relative;
+      top: 4px;
+    }
+  }
+  .header-logo{
+    float: left;
+    background: #272120;
+    width: 20%;
+    padding-left: 10px;
+    img{
+      width: 30px;
+      height: 28px;
+      margin-right: 9px;
+    }
+    span{
+      font-size: $middle-text + 2;
+      color: $pale-blue;
+      position: relative;
+      top: 4px;
+    }
+  }
+  .header-timer{
+    float: left;
+    width: 115px;
+    height: 36px;
+    margin-top: 21px;
+    margin-left: 9%;
+    padding-left: 3px;
+    color: white;
+    background: $greenish-gray;
+    div{
+      float: left;
+      font-size: $middle-text + 8;
+      font-family: 'GOST type B Standard Bold', 'GOST type B Standard', serif;
+      font-weight: 700;
+      background: $greenish-gray;
+      width: 24px;
+      height: 29px;
+      margin-top: 4px;
+      padding: 4px;
+      padding-left: 7px;
+      margin-right: 2px;
+      background: rgba(42, 36, 34, 1);
+      color: $greenish-gray;
+      &:nth-child(3){
+        background: none;
+        padding: 0;
+        margin-right: -17px;
+        color: rgba(42, 36, 34, 1);
+      }
+      span{
+        position: relative;
+        top: -22px
+      }
+    }
+  }
+  .nav > li > a:hover, .nav > li > a:focus{
+    background: rgba(0,0,0,0);
+    color: $gold;
+    border-bottom: 1px solid #73694f;
+  }
+  .nav > li> a:active, .nav>.active>a{
+    background: rgba(116, 106, 79, 1);
+    color: #272120;
+  }
+  .navbar-header{
+    margin-left: 66px;
+    margin-top: 10px;
+    a{
+      margin-top: 12px;
+      line-height: 0;
+      color: $pale-blue;
+      border-radius: 2px;
+    }
+  }
 }
+
 .test-contant{
   padding-top: 15px;
 }
@@ -32,7 +134,7 @@ body{
   text-transform: uppercase;
 }
 
-.delete-modal{
+.delete-modal, .completion-modal{
   text-align:left;
   padding: 19% 32% 103px 34%;
   color: white;
@@ -68,7 +170,7 @@ body{
       background: rgba(49, 41, 39, 0.5);
     }
   }
-  .delete-button{
+  .delete-button, .completion-button{
     &:hover{
       border: 2px solid $salmon;
       color: $salmon;

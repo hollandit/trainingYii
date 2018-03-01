@@ -1,21 +1,21 @@
 /*
 Error: Undefined variable: "$gold".
-        on line 139 of C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss
+        on line 83 of C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss
 
-134:     margin-left: 32px;
-135:     background: rgba(135, 20, 20, 1);
-136:     color: #ffffff;
-137:     &:hover{
-138:       background: rgba(55, 50, 47, 1);
-139:       color: $gold;
-140:     }
-141:   }
-142:   .createTest-modal{
-143:     @include buttonModal;
-144:     margin-left: 7px;
+78:     padding-left: 12px;
+79:     text-decoration: none;
+80:     color: #999992;
+81:     font-size: $small-text + 1;
+82:     &:hover{
+83:       color: $gold;
+84:       i{
+85:         color: $gold;
+86:       }
+87:     }
+88:     &:active{
 
 Backtrace:
-C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss:139
+C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss:83
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/script/tree/variable.rb:49:in `_perform'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/script/tree/node.rb:58:in `perform'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/tree/visitors/perform.rb:397:in `visit_prop'
@@ -89,4 +89,4 @@ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/vendor/listen/lib/listen/adap
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$gold\".\A         on line 139 of C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss\A \A 134:     margin-left: 32px;\A 135:     background: rgba(135, 20, 20, 1);\A 136:     color: #ffffff;\A 137:     &:hover{\A 138:       background: rgba(55, 50, 47, 1);\A 139:       color: $gold;\A 140:     }\A 141:   }\A 142:   .createTest-modal{\A 143:     @include buttonModal;\A 144:     margin-left: 7px;"; }
+  content: "Error: Undefined variable: \"$gold\".\A         on line 83 of C:/OpenServer/domains/hostTraining/frontend/web/sass/button.scss\A \A 78:     padding-left: 12px;\A 79:     text-decoration: none;\A 80:     color: #999992;\A 81:     font-size: $small-text + 1;\A 82:     &:hover{\A 83:       color: $gold;\A 84:       i{\A 85:         color: $gold;\A 86:       }\A 87:     }\A 88:     &:active{"; }

@@ -1,4 +1,10 @@
-/* line 15, ../sass/column.scss */
+@font-face {
+  font-family: 'GOST type B Standard';
+  src: url("../fonts/GOST type B.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+/* line 16, ../sass/column.scss */
 .test-adminTest, .site-index, .site-post {
   display: flex;
   flex-flow: row nowrap;
@@ -6,28 +12,28 @@
   margin-left: -4%;
 }
 
-/* line 22, ../sass/column.scss */
+/* line 23, ../sass/column.scss */
 .navBar-Thema {
   background: #544f46;
   flex-grow: 1;
 }
-/* line 25, ../sass/column.scss */
+/* line 26, ../sass/column.scss */
 .navBar-Thema .navigation-menu {
   border-radius: 0;
   border-bottom: 0.1px solid #5f5a4f;
   width: 112%;
   margin-left: -6%;
 }
-/* line 30, ../sass/column.scss */
+/* line 31, ../sass/column.scss */
 .navBar-Thema .navigation-menu:hover {
   border-bottom: none;
 }
-/* line 33, ../sass/column.scss */
+/* line 34, ../sass/column.scss */
 .navBar-Thema .navigation-menu a {
   padding-left: 11%;
   font-size: 13px;
 }
-/* line 38, ../sass/column.scss */
+/* line 39, ../sass/column.scss */
 .navBar-Thema h3 {
   margin-left: 13px;
   color: #ffffff;
@@ -35,65 +41,65 @@
   border-bottom: none;
   margin-bottom: 15px;
 }
-/* line 45, ../sass/column.scss */
+/* line 46, ../sass/column.scss */
 .navBar-Thema a {
   color: #BCBCBC;
   line-height: 15px;
 }
-/* line 48, ../sass/column.scss */
+/* line 49, ../sass/column.scss */
 .navBar-Thema a:hover {
   color: #cccccc;
   border-radius: 0;
 }
-/* line 52, ../sass/column.scss */
+/* line 53, ../sass/column.scss */
 .navBar-Thema a:active {
   color: #746a4f;
 }
-/* line 56, ../sass/column.scss */
+/* line 57, ../sass/column.scss */
 .navBar-Thema .nav > li > a:hover, .navBar-Thema .nav > li > a:focus {
   background-color: #4d4840;
 }
-/* line 59, ../sass/column.scss */
+/* line 60, ../sass/column.scss */
 .navBar-Thema .nav-pills > li.active > a, .navBar-Thema .nav-pills > li.active > a:hover, .navBar-Thema .nav-pills > li.active > a:focus {
   background-color: #453e3a;
   color: #B3AE84;
 }
 
-/* line 64, ../sass/column.scss */
+/* line 65, ../sass/column.scss */
 .column-basic {
   flex-grow: 1;
 }
-/* line 66, ../sass/column.scss */
+/* line 67, ../sass/column.scss */
 .column-basic .question-one {
   margin-top: 68px;
 }
-/* line 69, ../sass/column.scss */
+/* line 70, ../sass/column.scss */
 .column-basic .title-test {
   text-transform: uppercase;
 }
-/* line 72, ../sass/column.scss */
+/* line 73, ../sass/column.scss */
 .column-basic .column-basic-condition {
   color: #675652;
   line-height: 6px;
   margin-left: 18px;
   margin-top: 19px;
 }
-/* line 77, ../sass/column.scss */
+/* line 78, ../sass/column.scss */
 .column-basic .column-basic-condition p:first-child {
   font-size: 13px;
   margin-bottom: 15px;
 }
-/* line 81, ../sass/column.scss */
+/* line 82, ../sass/column.scss */
 .column-basic .column-basic-condition p:nth-child(3) {
   line-height: 14px;
   margin-top: -5px;
 }
-/* line 85, ../sass/column.scss */
+/* line 86, ../sass/column.scss */
 .column-basic .column-basic-condition p {
   font-size: 11px;
   line-height: 5px;
 }
-/* line 90, ../sass/column.scss */
+/* line 91, ../sass/column.scss */
 .column-basic h1 {
   margin-left: -15px;
   font-size: 40px;
@@ -102,33 +108,33 @@
   background: #a29d88;
   line-height: 58px;
 }
-/* line 98, ../sass/column.scss */
+/* line 99, ../sass/column.scss */
 .column-basic hr {
   border: 0.5px solid #101010;
 }
-/* line 102, ../sass/column.scss */
+/* line 103, ../sass/column.scss */
 .column-basic .test-block-admin h3 {
   font-size: 28px;
   color: #675652;
   font-weight: bold;
   margin-top: -45px;
 }
-/* line 108, ../sass/column.scss */
+/* line 109, ../sass/column.scss */
 .column-basic .test-block-admin p {
   font-size: 28px;
   font-weight: 400;
   color: #675652;
   line-height: 34px;
 }
-/* line 114, ../sass/column.scss */
+/* line 115, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin {
   margin-left: 45px;
 }
-/* line 116, ../sass/column.scss */
+/* line 117, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin h3 {
   text-transform: uppercase;
 }
-/* line 118, ../sass/column.scss */
+/* line 119, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin h3 button {
   font-size: 13px;
   width: 93px;
@@ -141,149 +147,149 @@
   left: 45px;
   top: -6px;
 }
-/* line 129, ../sass/column.scss */
+/* line 130, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin h3 button:focus {
   outline: none;
 }
-/* line 134, ../sass/column.scss */
+/* line 135, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin .radio-answear {
   line-height: 19px;
   margin-bottom: 30px;
 }
-/* line 138, ../sass/column.scss */
+/* line 139, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin p {
   padding-right: 45px;
   line-height: 34px;
   margin-bottom: 27px;
 }
-/* line 143, ../sass/column.scss */
+/* line 144, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin .answer {
   color: #675652;
   font-size: 16px;
   font-weight: 400;
 }
-/* line 147, ../sass/column.scss */
+/* line 148, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin .answer .key-answear {
   margin-right: 10px;
 }
-/* line 152, ../sass/column.scss */
+/* line 153, ../sass/column.scss */
 .column-basic .test-block-admin .test-image {
   margin-bottom: 35px;
 }
 
-/* line 158, ../sass/column.scss */
+/* line 159, ../sass/column.scss */
 .statistics {
   margin-top: 20px;
 }
-/* line 160, ../sass/column.scss */
+/* line 161, ../sass/column.scss */
 .statistics .purpose {
   padding: 0 26px 0 19px;
 }
-/* line 162, ../sass/column.scss */
+/* line 163, ../sass/column.scss */
 .statistics .purpose p {
   font-size: 13px;
   color: #675652;
 }
-/* line 166, ../sass/column.scss */
+/* line 167, ../sass/column.scss */
 .statistics .purpose hr {
   width: 103%;
   margin-left: -7px;
   border: 0.5px solid #675652;
   margin-bottom: 6px;
 }
-/* line 173, ../sass/column.scss */
+/* line 174, ../sass/column.scss */
 .statistics .passTest {
   font-size: 30px;
   line-height: 54px;
 }
-/* line 177, ../sass/column.scss */
+/* line 178, ../sass/column.scss */
 .statistics .form-search, .statistics p {
   margin-top: 11px;
 }
-/* line 180, ../sass/column.scss */
+/* line 181, ../sass/column.scss */
 .statistics hr {
   border: 0.5px solid black;
   margin-top: 0;
 }
-/* line 184, ../sass/column.scss */
+/* line 185, ../sass/column.scss */
 .statistics .statistics_appointment {
   font-size: 13px;
 }
-/* line 186, ../sass/column.scss */
+/* line 187, ../sass/column.scss */
 .statistics .statistics_appointment .success {
   color: #339900;
 }
-/* line 189, ../sass/column.scss */
+/* line 190, ../sass/column.scss */
 .statistics .statistics_appointment .error {
   color: #871414;
 }
-/* line 192, ../sass/column.scss */
+/* line 193, ../sass/column.scss */
 .statistics .statistics_appointment .statistics_appointment-icon {
   font-size: 10px;
 }
-/* line 195, ../sass/column.scss */
+/* line 196, ../sass/column.scss */
 .statistics .statistics_appointment .statistics_appointment-date {
   font-size: 10px;
   margin-left: 6px;
   color: #7C7768;
 }
-/* line 200, ../sass/column.scss */
+/* line 201, ../sass/column.scss */
 .statistics .statistics_appointment .statistics_appointment-name {
   margin-left: 10px;
 }
-/* line 203, ../sass/column.scss */
+/* line 204, ../sass/column.scss */
 .statistics .statistics_appointment .statistics_appointment-result {
   float: right;
   font-size: 10px;
   color: #7C7768;
 }
-/* line 209, ../sass/column.scss */
+/* line 210, ../sass/column.scss */
 .statistics .statistics-paragraph {
   font-size: 13px;
   color: #675652;
   margin-top: 25px;
 }
-/* line 213, ../sass/column.scss */
+/* line 214, ../sass/column.scss */
 .statistics .statistics-paragraph img {
   margin-left: -33px;
 }
-/* line 216, ../sass/column.scss */
+/* line 217, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result {
   margin-top: 15px;
 }
-/* line 218, ../sass/column.scss */
+/* line 219, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result:nth-child(4) {
   margin-bottom: 30px;
 }
-/* line 221, ../sass/column.scss */
+/* line 222, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest {
   font-size: 11px;
   line-height: 6px;
   text-align: right;
 }
-/* line 222, ../sass/column.scss */
+/* line 223, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest table {
   font-size: 11px;
   margin-top: 13px;
   width: 128%;
 }
-/* line 226, ../sass/column.scss */
+/* line 227, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest table tr {
   text-align: left;
   line-height: 13px;
 }
-/* line 228, ../sass/column.scss */
+/* line 229, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest table tr .table-errors {
   text-align: right;
   color: #7C7768;
 }
-/* line 232, ../sass/column.scss */
+/* line 233, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest table tr .table-percent {
   font-size: 10px;
   color: #7C7768;
   padding-left: 8px;
 }
-/* line 243, ../sass/column.scss */
+/* line 244, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest .statistics-paragraph-interest_title {
   font-size: 11px;
   margin-bottom: 20px;
@@ -291,7 +297,70 @@
   width: 119%;
 }
 
-/* line 254, ../sass/column.scss */
+/* line 255, ../sass/column.scss */
+.test-testing {
+  font-size: 24px;
+  color: #312927;
+  margin-bottom: 50px;
+}
+/* line 260, ../sass/column.scss */
+.test-testing .test-block .progress {
+  margin-top: 24px;
+  margin-right: 15%;
+  margin-left: 26.5%;
+  background: transparent;
+  border: 2px solid #7C7768;
+  border-radius: 0 50px 50px 0;
+  height: 28px;
+}
+/* line 268, ../sass/column.scss */
+.test-testing .test-block .progress .progress-bar {
+  color: #7C7768;
+  background: #7C7768;
+}
+/* line 271, ../sass/column.scss */
+.test-testing .test-block .progress .progress-bar .progress-test_info {
+  position: relative;
+  width: 666px;
+  font-size: 11px;
+  margin-top: 2px;
+  text-transform: uppercase;
+  color: #7C7768;
+}
+/* line 281, ../sass/column.scss */
+.test-testing .test-block .test-block-question {
+  margin-right: 15%;
+  margin-left: 26.5%;
+  text-align: left;
+  margin-top: 15px;
+}
+/* line 287, ../sass/column.scss */
+.test-testing .test-block .test-block-answer {
+  margin-top: 20px;
+  margin-left: 26.1%;
+  margin-right: 15%;
+}
+/* line 292, ../sass/column.scss */
+.test-testing .test-block hr {
+  width: 90%;
+  margin-left: -59px;
+  border: 1px solid;
+}
+/* line 297, ../sass/column.scss */
+.test-testing .test-block .test-block-images {
+  margin-left: 25%;
+  margin-right: 16%;
+}
+/* line 300, ../sass/column.scss */
+.test-testing .test-block .test-block-images div {
+  margin-bottom: 5px;
+}
+/* line 302, ../sass/column.scss */
+.test-testing .test-block .test-block-images div img {
+  border-radius: 2px;
+}
+
+/* line 310, ../sass/column.scss */
 .footer {
   font-size: 18px;
   background: #312927;
@@ -300,43 +369,43 @@
   color: #675652;
   padding-top: 33px;
 }
-/* line 261, ../sass/column.scss */
+/* line 317, ../sass/column.scss */
 .footer .footer-rights {
   font-size: 26px;
 }
-/* line 264, ../sass/column.scss */
+/* line 320, ../sass/column.scss */
 .footer img {
   float: left;
 }
-/* line 267, ../sass/column.scss */
+/* line 323, ../sass/column.scss */
 .footer .text-footer {
   font-size: 11px;
   position: relative;
   top: 16px;
   left: -83px;
 }
-/* line 274, ../sass/column.scss */
+/* line 330, ../sass/column.scss */
 .footer .footer-error img {
   margin-right: 14px;
 }
-/* line 277, ../sass/column.scss */
+/* line 333, ../sass/column.scss */
 .footer .footer-error .footer-text_errors {
   padding-left: 77px;
   text-align: right;
   font-size: 11px;
   margin-right: 11%;
 }
-/* line 285, ../sass/column.scss */
+/* line 341, ../sass/column.scss */
 .footer .footer-contact img {
   margin-right: 20px;
 }
-/* line 288, ../sass/column.scss */
+/* line 344, ../sass/column.scss */
 .footer .footer-contact .phone {
   font-weight: bold;
   font-size: 33px;
   line-height: 29px;
 }
-/* line 293, ../sass/column.scss */
+/* line 349, ../sass/column.scss */
 .footer .footer-contact .footer-contact_text {
   font-size: 11px;
   margin-top: 4px;
@@ -539,7 +608,119 @@
   margin-top: 15px;
 }
 
-/* line 33, ../sass/button.scss */
+/* line 52, ../sass/button.scss */
+.header .header-completion {
+  float: right;
+  margin-right: 227px;
+}
+/* line 55, ../sass/button.scss */
+.header .header-completion .headerCRM {
+  width: 157px;
+  text-transform: uppercase;
+  margin-right: 1px;
+  margin-left: 43px;
+}
+/* line 62, ../sass/button.scss */
+.header .headerCRM {
+  margin-left: 27px;
+  width: 82px;
+  height: 37px;
+  margin-top: 18px;
+  background: #453e3a;
+  padding-left: 12px;
+  text-decoration: none;
+  color: #999992;
+  font-size: 14px;
+}
+/* line 63, ../sass/button.scss */
+.header .headerCRM i {
+  margin-right: 6px;
+  position: relative;
+  top: -11px;
+  color: #262020;
+}
+/* line 69, ../sass/button.scss */
+.header .headerCRM span {
+  position: relative;
+  top: -15px;
+}
+/* line 82, ../sass/button.scss */
+.header .headerCRM:hover {
+  color: #B3AE84;
+}
+/* line 84, ../sass/button.scss */
+.header .headerCRM:hover i {
+  color: #B3AE84;
+}
+/* line 88, ../sass/button.scss */
+.header .headerCRM:active {
+  background: #B3AE84;
+  color: #262020;
+}
+/* line 91, ../sass/button.scss */
+.header .headerCRM:active i {
+  color: #262020;
+}
+/* line 96, ../sass/button.scss */
+.header .circle {
+  width: 31px;
+  height: 31px;
+  color: white;
+  float: left;
+  margin-left: 10%;
+  background: #453e3a;
+  margin-top: 20px;
+  border-radius: 15px;
+}
+/* line 105, ../sass/button.scss */
+.header .circle i {
+  position: relative;
+  top: -20px;
+  left: 6px;
+  color: #545250;
+}
+/* line 110, ../sass/button.scss */
+.header .circle i:hover {
+  color: #B3AE84;
+}
+/* line 116, ../sass/button.scss */
+.header .header-logout button {
+  background: none;
+  color: #999992;
+}
+
+/* line 124, ../sass/button.scss */
+.test-block label {
+  float: left;
+  width: 324px;
+  height: 68px;
+  padding-top: 22px;
+  text-align: center;
+  font-weight: 400;
+  border: 2px solid #453E3A;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+/* line 134, ../sass/button.scss */
+.test-block label:nth-child(even) {
+  margin-left: 17px;
+}
+/* line 137, ../sass/button.scss */
+.test-block label:hover {
+  border: 2px solid green;
+  color: green;
+}
+/* line 142, ../sass/button.scss */
+.test-block input {
+  opacity: 0;
+}
+
+/* line 146, ../sass/button.scss */
+.answerButton {
+  display: none;
+}
+
+/* line 150, ../sass/button.scss */
 .buttonNavDelete {
   position: absolute;
   top: 10px;
@@ -548,7 +729,7 @@
   color: #6b604b;
 }
 
-/* line 41, ../sass/button.scss */
+/* line 158, ../sass/button.scss */
 .button-thema-test {
   background: #37322f;
   border: none;
@@ -560,13 +741,13 @@
   border-radius: 5px;
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.34902);
 }
-/* line 51, ../sass/button.scss */
+/* line 45, ../sass/button.scss */
 .button-thema-test:hover {
   background: #302927;
   color: #a29d88;
 }
 
-/* line 56, ../sass/button.scss */
+/* line 161, ../sass/button.scss */
 .editTitle {
   position: relative;
   float: right;
@@ -577,7 +758,7 @@
   left: -13px;
 }
 
-/* line 59, ../sass/button.scss */
+/* line 164, ../sass/button.scss */
 .editQuestion {
   position: relative;
   float: right;
@@ -588,7 +769,7 @@
   left: -13px;
 }
 
-/* line 63, ../sass/button.scss */
+/* line 168, ../sass/button.scss */
 .passTest {
   background: #339900;
   text-transform: uppercase;
@@ -597,7 +778,7 @@
   border-radius: 10px;
 }
 
-/* line 72, ../sass/button.scss */
+/* line 177, ../sass/button.scss */
 .test-block-admin .nextTestAdmin {
   background: none;
   border: none;
@@ -606,7 +787,7 @@
   top: 57px;
   left: 94%;
 }
-/* line 75, ../sass/button.scss */
+/* line 180, ../sass/button.scss */
 .test-block-admin .prevTestAdmin {
   background: none;
   border: none;
@@ -615,7 +796,7 @@
   top: 57px;
   left: -46px;
 }
-/* line 83, ../sass/button.scss */
+/* line 188, ../sass/button.scss */
 .test-block-admin .nextTestAdminSecond {
   background: none;
   border: none;
@@ -625,7 +806,7 @@
   left: 90%;
 }
 
-/* line 89, ../sass/button.scss */
+/* line 194, ../sass/button.scss */
 .statistics .addLinkButton {
   background: #a9a58e;
   margin-top: 15px;
@@ -638,7 +819,7 @@
   margin-left: 24px;
 }
 
-/* line 101, ../sass/button.scss */
+/* line 206, ../sass/button.scss */
 .addQuestionButton {
   position: relative;
   float: right;
@@ -651,7 +832,7 @@
   font-size: 35px;
 }
 
-/* line 108, ../sass/button.scss */
+/* line 213, ../sass/button.scss */
 .create-test_control button {
   width: 116px;
   height: 31px;
@@ -666,17 +847,17 @@
   font-size: 12px;
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.35);
 }
-/* line 121, ../sass/button.scss */
+/* line 226, ../sass/button.scss */
 .create-test_control button:hover {
   background: #312927;
 }
-/* line 124, ../sass/button.scss */
+/* line 229, ../sass/button.scss */
 .create-test_control button:active {
   background: #7a7667;
   color: black;
 }
 
-/* line 132, ../sass/button.scss */
+/* line 237, ../sass/button.scss */
 .test-create .closeModal {
   width: 220px;
   height: 52px;
@@ -690,12 +871,12 @@
   background: #871414;
   color: #ffffff;
 }
-/* line 137, ../sass/button.scss */
+/* line 242, ../sass/button.scss */
 .test-create .closeModal:hover {
   background: #37322f;
   color: #B3AE84;
 }
-/* line 142, ../sass/button.scss */
+/* line 247, ../sass/button.scss */
 .test-create .createTest-modal {
   width: 220px;
   height: 52px;
@@ -709,17 +890,41 @@
   background: #37322f;
   color: #B3AE84;
 }
-/* line 147, ../sass/button.scss */
+/* line 252, ../sass/button.scss */
 .test-create .createTest-modal:hover {
   background: #312927;
 }
-/* line 150, ../sass/button.scss */
+/* line 255, ../sass/button.scss */
 .test-create .createTest-modal:active {
   background: #7a7667;
   color: black;
 }
 
-/* line 158, ../sass/button.scss */
+/* line 262, ../sass/button.scss */
+.modal-result_button {
+  background: #37322f;
+  border: none;
+  color: #B3AE84;
+  width: 186px;
+  height: 40px;
+  margin-left: 11px;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.34902);
+  width: 119px;
+  height: 52px;
+  font-size: 16px;
+  padding-top: 14px;
+  margin-top: 11px;
+  margin-top: 11px;
+}
+/* line 45, ../sass/button.scss */
+.modal-result_button:hover {
+  background: #302927;
+  color: #a29d88;
+}
+
+/* line 274, ../sass/button.scss */
 .footer-error button {
   color: #C7C4A8;
   background: #675652;
@@ -813,46 +1018,197 @@
   color: black;
 }
 
-/* line 9, ../sass/index.scss */
+/* line 74, ../sass/modal.scss */
+#modalResult .modal-dialog, #modalTerm .modal-dialog {
+  height: 340px;
+  margin-top: 90px;
+}
+/* line 78, ../sass/modal.scss */
+#modalResult .modal-content, #modalTerm .modal-content {
+  height: 332px;
+}
+/* line 81, ../sass/modal.scss */
+#modalResult .modal-header, #modalTerm .modal-header {
+  text-align: right;
+  margin-left: 54px;
+  padding-right: 2px;
+}
+/* line 87, ../sass/modal.scss */
+#modalResult .modal-body .modal-result_title, #modalTerm .modal-body .modal-result_title {
+  font-size: 18px;
+  text-align: right;
+  font-weight: 300;
+  font-family: 'Oswald Light', 'Oswald Regular', 'Oswald', serif;
+  padding-right: 12px;
+}
+/* line 95, ../sass/modal.scss */
+#modalResult .modal-body .modal-result_test, #modalTerm .modal-body .modal-result_test {
+  padding-right: 12px;
+}
+/* line 98, ../sass/modal.scss */
+#modalResult .modal-body .modal-result_information, #modalTerm .modal-body .modal-result_information {
+  font-size: 12px;
+  font-family: 'Oswald Light', 'Oswald Regular', 'Oswald', serif;
+  text-align: right;
+  margin-top: 20px;
+}
+/* line 105, ../sass/modal.scss */
+#modalResult .modal-footer, #modalTerm .modal-footer {
+  padding-top: 0;
+  border-top: 1px solid;
+  margin-top: 30px;
+  margin-left: 40px;
+  margin-right: 11px;
+  padding-right: 0;
+}
+
+/* line 18, ../sass/index.scss */
 body {
   font-family: 'Oswald', sans-serif;
   background: #c7c4a8;
   height: 100%;
 }
 
-/* line 14, ../sass/index.scss */
+/* line 23, ../sass/index.scss */
 .header_nav {
   height: 71px;
   padding-top: 13px;
   border-radius: 0;
 }
 
-/* line 19, ../sass/index.scss */
-.content {
-  margin-top: -21px;
+/* line 28, ../sass/index.scss */
+.header {
+  height: 71px;
+  line-height: 69px;
+  background: #312927;
+}
+/* line 32, ../sass/index.scss */
+.header .header-test-logo {
+  float: left;
+  width: 20%;
+  padding-left: 10px;
+}
+/* line 36, ../sass/index.scss */
+.header .header-test-logo .test-title {
+  text-transform: uppercase;
+}
+/* line 39, ../sass/index.scss */
+.header .header-test-logo img {
+  width: 30px;
+  height: 28px;
+  margin-right: 9px;
+}
+/* line 44, ../sass/index.scss */
+.header .header-test-logo span {
+  font-size: 20px;
+  color: #999999;
+  position: relative;
+  top: 4px;
+}
+/* line 51, ../sass/index.scss */
+.header .header-logo {
+  float: left;
+  background: #272120;
+  width: 20%;
+  padding-left: 10px;
+}
+/* line 56, ../sass/index.scss */
+.header .header-logo img {
+  width: 30px;
+  height: 28px;
+  margin-right: 9px;
+}
+/* line 61, ../sass/index.scss */
+.header .header-logo span {
+  font-size: 20px;
+  color: #999999;
+  position: relative;
+  top: 4px;
+}
+/* line 68, ../sass/index.scss */
+.header .header-timer {
+  float: left;
+  width: 115px;
+  height: 36px;
+  margin-top: 21px;
+  margin-left: 9%;
+  padding-left: 3px;
+  color: white;
+  background: #7c7768;
+}
+/* line 77, ../sass/index.scss */
+.header .header-timer div {
+  float: left;
+  font-size: 26px;
+  font-family: 'GOST type B Standard Bold', 'GOST type B Standard', serif;
+  font-weight: 700;
+  background: #7c7768;
+  width: 24px;
+  height: 29px;
+  margin-top: 4px;
+  padding: 4px;
+  padding-left: 7px;
+  margin-right: 2px;
+  background: #2a2422;
+  color: #7c7768;
+}
+/* line 91, ../sass/index.scss */
+.header .header-timer div:nth-child(3) {
+  background: none;
+  padding: 0;
+  margin-right: -17px;
+  color: #2a2422;
+}
+/* line 97, ../sass/index.scss */
+.header .header-timer div span {
+  position: relative;
+  top: -22px;
+}
+/* line 103, ../sass/index.scss */
+.header .nav > li > a:hover, .header .nav > li > a:focus {
+  background: transparent;
+  color: #B3AE84;
+  border-bottom: 1px solid #73694f;
+}
+/* line 108, ../sass/index.scss */
+.header .nav > li > a:active, .header .nav > .active > a {
+  background: #746a4f;
+  color: #272120;
+}
+/* line 112, ../sass/index.scss */
+.header .navbar-header {
+  margin-left: 66px;
+  margin-top: 10px;
+}
+/* line 115, ../sass/index.scss */
+.header .navbar-header a {
+  margin-top: 12px;
+  line-height: 0;
+  color: #999999;
+  border-radius: 2px;
 }
 
-/* line 22, ../sass/index.scss */
+/* line 124, ../sass/index.scss */
 .test-contant {
   padding-top: 15px;
 }
 
-/* line 25, ../sass/index.scss */
+/* line 127, ../sass/index.scss */
 .test-block, .test-block-admin {
   display: none;
 }
-/* line 27, ../sass/index.scss */
+/* line 129, ../sass/index.scss */
 .test-block:first-of-type, .test-block-admin:first-of-type {
   display: block;
 }
 
-/* line 31, ../sass/index.scss */
+/* line 133, ../sass/index.scss */
 .upperCase {
   text-transform: uppercase;
 }
 
-/* line 35, ../sass/index.scss */
-.delete-modal {
+/* line 137, ../sass/index.scss */
+.delete-modal, .completion-modal {
   text-align: left;
   padding: 19% 32% 103px 34%;
   color: white;
@@ -867,18 +1223,18 @@ body {
   overflow: hidden;
   opacity: 1;
 }
-/* line 49, ../sass/index.scss */
-.delete-modal h1 {
+/* line 151, ../sass/index.scss */
+.delete-modal h1, .completion-modal h1 {
   font-size: 48px;
   text-transform: uppercase;
 }
-/* line 53, ../sass/index.scss */
-.delete-modal p {
+/* line 155, ../sass/index.scss */
+.delete-modal p, .completion-modal p {
   font-size: 20px;
   margin-bottom: 30px;
 }
-/* line 57, ../sass/index.scss */
-.delete-modal input {
+/* line 159, ../sass/index.scss */
+.delete-modal input, .completion-modal input {
   font-size: 13px;
   text-transform: uppercase;
   text-align: center;
@@ -889,17 +1245,17 @@ body {
   margin-right: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.35);
 }
-/* line 67, ../sass/index.scss */
-.delete-modal input:hover {
+/* line 169, ../sass/index.scss */
+.delete-modal input:hover, .completion-modal input:hover {
   background: rgba(49, 41, 39, 0.5);
 }
-/* line 72, ../sass/index.scss */
-.delete-modal .delete-button:hover {
+/* line 174, ../sass/index.scss */
+.delete-modal .delete-button:hover, .delete-modal .completion-button:hover, .completion-modal .delete-button:hover, .completion-modal .completion-button:hover {
   border: 2px solid #ff6666;
   color: #ff6666;
 }
-/* line 76, ../sass/index.scss */
-.delete-modal .delete-button:active {
+/* line 178, ../sass/index.scss */
+.delete-modal .delete-button:active, .delete-modal .completion-button:active, .completion-modal .delete-button:active, .completion-modal .completion-button:active {
   color: #ffffff;
   border-color: #ff6666;
   background: rgba(255, 102, 102, 0.5);
