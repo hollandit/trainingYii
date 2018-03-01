@@ -25,10 +25,15 @@ class TestController extends Controller
                         'roles' => ['hr']
                     ],
                     [
-                        'actions' => ['index', 'testing', 'result'],
+                        'actions' => ['index', 'result'],
                         'allow' => true,
                         'roles' => ['employee']
-                    ]
+                    ],
+                    [
+                        'actions' => ['testing'],
+                        'allow' => true,
+                        'roles' => ['hr', 'employee']
+                    ],
                 ]
             ]
         ];
@@ -39,6 +44,9 @@ class TestController extends Controller
         return $this->render('index');
     }
 
+    /**
+     * @return \yii\web\Response
+     */
     public function actionCreate()
     {
         $model = new Questions();
@@ -120,6 +128,13 @@ class TestController extends Controller
         return $this->redirect(['test', 'id' => $model->id_theme]);
     }
 
+    /**
+     * @param $id
+     * @return \yii\web\Response
+     * @throws \Exception
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
+     */
     public function actionDeleteTheme($id)
     {
         Thema::findOne($id)->delete();
@@ -128,10 +143,13 @@ class TestController extends Controller
 
     public function actionTesting($id)
     {
+        $this->layout = 'test';
         $model = Questions::find()->where(['id_theme' => $id])->all();
         $right = 0;
         $done = null;
+        //result test for user
         if (Yii::$app->request->post('Answear')){
+            $result = [];
             foreach ($model as $value){
                 foreach ($value->correct as $key => $correct){
                     if (Yii::$app->request->post('Answear')[$value->id] == $correct){
@@ -139,18 +157,27 @@ class TestController extends Controller
                     };
                 }
             }
-            $choice = new Choice();
-            $choice->id_theme = $model[0]->id_theme;
-            $choice->answear = json_encode(Yii::$app->request->post('Answear'), JSON_UNESCAPED_UNICODE);
-            $choice->result = $right;
-            if (!$choice->save()){
-                print_r($choice->getErrors());
-            }
-            if ($right == 15){
-                return $this->redirect(['test/result', 'message' => 'Тест пройден', 'right' => $right]);
+//            $choice = new Choice();
+//            $choice->id_user = Yii::$app->user->id;
+//            $choice->id_theme = $model[0]->id_theme;
+//            $choice->answear = json_encode(Yii::$app->request->post('Answear'), JSON_UNESCAPED_UNICODE);
+//            $choice->result = $right;
+//            if (!$choice->save()){
+//                print_r($choice->getErrors());
+//            }
+            if ($right == count($model)) {
+                $result['right'] = $right;
+                $result['status'] = 1;
+                return $result;
             } else {
-                return $this->redirect(['test/result', 'message' => 'Тест провален', 'right' => $right]);
+                $result['right'] = $right;
+                $result['status'] = 0;
+                return json_encode($result, JSON_UNESCAPED_UNICODE);
             }
+//                return $this->redirect(['test/result', 'message' => 'Тест пройден', 'right' => $right]);
+//            } else {
+////                return $this->redirect(['test/result', 'message' => 'Тест провален', 'right' => $right]);
+//            }
         }
 
         return $this->render('test', [
