@@ -27,46 +27,86 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-
     <?php if(!Yii::$app->user->isGuest): ?>
-        <?php
-        NavBar::begin([
-            'brandLabel' => 'Holland',
-            'brandUrl' => Yii::$app->homeUrl,
-            'options' => [
-                    'class' => 'navbar-inverse header_nav',
-            ],
-        ]);
-        $menuItems = [
-            ['label' => 'Главная страница', 'url' => ['/site/index'], 'visible' => Yii::$app->user->can('employee')],
-            ['label' => 'База знаний', 'url' => ['/site/knowledge'], 'visible' => Yii::$app->user->can('employee')],
-            ['label' => 'Треннинги', 'url' => ['/site/contact'], 'visible' => Yii::$app->user->can('employee')],
-            ['label' => 'Тесты', 'url' => ['/test/test', 'id' => 1], 'visible' => Yii::$app->user->can('hr')],
-            ['label' => 'Результаты', 'url' => ['/test/result-test'], 'visible' => Yii::$app->user->can('hr')],
-            ['label' => 'Картотека', 'url' => ['user/index'], 'visible' => Yii::$app->user->can('hr')],
-            ['label' => 'База Знаний', 'url' => ['knowledge/index'], 'visible' => Yii::$app->user->can('hr')]
-        ];
-        if (Yii::$app->user->isGuest) {
-            $menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup']];
-            $menuItems[] = ['label' => 'Войти', 'url' => ['/site/login']];
-        } else {
-            $menuItems[] = '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Выйти (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>';
-        }
-        echo Nav::widget([
-            'options' => ['class' => 'navbar-nav navbar-right'],
-            'items' => $menuItems,
-        ]);
-        NavBar::end();
-        ?>
+    <div class="header">
+        <div class="header-logo">
+            <?= Html::img('@web/images/u156.png')
+            .'<span>'.Html::encode($this->title).'</span>'
+            ?>
+        </div>
+        <div>
+            <?php echo Html::a('<i class="fa fa-2x fa-angle-double-right" aria-hidden="true"></i><span>в CRM<span>', 'https://crm.holland-store.ru', ['class' => 'headerCRM pull-left']);
+            try{
+                echo Nav::widget([
+                'options' => ['class' => 'navbar-nav pull-left navbar-header'],
+                'items' => [
+                    ['label' => 'Результаты', 'url' => ['/test/result-test'], 'visible' => Yii::$app->user->can('hr'), 'active' => Yii::$app->controller->action->id === 'result-test' ? true : false],
+                    ['label' => 'Смены', 'url' => ['#'], 'visible' => Yii::$app->user->can('hr')],
+                    ['label' => 'Картотека', 'url' => ['/user/index'], 'visible' => Yii::$app->user->can('hr'), 'active' => Yii::$app->controller->action->id === 'index' && Yii::$app->controller->id === 'user' ? true : false],
+                    ['label' => 'Зарплаты', 'url' => ['#'], 'visible' => Yii::$app->user->can('hr')],
+                    ['label' => 'Главная страница', 'url' => ['/site/index'], 'visible' => Yii::$app->user->can('employee'), 'active' => Yii::$app->controller->action->id === 'index' && Yii::$app->controller->id === 'site' ? true : false],
+                    ['label' => 'Треннинги', 'url' => ['/site/contact'], 'visible' => Yii::$app->user->can('employee'), 'active' => Yii::$app->controller->action->id === 'contact' ? true : false],
+                    ['label' => 'Тесты', 'url' => ['/test/test', 'id' => 1], 'visible' => Yii::$app->user->can('hr'), 'active' => Yii::$app->controller->action->id === 'test' || Yii::$app->controller->action->id === 'admin-test' ? true : false],
+                    ['label' => 'База знаний', 'url' => ['/site/knowledge'], 'visible' => Yii::$app->user->can('employee'), 'active' => Yii::$app->controller->action->id === 'knowledge' ? true : false],
+                    ['label' => 'База Знаний', 'url' => ['/knowledge/index'], 'visible' => Yii::$app->user->can('hr'), 'active' => Yii::$app->controller->action->id === 'index' && Yii::$app->controller->id === 'knowledge' ? true : false]
+                ]
+            ]);
+            } catch (Exception $e) {
+                var_dump($e->getMessage());
+            } ?>
+        </div>
+        <div>
+            <div class="circle">
+                <i class="fa fa-lg fa-bell-o" aria-hidden="true"></i>
+            </div>
+            <div class="header-logout">
+                <?php echo Html::beginForm(['/site/logout'], 'post')
+                .Html::submitButton(
+                        'Выйти ('.Yii::$app->user->identity->username.')',
+                        ['class' => 'btn btn-ling logout']
+                    )
+                .Html::endForm();
+                ?>
+            </div>
+        </div>
+    </div>
+<!--        --><?php
+//        NavBar::begin([
+//            'brandLabel' => Html::img('@web/images/u156.png').' '.Html::encode($this->title),
+////            'brandUrl' => Yii::$app->homeUrl,
+//            'options' => [
+//                    'class' => 'navbar-inverse header_nav',
+//            ],
+//        ]);
+//        $menuItems = [
+//            ['label' => 'Главная страница', 'url' => ['/site/index'], 'visible' => Yii::$app->user->can('employee')],
+//            ['label' => 'База знаний', 'url' => ['/site/knowledge'], 'visible' => Yii::$app->user->can('employee')],
+//            ['label' => 'Треннинги', 'url' => ['/site/contact'], 'visible' => Yii::$app->user->can('employee')],
+//            ['label' => 'Тесты', 'url' => ['/test/test', 'id' => 1], 'visible' => Yii::$app->user->can('hr')],
+//            ['label' => 'Результаты', 'url' => ['/test/result-test'], 'visible' => Yii::$app->user->can('hr')],
+//            ['label' => 'Картотека', 'url' => ['user/index'], 'visible' => Yii::$app->user->can('hr')],
+//            ['label' => 'База Знаний', 'url' => ['knowledge/index'], 'visible' => Yii::$app->user->can('hr')]
+//        ];
+//        if (Yii::$app->user->isGuest) {
+//            $menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup']];
+//            $menuItems[] = ['label' => 'Войти', 'url' => ['/site/login']];
+//        } else {
+//            $menuItems[] = '<li>'
+//                . Html::beginForm(['/site/logout'], 'post')
+//                . Html::submitButton(
+//                    'Выйти (' . Yii::$app->user->identity->username . ')',
+//                    ['class' => 'btn btn-link logout']
+//                )
+//                . Html::endForm()
+//                . '</li>';
+//        }
+//        echo Nav::widget([
+//            'options' => ['class' => 'navbar-nav navbar-right'],
+//            'items' => $menuItems,
+//        ]);
+//        NavBar::end();
+//        ?>
     <?php endif; ?>
-
     <div class="content">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
