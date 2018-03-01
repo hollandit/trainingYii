@@ -13,12 +13,12 @@ $radio = function ($number){
             <?php if ($thema != null){
                 echo Html::hiddenInput('Thema', $thema->id);
             } else {
-                echo '<div class="create-test_thema">'. Html::input('text', 'Thema', null, ['required' => true, 'placeholder' => 'Введите название теста', 'class' => 'test-create_themaForm']).'</div>';
+                echo '<div class="create-test_thema">'. Html::input('text', 'Thema', null, ['required' => true, 'placeholder' => 'Введите название теста...', 'class' => 'test-create_themaForm']).'</div>';
             } ?>
         <div class="test-create-question">
             <div class="test-create-questionInput">
-                <label>Вопрос 1.</label>
-                <?= Html::input('text', 'Question', null, ['required' => true, 'placeholder' => 'Введтие вопрос', 'class' => 'test-create_questionForm']) ?>
+                <label>Вопрос.</label>
+                <?= Html::input('text', 'Question', null, ['required' => true, 'placeholder' => 'Введите вопрос...', 'class' => 'test-create_questionForm']) ?>
             </div>
             <div class="col-lg-3">
                 <div class="test-create_fileInput">
@@ -34,19 +34,19 @@ $radio = function ($number){
             </div>
             <div>
                 <div>
-                    <?= Html::input('text', 'Answer[1]', null, ['required' => true, 'class' => 'answer-1 test-create_answerForm', 'placeholder' => 'Введите вариант ответа']);
+                    <?= Html::input('text', 'Answer[1]', null, ['required' => true, 'class' => 'answer-1 test-create_answerForm', 'placeholder' => 'Введите вариант ответа...']);
                     $radio(1); ?>
                 </div>
                 <div>
-                    <?= Html::input('text', 'Answer[2]', null, ['required' => true, 'class' => 'answer-2 test-create_answerForm', 'placeholder' => 'Введите вариант ответа']);
+                    <?= Html::input('text', 'Answer[2]', null, ['required' => true, 'class' => 'answer-2 test-create_answerForm', 'placeholder' => 'Введите вариант ответа...']);
                     $radio(2);?>
                 </div>
                 <div>
-                    <?= Html::input('text', 'Answer[3]', null, ['required' => true, 'class' => 'answer-3 test-create_answerForm', 'placeholder' => 'Введите вариант ответа']);
+                    <?= Html::input('text', 'Answer[3]', null, ['required' => true, 'class' => 'answer-3 test-create_answerForm', 'placeholder' => 'Введите вариант ответа...']);
                     $radio(3); ?>
                 </div>
                 <div>
-                    <?= Html::input('text', 'Answer[4]', null, ['required' => true, 'class' => 'answer-4 test-create_answerForm', 'placeholder' => 'Введите вариант ответа']);
+                    <?= Html::input('text', 'Answer[4]', null, ['required' => true, 'class' => 'answer-4 test-create_answerForm', 'placeholder' => 'Введите вариант ответа...']);
                     $radio(4); ?>
                 </div>
             </div>
