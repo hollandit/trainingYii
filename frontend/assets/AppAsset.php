@@ -21,7 +21,8 @@ class AppAsset extends AssetBundle
         'js/index.js',
         'js/question.js',
         'js/lightbox.min.js',
-        'js/yii.confirm.overrides.js'
+        'js/yii.confirm.overrides.js',
+        'https://use.fontawesome.com/2998a92670.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
