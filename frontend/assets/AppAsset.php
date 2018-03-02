@@ -15,6 +15,7 @@ class AppAsset extends AssetBundle
         'css/site.css',
         'css/index.css',
         'css/lightbox.min.css',
+        'css/font-awesome/css/font-awesome.min.css',
         'https://fonts.googleapis.com/css?family=Oswald'
     ];
     public $js = [
@@ -22,7 +23,6 @@ class AppAsset extends AssetBundle
         'js/question.js',
         'js/lightbox.min.js',
         'js/yii.confirm.overrides.js',
-        'https://use.fontawesome.com/2998a92670.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
