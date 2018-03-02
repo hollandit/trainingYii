@@ -4,25 +4,41 @@ use app\models\Image;
 use yii\bootstrap\Modal;
 use yii\bootstrap\Progress;
 use yii\helpers\Html;
+use yii\helpers\StringHelper;
+
 $write = $model[0];
 $lenght = count($model);
+
+//function timeTest($number){
+//    return $number < 10 ? '0'.$number : $number;
+//}
+function stringLenght($time){
+    if (strlen($time) < 2){
+        return '0'.$time;
+    }
+    return $time;
+}
+$minute = stringLenght($model[0]->idThemeQuestion->minute);
+$second = stringLenght($model[0]->idThemeQuestion->second);
 ?>
 
 <header class="header">
-    <div class="header-test-logo">
-        <?= Html::img('@web/images/u156.png')
-        .'<span> Тест "<span class="test-title">'.$write->idThemeQuestion->name.'</span>"</span>'
-        ?>
-    </div>
-    <div class="header-timer" id="timer">
-        <div><span id="m">1</span></div>
-        <div><span id="mm">5</span></div>
-        <div><span>:</span></div>
-        <div><span id="s">1</span></div>
-        <div><span id="ss">0</span></div>
-    </div>
-    <div class="header-completion">
-        <?= Html::a('<i class="fa fa-2x fa-angle-double-right" aria-hidden="true"></i><span>Завершить тест<span>', ['#'], ['class' => 'headerCRM pull-left', 'id' => 'completion-button']);?>
+    <div class="container">
+        <div class="header-test-logo">
+            <?= Html::img('@web/images/u156.png')
+            .'<span> Тест "<span class="test-title" data-toggle="tooltip" title="'.$write->idThemeQuestion->name.'">'. StringHelper::truncate($write->idThemeQuestion->name, 8, '...').'</span>"</span>'
+            ?>
+        </div>
+        <div class="header-timer" id="timer">
+            <div><span id="m"><?= $minute[0] ?></span></div>
+            <div><span id="mm"><?= $minute[1] ?></span></div>
+            <div><span>:</span></div>
+            <div><span id="s"><?= $second[0] ?></span></div>
+            <div><span id="ss"><?= $second[1] ?></span></div>
+        </div>
+        <div class="header-completion">
+            <?= Html::a('<i class="fa fa-2x fa-angle-double-right" aria-hidden="true"></i><span>Завершить тест<span>', ['#'], ['class' => 'headerCRM pull-left', 'id' => 'completion-button']);?>
+        </div>
     </div>
 </header>
 <div class="test-testing container">
@@ -98,7 +114,6 @@ $lenght = count($model);
     Modal::end()?>
 </div>
 <?php $script = <<< JS
-window.onload = function(){
   function timer(){
     let minute = document.getElementById("m").innerHTML + document.getElementById("mm").innerHTML;
     let second = document.getElementById("s").innerHTML + document.getElementById("ss").innerHTML;
@@ -133,6 +148,5 @@ window.onload = function(){
     }
   }
   window.intervalID = setInterval(timer, 1000);
-}
 JS;
 $this->registerJs($script)?>
