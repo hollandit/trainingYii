@@ -53,19 +53,18 @@ $radio = function ($number){
         </div>
         <div class="create-test_control">
             <?= Html::button('Еще вопрос',['class' => 'create-test_addQuest']) ?>
+            <?php if ($thema == null): ?>
             <hr>
             <div class="col-lg-8">
                 <p>Укажите количество времени для теста:</p>
             </div>
             <div class="col-lg-4">
-                <?=
-                    Html::input('number', null, null, ['class' => 'create-test_timeInput']).
-                    Html::input('number', null, null, ['class' => 'create-test_timeInput']).
+                <?= Html::input('number', 'minutes', null, ['class' => 'create-test_timeInput', 'min' => '0', 'max' => '59']).
                     Html::input('text', null, ':', ['class' => 'control-operator', 'disabled' => true]).
-                    Html::input('number', null, null, ['class' => 'create-test_timeInput']).
-                    Html::input('number', null, null, ['class' => 'create-test_timeInput'])
+                    Html::input('number', 'second', null, ['class' => 'create-test_timeInput', 'min' => '0', 'max' => '59'])
                 ?>
             </div>
+            <?php endif; ?>
             <hr>
         </div>
         <p>
