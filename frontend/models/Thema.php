@@ -3,7 +3,7 @@
 namespace app\models;
 
 use app\models\query\ThemaQuery;
-use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "{{%thema}}".
@@ -11,13 +11,15 @@ use Yii;
  * @property int $id
  * @property string $name
  * @property int $id_possition
+ * @property string $minute
+ * @property string $second
  *
  * @property Access[] $accesses
  * @property Questions $questions
  * @property Testing[] $testings
  * @property Position $possition
  */
-class Thema extends \yii\db\ActiveRecord
+class Thema extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -36,6 +38,7 @@ class Thema extends \yii\db\ActiveRecord
             [['name'], 'required'],
             [['id_possition'], 'integer'],
             [['name'], 'string', 'max' => 200],
+            [['minute', 'second'], 'string', 'max' => 2],
             ['id_possition', 'default', 'value' => 5],
             [['id_possition'], 'exist', 'skipOnError' => true, 'targetClass' => Position::className(), 'targetAttribute' => ['id_possition' => 'id']],
         ];
@@ -50,6 +53,8 @@ class Thema extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Название',
             'id_possition' => 'Id Possition',
+            'minute' => 'Minute',
+            'second' => 'Second'
         ];
     }
 
