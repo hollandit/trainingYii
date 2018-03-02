@@ -5,7 +5,6 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
@@ -25,7 +24,7 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-
+<?php $questionHeader = \app\models\Questions::find()->select('id_theme')->where(['active' => 1])->limit(1)->all() ?>
 <div class="wrap">
     <?php if(!Yii::$app->user->isGuest): ?>
     <div class="header">
@@ -40,13 +39,13 @@ AppAsset::register($this);
                 echo Nav::widget([
                 'options' => ['class' => 'navbar-nav pull-left navbar-header'],
                 'items' => [
-                    ['label' => 'Результаты', 'url' => ['/test/result-test'], 'visible' => Yii::$app->user->can('hr'), 'active' => Yii::$app->controller->action->id === 'result-test' ? true : false],
+                    ['label' => 'Рейтинги', 'url' => ['/test/result-test'], 'visible' => Yii::$app->user->can('hr'), 'active' => Yii::$app->controller->action->id === 'result-test' ? true : false],
                     ['label' => 'Смены', 'url' => ['#'], 'visible' => Yii::$app->user->can('hr')],
                     ['label' => 'Картотека', 'url' => ['/user/index'], 'visible' => Yii::$app->user->can('hr'), 'active' => Yii::$app->controller->action->id === 'index' && Yii::$app->controller->id === 'user' ? true : false],
                     ['label' => 'Зарплаты', 'url' => ['#'], 'visible' => Yii::$app->user->can('hr')],
                     ['label' => 'Главная страница', 'url' => ['/site/index'], 'visible' => Yii::$app->user->can('employee'), 'active' => Yii::$app->controller->action->id === 'index' && Yii::$app->controller->id === 'site' ? true : false],
                     ['label' => 'Треннинги', 'url' => ['/site/contact'], 'visible' => Yii::$app->user->can('employee'), 'active' => Yii::$app->controller->action->id === 'contact' ? true : false],
-                    ['label' => 'Тесты', 'url' => ['/test/test', 'id' => 1], 'visible' => Yii::$app->user->can('hr'), 'active' => Yii::$app->controller->action->id === 'test' || Yii::$app->controller->action->id === 'admin-test' ? true : false],
+                    ['label' => 'Тесты', 'url' => ['/test/test', 'id' => $questionHeader[0]->id_theme], 'visible' => Yii::$app->user->can('hr'), 'active' => Yii::$app->controller->action->id === 'test' || Yii::$app->controller->action->id === 'admin-test' ? true : false],
                     ['label' => 'База знаний', 'url' => ['/site/knowledge'], 'visible' => Yii::$app->user->can('employee'), 'active' => Yii::$app->controller->action->id === 'knowledge' ? true : false],
                     ['label' => 'База Знаний', 'url' => ['/knowledge/index'], 'visible' => Yii::$app->user->can('hr'), 'active' => Yii::$app->controller->action->id === 'index' && Yii::$app->controller->id === 'knowledge' ? true : false]
                 ]
