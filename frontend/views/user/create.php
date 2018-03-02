@@ -27,6 +27,21 @@ $this->title = 'Создать сотрудника';
 
             <?= $form->field($model, 'patronymic')->textInput(['maxlength' => true, 'placeholder' => 'Отчество'])->label(false) ?>
 
+<!--            --><?//= $form->field($model, 'city')->textInput(['maxlength' => true, 'placeholder' => 'Город'])->label(false) ?>
+            <?= $form->field($model, 'city')->widget(\andkon\yii2kladr\Kladr::className(), [
+                'type' => \andkon\yii2kladr\Kladr::TYPE_CITY,
+                'options' => [
+                    'placeholder' => 'Город',
+                    'class' => 'form_input'
+                ]
+            ])->label(false) ?>
+
+            <?= $form->field($model, 'street')->textInput(['maxlength' => true, 'placeholder' => 'Улица'])->label(false) ?>
+
+            <?= $form->field($model, 'build')->textInput(['maxlength' => true, 'placeholder' => 'Дом'])->label(false) ?>
+
+            <?= $form->field($model, 'appartament')->textInput(['maxlength' => true, 'placeholder' => 'Квартира'])->label(false) ?>
+
             <?= $form->field($model, 'id_position')->dropDownList(
                     ArrayHelper::map(
                             Position::find()->all(),
