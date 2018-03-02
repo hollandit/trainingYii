@@ -25,6 +25,9 @@ $(document).ready(function(){
         $('.answerButton').trigger('click');
     });
 
+    $('.test-title').tooltip({
+        placement: 'bottom'
+    });
     //Form test
     $('#testForm-result').submit(function(e){
         e.preventDefault();
