@@ -15,6 +15,10 @@ class SignupForm extends Model
     public $last_name;
     public $name;
     public $patronymic;
+    public $city;
+    public $street;
+    public $build;
+    public $appartament;
     public $id_position;
     public $date_birth;
 
@@ -39,7 +43,7 @@ class SignupForm extends Model
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
 
-            [['last_name', 'name', 'patronymic'], 'string', 'max' => 86],
+            [['last_name', 'name', 'patronymic', 'city', 'street', 'appartament'], 'string', 'max' => 86],
             ['id_position', 'integer'],
             ['date_birth', 'safe']
         ];
@@ -64,6 +68,10 @@ class SignupForm extends Model
         $user->last_name = $this->last_name;
         $user->name = $this->name;
         $user->patronymic = $this->patronymic;
+        $user->city = $this->city;
+        $user->street = $this->street;
+        $user->build = $this->build;
+        $user->appartament = $this->appartament;
         $user->id_position = $this->id_position;
         $user->date_birth = $this->date_birth;
 
