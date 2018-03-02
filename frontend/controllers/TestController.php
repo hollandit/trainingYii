@@ -61,6 +61,8 @@ class TestController extends Controller
                 $model->id_theme = (int)$thema;
             } else {
                 $themaModel->name = $thema;
+                $themaModel->minute = $request->post('minute');
+                $themaModel->second = $request->post('second');
                 if (!$themaModel->save()) {
                     print_r($themaModel->getErrors());
                 }
@@ -168,16 +170,12 @@ class TestController extends Controller
             if ($right == count($model)) {
                 $result['right'] = $right;
                 $result['status'] = 1;
-                return $result;
+                return json_encode($result, JSON_UNESCAPED_UNICODE);
             } else {
                 $result['right'] = $right;
                 $result['status'] = 0;
                 return json_encode($result, JSON_UNESCAPED_UNICODE);
             }
-//                return $this->redirect(['test/result', 'message' => 'Тест пройден', 'right' => $right]);
-//            } else {
-////                return $this->redirect(['test/result', 'message' => 'Тест провален', 'right' => $right]);
-//            }
         }
 
         return $this->render('test', [
