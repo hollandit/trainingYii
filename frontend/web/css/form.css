@@ -1,24 +1,38 @@
-/* line 19, ../sass/form.scss */
+/* line 38, ../sass/form.scss */
 .column-basic .test-block-admin .radio {
   display: none;
 }
-/* line 22, ../sass/form.scss */
+/* line 41, ../sass/form.scss */
 .column-basic .test-block-admin .radio:checked + span {
   color: green;
 }
 
-/* line 27, ../sass/form.scss */
+/* line 46, ../sass/form.scss */
 .label-radio {
   margin-bottom: 3px;
 }
 
-/* line 30, ../sass/form.scss */
+/* line 49, ../sass/form.scss */
 .radio {
   opacity: 0;
   position: absolute;
 }
 
-/* line 34, ../sass/form.scss */
+/* line 53, ../sass/form.scss */
+.radio + span {
+  width: 17px;
+  height: 17px;
+  border-radius: 12px;
+  position: relative;
+  top: 6px;
+}
+
+/* line 56, ../sass/form.scss */
+.radio:checked + span {
+  color: green;
+}
+
+/* line 60, ../sass/form.scss */
 .radio + div {
   background: black;
   width: 17px;
@@ -28,21 +42,21 @@
   top: 6px;
 }
 
-/* line 42, ../sass/form.scss */
+/* line 63, ../sass/form.scss */
 .radio:checked + div {
   background: green;
 }
 
-/* line 46, ../sass/form.scss */
+/* line 67, ../sass/form.scss */
 .test-create {
   margin-top: -15px;
 }
-/* line 48, ../sass/form.scss */
+/* line 69, ../sass/form.scss */
 .test-create .create-test_thema {
   width: 100%;
   padding: 0 30px 0 25px;
 }
-/* line 52, ../sass/form.scss */
+/* line 73, ../sass/form.scss */
 .test-create .test-create_themaForm {
   font-size: 20px;
   width: 100%;
@@ -54,11 +68,11 @@
   background: none;
   outline: none;
 }
-/* line 56, ../sass/form.scss */
+/* line 77, ../sass/form.scss */
 .test-create .test-create_themaForm::placeholder {
   color: #675652;
 }
-/* line 60, ../sass/form.scss */
+/* line 81, ../sass/form.scss */
 .test-create .test-create_questionForm {
   color: #675652;
   border: none;
@@ -68,7 +82,7 @@
   background: none;
   outline: none;
 }
-/* line 63, ../sass/form.scss */
+/* line 84, ../sass/form.scss */
 .test-create .test-create_answerForm {
   color: #675652;
   border: none;
@@ -82,21 +96,21 @@
   margin-right: 11px;
   font-size: 14px;
 }
-/* line 70, ../sass/form.scss */
+/* line 91, ../sass/form.scss */
 .test-create .test-create_fileInput {
   margin-left: -20px;
   margin-top: 10px;
 }
-/* line 73, ../sass/form.scss */
+/* line 94, ../sass/form.scss */
 .test-create .test-create_fileInput input {
   display: none;
 }
-/* line 76, ../sass/form.scss */
+/* line 97, ../sass/form.scss */
 .test-create .test-create_fileInput img {
   width: 87px;
   height: 97px;
 }
-/* line 80, ../sass/form.scss */
+/* line 101, ../sass/form.scss */
 .test-create .test-create_fileInput span {
   position: relative;
   top: -54px;
@@ -106,12 +120,12 @@
   font-weight: 400;
   text-transform: uppercase;
 }
-/* line 81, ../sass/form.scss */
+/* line 102, ../sass/form.scss */
 .test-create .test-create_fileInput span:nth-child(3) {
   top: -34px;
   left: -27px;
 }
-/* line 94, ../sass/form.scss */
+/* line 115, ../sass/form.scss */
 .test-create .test-create-question {
   background: #d7d5c2;
   padding: 15px;
@@ -120,23 +134,23 @@
   margin-top: 20px;
   border-radius: 6px;
 }
-/* line 101, ../sass/form.scss */
+/* line 122, ../sass/form.scss */
 .test-create .test-create-question .test-create-questionInput {
   color: #675652;
   font-size: 22px;
   font-weight: 500;
 }
-/* line 105, ../sass/form.scss */
+/* line 126, ../sass/form.scss */
 .test-create .test-create-question .test-create-questionInput label {
   margin-right: 20px;
 }
-/* line 108, ../sass/form.scss */
+/* line 129, ../sass/form.scss */
 .test-create .test-create-question .test-create-questionInput input {
   font-size: 18px;
   width: 386px;
 }
 
-/* line 118, ../sass/form.scss */
+/* line 139, ../sass/form.scss */
 .statistics .form-search .form-search-icon {
   color: #a29d88;
   background: none;
@@ -145,7 +159,7 @@
   position: relative;
   left: 7px;
 }
-/* line 126, ../sass/form.scss */
+/* line 147, ../sass/form.scss */
 .statistics .form-search .form-search-input {
   font-size: 13px;
   margin-left: -25px;
@@ -157,18 +171,27 @@
   background: #d2d0ba;
   border: 1px solid #a29d88;
 }
-/* line 137, ../sass/form.scss */
-.statistics .form-search .form-search-button {
-  width: 71px;
-  height: 29px;
-  line-height: 11px;
-  background: #7c7768;
-  margin-right: 23px;
-  font-size: 13px;
-  color: #C7C4A8;
+
+/* line 162, ../sass/form.scss */
+#modal-editQuestion .update-time {
+  margin-top: -12px;
+}
+/* line 164, ../sass/form.scss */
+#modal-editQuestion .update-time .control-operator {
+  float: left;
+  margin-top: 0;
+}
+/* line 168, ../sass/form.scss */
+#modal-editQuestion .update-time .field-thema-minute, #modal-editQuestion .update-time .field-thema-second {
+  margin-bottom: 0;
+}
+/* line 170, ../sass/form.scss */
+#modal-editQuestion .update-time .field-thema-minute input, #modal-editQuestion .update-time .field-thema-second input {
+  float: left;
+  margin-top: 0;
 }
 
-/* line 150, ../sass/form.scss */
+/* line 179, ../sass/form.scss */
 .footer-error input {
   background: inherit;
   padding: 8px 21px 9px 15px;
@@ -181,16 +204,16 @@
   color: #675652;
   border-radius: 14px 0 0 14px;
 }
-/* line 161, ../sass/form.scss */
+/* line 190, ../sass/form.scss */
 .footer-error input::-webkit-input-placeholder {
   color: #675652;
 }
-/* line 164, ../sass/form.scss */
+/* line 193, ../sass/form.scss */
 .footer-error input:focus {
   outline: none;
 }
 
-/* line 170, ../sass/form.scss */
+/* line 199, ../sass/form.scss */
 .test-create-question_page {
   margin-top: 15px;
 }
