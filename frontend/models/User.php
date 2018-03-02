@@ -13,6 +13,11 @@ use yii\db\ActiveRecord;
  * @property string $last_name
  * @property string $name
  * @property string $patronymic
+ * @property string $phone
+ * @property string $city
+ * @property string $street
+ * @property string $build
+ * @property string $appartament
  * @property int $id_position
  * @property string $date_birth
  * @property int $salary
@@ -53,7 +58,7 @@ class User extends ActiveRecord
             [['id_position', 'status', 'salary','created_at', 'updated_at', 'active'], 'integer'],
             [['date_birth'], 'safe'],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
-            [['last_name', 'name', 'patronymic'], 'string', 'max' => 86],
+            [['last_name', 'name', 'patronymic', 'city', 'street', 'build', 'appartament'], 'string', 'max' => 86],
             [['auth_key'], 'string', 'max' => 32],
             [['username'], 'unique'],
             [['email'], 'unique'],
@@ -73,6 +78,10 @@ class User extends ActiveRecord
             'last_name' => 'Фамилия',
             'name' => 'Имя',
             'patronymic' => 'Отчетство',
+            'city' => 'Город',
+            'street' => 'Улица',
+            'build' => 'Дом',
+            'appartament' => 'Квартира',
             'id_position' => 'Должность',
             'date_birth' => 'Дата рождение',
             'salary' => 'Оклад',
