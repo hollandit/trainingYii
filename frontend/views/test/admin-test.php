@@ -71,7 +71,7 @@ $this->title = 'Тестирование';
                     echo Html::img('@web/images/u3085.png', ['class' => 'prevTestAdmin']).' '.Html::img('@web/images/u3087.png', ['class' => 'nextTestAdminSecond']);
                 }
                     if (count($model) == 1){
-                        echo '<div class="question-one"><h3> Вопрос '.$number.'.<span>'.Html::button("Источник", ["class" => "btn btn-primary"]).'</span></h3>';
+                        echo '<div class="question-one"><h3> Вопрос '.$number.Html::button("Источник", ["class" => "btn btn-primary"]).'</h3>';
                     } else {
                         echo '<div class="question-some"><h3> Вопрос '.$number.'.<span><button>Источник</button></h3></span>';
                     }
@@ -81,9 +81,9 @@ $this->title = 'Тестирование';
                     echo '<div class="radio-answear">';
                         foreach ($question->answear as $key => $answear) {
                             if($answear != $question->correct['right']){
-                                echo '<label><input type="radio" class="radio" name="'.$question->id.'" value="'.$answear.'" ><span class="answer">Ответ <span class="key-answear">'.$key.'</span> '.$answear.'</span></label><br/>';
+                                echo '<div class="test-admin_question">Ответ '.$key.'</div><div class="test-admin_answer">'.$answear.'</div><br>';
                             } else {
-                                echo '<label><input type="radio" class="radio" name="'.$question->id.'" value="'.$answear.'" checked ><span class="answer" >Ответ <span class="key-answear">'.$key.'</span> '.$answear.'</span></label><br/>';
+                                echo '<div style="color: green" class="test-admin_question">Ответ '.$key.'</div><div style="color: green" class="test-admin_answer">'.$answear.'</div><br>';
                             }
                         }
                     echo '</div>';
@@ -209,7 +209,7 @@ $this->title = 'Тестирование';
                 </div>
             </div>
             <div class="recomendation">
-                <p>РЕКОМЕНДАЦИЯ</p>
+                <p>РЕКОМЕНДАЦИИ</p>
                 <hr/>
             </div>
         </div>
