@@ -10,7 +10,6 @@ use \yii\helpers\Html;
 /** @var  $failed \app\models\Choice */
 
 $this->title = 'Главная страница';
-
 ?>
 <div class="site-index">
     <div class="col-lg-5">
