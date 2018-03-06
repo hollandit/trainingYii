@@ -2,10 +2,8 @@
 
 namespace app\models;
 
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Choice;
 
 /**
  * ChoiceSearch represents the model behind the search form of `app\models\Choice`.
@@ -47,6 +45,9 @@ class ChoiceSearch extends Choice
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => 10
+            ]
         ]);
 
         $this->load($params);
