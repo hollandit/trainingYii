@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use app\models\Choice;
+use app\models\Testing;
 use app\models\Thema;
 use \Yii;
 use app\models\Questions;
@@ -30,7 +31,7 @@ class TestController extends Controller
                         'roles' => ['employee']
                     ],
                     [
-                        'actions' => ['testing'],
+                        'actions' => ['testing', 'compulsory', 'term'],
                         'allow' => true,
                         'roles' => ['hr', 'employee']
                     ],
@@ -145,6 +146,14 @@ class TestController extends Controller
 
     public function actionTesting($id)
     {
+        if ((int)Testing::find()->andWhere(['=', 'id_user', Yii::$app->user->id])->andWhere(['in', 'id_theme', $id])->count() !== 0){
+            return $this->redirect(['site/index']);
+        }
+        $idUser = Yii::$app->user->id;
+        $startTest = new Testing();
+        $startTest->id_user = $idUser;
+        $startTest->id_theme = $id;
+        $startTest->save();
         $this->layout = 'test';
         $model = Questions::find()->where(['id_theme' => $id])->all();
         $right = 0;
@@ -159,14 +168,14 @@ class TestController extends Controller
                     };
                 }
             }
-//            $choice = new Choice();
-//            $choice->id_user = Yii::$app->user->id;
-//            $choice->id_theme = $model[0]->id_theme;
-//            $choice->answear = json_encode(Yii::$app->request->post('Answear'), JSON_UNESCAPED_UNICODE);
-//            $choice->result = $right;
-//            if (!$choice->save()){
-//                print_r($choice->getErrors());
-//            }
+            $choice = new Choice();
+            $choice->id_user = $idUser;
+            $choice->id_theme = $model[0]->id_theme;
+            $choice->answear = json_encode(Yii::$app->request->post('Answear'), JSON_UNESCAPED_UNICODE);
+            $choice->result = $right;
+            if (!$choice->save()){
+                print_r($choice->getErrors());
+            }
             if ($right == count($model)) {
                 $result['right'] = $right;
                 $result['status'] = 1;
@@ -187,7 +196,7 @@ class TestController extends Controller
 
     public function actionResultTest()
     {
-        $query = Choice::find();
+        $query = Choice::find()->orderBy(['date' => SORT_DESC]);
         $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 5]);
         $model = $query->offset($pages->offset)
             ->limit($pages->limit)
@@ -215,5 +224,29 @@ class TestController extends Controller
             'model' => $model,
             'thema' => $thema
         ]);
+    }
+
+    public function actionTerm($id)
+    {
+        return $this->saveDb($id, 'Закончилось время');
+    }
+
+    public function actionCompulsory($id)
+    {
+        return $this->saveDb($id, 'Принудительно закрыл тест');
+    }
+
+    protected function saveDb($id, $message)
+    {
+        $model = Questions::find()->where(['id_theme' => $id])->all();
+        $choice = new Choice();
+        $choice->id_user = Yii::$app->user->id;
+        $choice->id_theme = $model[0]->id_theme;
+        $choice->answear = json_encode(['action' => $message], JSON_UNESCAPED_UNICODE);
+        $choice->result = 0;
+        if(!$choice->save()){
+            print_r($choice->getErrors());
+        }
+        return $this->redirect(['site/index']);
     }
 }
