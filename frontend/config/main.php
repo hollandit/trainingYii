@@ -26,6 +26,10 @@ return [
         ]
     ],
     'components' => [
+        'formatter'    => [
+            'class'    => 'yii\i18n\Formatter',
+            'timeZone' => 'UTC',
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
