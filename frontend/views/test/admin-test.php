@@ -71,7 +71,7 @@ $this->title = 'Тестирование';
                     echo Html::img('@web/images/u3085.png', ['class' => 'prevTestAdmin']).' '.Html::img('@web/images/u3087.png', ['class' => 'nextTestAdminSecond']);
                 }
                     if (count($model) == 1){
-                        echo '<div class="question-one"><h3> Вопрос '.$number.Html::button("Источник", ["class" => "btn btn-primary"]).'</h3>';
+                        echo '<div class="question-one"><h3> Вопрос '.$number.Html::button("Источник").'</h3>';
                     } else {
                         echo '<div class="question-some"><h3> Вопрос '.$number.'.<span><button>Источник</button></h3></span>';
                     }
