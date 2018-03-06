@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    let urlSite = 'http://hosttraining';
     //navigation question
     $('.nextTest').click(function() {
         if ($('.test-block:visible input[type="radio"]:checked').length){
@@ -25,23 +26,23 @@ $(document).ready(function(){
         $('.answerButton').trigger('click');
     });
 
-    $('.test-title').tooltip({
-        placement: 'bottom'
-    });
+    kladrName('#signupform-city_kladr', '.city-name');
+    kladrName('#signupform-street_kladr', '.street-name');
+    kladrName('#signupform-build_kladr', '.build-name');
     //Form test
     $('#testForm-result').submit(function(e){
         e.preventDefault();
         let id = $(this).data('id');
         let form = $(this).serialize();
         $.post({
-            url: 'http://hosttraining/frontend/web/index.php?r=test%2Ftesting&id='+id,
+            url: urlSite+'/frontend/web/index.php?r=test%2Ftesting&id='+id,
             data: form,
         })
             .done(data => {
                 let result = JSON.parse(data);
                 $('#modalResult').modal('show');
                 $('#modalResult').on('hide.bs.modal', function () {
-                    window.location.replace('http://hosttraining/frontend/web/index.php?r=site%2Findex');
+                    window.location.replace(urlSite+'/frontend/web/index.php?r=site%2Findex');
                 });
                 if (result.status === 1){
                     clearInterval(intervalID);
@@ -79,26 +80,11 @@ $(document).ready(function(){
         div.onclick = function (e) {
             let t = e ? e.target : window.event.srcElement;
             if(t.tagName === 'INPUT'){
-                t.value === 'Да, уверен' && window.location.replace('http://hosttraining/frontend/web/index.php?r=test%2Fdelete-theme&id='+id);
+                t.value === 'Да, уверен' && window.location.replace(urlSite+'/frontend/web/index.php?r=test%2Fdelete-theme&id='+id);
                 this.parentNode.removeChild(this);
             }
         };
         div.innerHTML='<div><h1>Уверены?...</h1><br/><p>Это действие необратим. Если Вы сейчас удалите тест, то уже не сможете его восстановить.</p></div><input type="button" value="Отменить"><input type="button" class="delete-button" value="Да, уверен">';
-        return document.body.appendChild(div);
-    });
-
-    $('#completion-button').click(function (e) {
-        e.preventDefault();
-        let div = document.createElement('div');
-        div.className = 'completion-modal';
-        div.onclick = function (e) {
-            let t = e ? e.target : window.event.srcElement;
-            if(t.tagName === 'INPUT'){
-                t.value === 'Завершить' && window.location.replace('http://hosttraining/frontend/web/index.php?r=site%2Findex');
-                this.parentNode.removeChild(this);
-            }
-        };
-        div.innerHTML='<div><h1>Уверены?...</h1><br/><p>Если Вы завершите тест сейчас, то он будет считаться непройденным. Это отрицательно отразится на Вашем рейтинге.</p></div><input type="button" value="Вернуться к тесту"><input type="button" class="completion-button" value="Завершить">';
         return document.body.appendChild(div);
     });
 
@@ -137,5 +123,12 @@ $(document).ready(function(){
 
             reader.readAsDataURL(input.files[0]);
         }
+    }
+
+    function kladrName(inputKladr, name){
+        $(inputKladr).on('change', function () {
+            let value = $(this).val();
+            $(name).val(value);
+        });
     }
 });
