@@ -6,6 +6,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\widgets\Pjax;
+use yii2fullcalendar\models\Event;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\User */
@@ -29,53 +30,80 @@ $this->title = $model->name;
         ]) ?>
     </p>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'username',
-            'nameEmployee',
-            [
-              'attribute' => 'id_position',
-              'value' => function($value){
-                return $value->position->name;
-              }
-            ],
-            [
-                'attribute' => '',
-                'format' => 'raw',
-                'label' => 'Кол-во выполненых тестов',
-                'value' => function($value){
-                    return Choice::find()->where(['done' => Choice::PASS, 'id_user' => $value->id])->count().' из '.Choice::find()->where(['id_user' => $value->id])->count();
-                }
-            ],
-            'email:email',
-            'created_at:datetime',
-        ],
-    ]) ?>
-
-    <?php Pjax::begin() ?>
-        <?= GridView::widget([
-            'dataProvider' => $dataProvider,
-            'filterModel' => $searchModel,
-            'columns' => [
+    <?php try {
+        echo DetailView::widget([
+            'model' => $model,
+            'attributes' => [
+                'id',
+                'username',
+                'nameEmployee',
                 [
-                    'attribute' => 'id_theme',
-                    'label' => 'Темы',
-                    'filter' => ArrayHelper::map(Choice::find()->where(['id_user' => $model->id])->groupBy('id_theme')->all(), 'id_theme', 'theme.name'),
-                    'value' => function($value){
-                        return $value->theme->name;
+                    'attribute' => 'id_position',
+                    'value' => function ($value) {
+                        return $value->position->name;
                     }
                 ],
                 [
-                    'attribute' => 'done',
-                    'filter' => ['0' => 'Не сдал', '1' => 'Сдал'],
-                    'value' => function($value){
-                        return $value->done == 1 ? 'Сдал' : 'Не сдал';
+                    'attribute' => '',
+                    'format' => 'raw',
+                    'label' => 'Кол-во выполненых тестов',
+                    'value' => function ($value) {
+                        return Choice::find()->where(['done' => Choice::PASS, 'id_user' => $value->id])->count() . ' из ' . Choice::find()->where(['id_user' => $value->id])->count();
                     }
+                ],
+                [
+                    'attribute' => 'address',
+                    'label' => 'Адрес'
+                ],
+                'email:email',
+                'created_at:datetime',
+            ],
+        ]);
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    } ?>
+
+    <?php Pjax::begin() ?>
+        <?php try {
+            echo GridView::widget([
+                'dataProvider' => $dataProvider,
+                'filterModel' => $searchModel,
+                'columns' => [
+                    [
+                        'attribute' => 'id_theme',
+                        'label' => 'Темы',
+                        'filter' => ArrayHelper::map(Choice::find()->where(['id_user' => $model->id])->groupBy('id_theme')->all(), 'id_theme', 'theme.name'),
+                        'value' => function ($value) {
+                            return $value->theme->name;
+                        }
+                    ],
+                    [
+                        'attribute' => 'done',
+                        'filter' => ['0' => 'Не сдал', '1' => 'Сдал'],
+                        'value' => function ($value) {
+                            return $value->done == 1 ? 'Сдал' : 'Не сдал';
+                        }
+                    ],
+                    [
+                        'attribute' => 'date',
+                        'format' => 'datetime',
+                        'filter' => ''
+                    ]
                 ]
-            ]
-        ]) ?>
+            ]);
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        } ?>
     <?php Pjax::end() ?>
 
+<!--    --><?php //$events = [];
+//
+//    ?>
+<!---->
+<!--    --><?//= \yii2fullcalendar\yii2fullcalendar::widget(array(
+//        'events'=> $events,
+//        'options' => [
+//            'lang' => 'ru'
+//        ]
+//    ));?>
 </div>
