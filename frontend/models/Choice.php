@@ -58,7 +58,7 @@ class Choice extends ActiveRecord
             'id_theme' => 'Id Theme',
             'done' => 'Выполнено',
             'result' => 'Result',
-            'date' => 'Date',
+            'date' => 'Дата',
         ];
     }
 
