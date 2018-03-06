@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use app\models\Choice;
 use app\models\Knowledge;
+use app\models\Testing;
 use app\models\Thema;
 use app\models\User;
 use Yii;
@@ -75,16 +76,21 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $arr = [];
         if (Yii::$app->user->isGuest) {
             return $this->redirect(['site/login']);
         } else {
             $user = User::findOne(Yii::$app->user->identity->id);
-            $thema = Thema::find()->where(['id_possition' => $user->id_position])->limit(10)->all();
+            $testing = Testing::find()->select('id_theme')->where(['id_user' => Yii::$app->user->id])->andWhere(['>', 'beginning', date('Y-m-d 00:00:00', strtotime('-2 week'))])->all();
+            foreach ($testing as $key => $test){
+                $arr[] = $test->id_theme;
+            }
+            $thema = Thema::find()->andWhere(['not in', 'id', $arr])->limit(10)->all();
             $choice = Choice::find();
             $count = $choice->where(['id_user' => $user->id])->count();
             $done = $choice->where(['id_user' => $user->id, 'done' => Choice::PASS])->count();
             $failed = $choice->where(['id_user' => $user->id, 'done' => Choice::NOT_PASS])->count();
-            return $this->render('index', compact('user', 'thema', 'count', 'done', 'failed'));
+            return $this->render('index', compact('user', 'thema', 'count', 'done', 'failed', 'arr'));
         }
     }
 
