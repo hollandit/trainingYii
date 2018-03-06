@@ -15,9 +15,14 @@ class SignupForm extends Model
     public $last_name;
     public $name;
     public $patronymic;
+    public $phone;
     public $city;
+    public $city_name;
     public $street;
+    public $street_name;
     public $build;
+    public $salary;
+    public $build_name;
     public $appartament;
     public $id_position;
     public $date_birth;
@@ -43,8 +48,11 @@ class SignupForm extends Model
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
 
-            [['last_name', 'name', 'patronymic', 'city', 'street', 'appartament'], 'string', 'max' => 86],
-            ['id_position', 'integer'],
+            [['last_name', 'name', 'patronymic', 'city', 'street', 'build','appartament'], 'string', 'max' => 86],
+            [['city_name', 'street_name'], 'string', 'max' => 128],
+            [['build_name'], 'string', 'max' => 36],
+            ['phone', 'string', 'max' => 20],
+            [['id_position', 'salary'], 'integer'],
             ['date_birth', 'safe']
         ];
     }
@@ -53,6 +61,7 @@ class SignupForm extends Model
      * Signs user up.
      *
      * @return User|null the saved model or null if saving fails
+     * @throws \yii\base\Exception
      */
     public function signup()
     {
@@ -68,11 +77,16 @@ class SignupForm extends Model
         $user->last_name = $this->last_name;
         $user->name = $this->name;
         $user->patronymic = $this->patronymic;
+        $user->phone = $this->phone;
         $user->city = $this->city;
+        $user->city_name = $this->city_name;
         $user->street = $this->street;
+        $user->street_name = $this->street_name;
         $user->build = $this->build;
+        $user->build_name = $this->build_name;
         $user->appartament = $this->appartament;
         $user->id_position = $this->id_position;
+        $user->salary = $this->salary;
         $user->date_birth = $this->date_birth;
 
         return $user->save() ? $user : null;
