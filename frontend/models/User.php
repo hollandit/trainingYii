@@ -15,8 +15,11 @@ use yii\db\ActiveRecord;
  * @property string $patronymic
  * @property string $phone
  * @property string $city
+ * @property string $city_name
  * @property string $street
+ * @property string $street_name
  * @property string $build
+ * @property string $build_name
  * @property string $appartament
  * @property int $id_position
  * @property string $date_birth
@@ -59,6 +62,8 @@ class User extends ActiveRecord
             [['date_birth'], 'safe'],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['last_name', 'name', 'patronymic', 'city', 'street', 'build', 'appartament'], 'string', 'max' => 86],
+            [['city_name', 'street_name'], 'string', 'max' => 128],
+            [['build_name'], 'string', 'max' => 36],
             [['auth_key'], 'string', 'max' => 32],
             [['username'], 'unique'],
             [['email'], 'unique'],
@@ -79,8 +84,11 @@ class User extends ActiveRecord
             'name' => 'Имя',
             'patronymic' => 'Отчетство',
             'city' => 'Город',
+            'city_name' => 'City Name',
             'street' => 'Улица',
+            'street_name' => 'Street_name',
             'build' => 'Дом',
+            'build_name' => 'Build Name',
             'appartament' => 'Квартира',
             'id_position' => 'Должность',
             'date_birth' => 'Дата рождение',
@@ -149,5 +157,10 @@ class User extends ActiveRecord
     public function getNameEmployee()
     {
         return $this->last_name.' '.$this->name.' '.$this->patronymic;
+    }
+
+    public function getAddress()
+    {
+        return 'г.'.$this->city_name.' ул.'.$this->street_name.' д.'.$this->build_name.' кв.'.$this->appartament;
     }
 }
