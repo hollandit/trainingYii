@@ -2,18 +2,17 @@
 
 namespace app\models;
 
-use Yii;
 
 /**
- * This is the model class for table "{{%testing}}".
+ * This is the model class for table "testing".
  *
  * @property int $id
  * @property int $id_user
  * @property int $id_theme
- * @property int $execute
+ * @property string $beginning
  *
- * @property User $user
  * @property Thema $theme
+ * @property User $user
  */
 class Testing extends \yii\db\ActiveRecord
 {
@@ -22,7 +21,7 @@ class Testing extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%testing}}';
+        return 'testing';
     }
 
     /**
@@ -31,10 +30,11 @@ class Testing extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_user', 'id_theme', 'execute'], 'required'],
-            [['id_user', 'id_theme', 'execute'], 'integer'],
-            [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
+            [['id_user', 'id_theme'], 'required'],
+            [['id_user', 'id_theme'], 'integer'],
+            [['beginning'], 'safe'],
             [['id_theme'], 'exist', 'skipOnError' => true, 'targetClass' => Thema::className(), 'targetAttribute' => ['id_theme' => 'id']],
+            [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
         ];
     }
 
@@ -47,16 +47,8 @@ class Testing extends \yii\db\ActiveRecord
             'id' => 'ID',
             'id_user' => 'Id User',
             'id_theme' => 'Id Theme',
-            'execute' => 'Execute',
+            'beginning' => 'Beginning',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUser()
-    {
-        return $this->hasOne(User::className(), ['id' => 'id_user']);
     }
 
     /**
@@ -68,11 +60,10 @@ class Testing extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
-     * @return TestingQuery the active query used by this AR class.
+     * @return \yii\db\ActiveQuery
      */
-    public static function find()
+    public function getUser()
     {
-        return new TestingQuery(get_called_class());
+        return $this->hasOne(User::className(), ['id' => 'id_user']);
     }
 }
