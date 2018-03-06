@@ -5,13 +5,13 @@ use yii\bootstrap\Modal;
 use yii\bootstrap\Progress;
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
+use yii\helpers\Url;
 
 $write = $model[0];
 $lenght = count($model);
 
-//function timeTest($number){
-//    return $number < 10 ? '0'.$number : $number;
-//}
+$compulsory = Url::to(['test/compulsory', 'id' => $write->id_theme]);
+$term = Url::to(['test/term', 'id' => $write->id_theme]);
 function stringLenght($time){
     if (strlen($time) < 2){
         return '0'.$time;
@@ -103,17 +103,22 @@ $second = stringLenght($model[0]->idThemeQuestion->second);
         Html::a('ОК', ['test/index'], ['class' => 'btn modal-result_button'])
     .'</div>';
     Modal::end()?>
+
     <?php Modal::begin([
         'id' => 'modalTerm',
         'header' => 'ВРЕМЯ ИСТЕКЛО...'
     ]);
     echo '<div class="modal-result_test"></div>';
     echo '<div class="modal-footer">'.
-        Html::a('ОК', ['test/index'], ['class' => 'btn modal-result_button'])
+        Html::a('ОК', ['test/index'], ['class' => 'btn modal-result_button timeTerm'])
         .'</div>';
     Modal::end()?>
 </div>
 <?php $script = <<< JS
+  window.onkeydown = function(evt) {
+     if(evt.keyCode === 116) return false;
+  };
+  let urlSite = 'http://hosttraining';
   function timer(){
     let minute = document.getElementById("m").innerHTML + document.getElementById("mm").innerHTML;
     let second = document.getElementById("s").innerHTML + document.getElementById("ss").innerHTML;
@@ -131,7 +136,11 @@ $second = stringLenght($model[0]->idThemeQuestion->second);
       clearInterval(intervalID);
       $('#modalTerm').modal('show');
       $('#modalTerm').on('hide.bs.modal', function () {
-          window.location.replace('http://hosttraining/frontend/web/index.php?r=site%2Findex');
+          window.location.replace(urlSite+'$term');
+      });
+      $('body').on('click', '.timeTerm', function(e) {
+        e.preventDefault();
+        window.location.replace(urlSite+'$term');
       });
       $('.modal-result_test').html('<div class="modal-result_title">К сожалению, Вы не прошли тест.<br/>' +
                         '</div><div class="modal-result_information">Это плохой результат.<br>' +
@@ -148,5 +157,23 @@ $second = stringLenght($model[0]->idThemeQuestion->second);
     }
   }
   window.intervalID = setInterval(timer, 1000);
+  $('.test-title').tooltip({
+      placement: 'bottom'
+  });
+  $('#completion-button').click(function (e) {
+      e.preventDefault();
+      let div = document.createElement('div');
+      div.className = 'completion-modal';
+      div.onclick = function (e) {
+          let t = e ? e.target : window.event.srcElement;
+          if(t.tagName === 'INPUT'){
+              t.value === 'Завершить' && window.location.replace(urlSite+'$compulsory');
+              this.parentNode.removeChild(this);
+          }
+      };
+      div.innerHTML='<div><h1>Уверены?...</h1><br/><p>Если Вы завершите тест сейчас, то он будет считаться непройденным. Это отрицательно отразится на Вашем рейтинге.</p></div><input type="button" value="Вернуться к тесту"><input type="button" class="completion-button" value="Завершить">';
+      return document.body.appendChild(div);
+  });
+
 JS;
 $this->registerJs($script)?>
