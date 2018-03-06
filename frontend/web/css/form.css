@@ -217,3 +217,8 @@
 .test-create-question_page {
   margin-top: 15px;
 }
+
+/* line 204, ../sass/form.scss */
+.user-form .build-name, .user-form .street-name, .user-form .city-name {
+  display: none;
+}
