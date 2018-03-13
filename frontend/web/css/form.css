@@ -155,43 +155,47 @@
   color: #a29d88;
   background: none;
   border: none;
-  z-index: 1;
+  z-index: 3;
   position: relative;
   left: 7px;
 }
 /* line 147, ../sass/form.scss */
-.statistics .form-search .form-search-input {
+.statistics .form-search .select2-selection {
   font-size: 13px;
   margin-left: -25px;
   padding-left: 26px;
   width: 168px;
   height: 29px;
-  z-index: 0;
+  z-index: 1;
   font-family: 'Oswald ExtraLight', 'Oswald Regular', 'Oswald', serif;
   background: #d2d0ba;
   border: 1px solid #a29d88;
 }
+/* line 157, ../sass/form.scss */
+.statistics .form-search .select2-selection .select2-selection__arrow {
+  display: none;
+}
 
-/* line 162, ../sass/form.scss */
+/* line 165, ../sass/form.scss */
 #modal-editQuestion .update-time {
   margin-top: -12px;
 }
-/* line 164, ../sass/form.scss */
+/* line 167, ../sass/form.scss */
 #modal-editQuestion .update-time .control-operator {
   float: left;
   margin-top: 0;
 }
-/* line 168, ../sass/form.scss */
+/* line 171, ../sass/form.scss */
 #modal-editQuestion .update-time .field-thema-minute, #modal-editQuestion .update-time .field-thema-second {
   margin-bottom: 0;
 }
-/* line 170, ../sass/form.scss */
+/* line 173, ../sass/form.scss */
 #modal-editQuestion .update-time .field-thema-minute input, #modal-editQuestion .update-time .field-thema-second input {
   float: left;
   margin-top: 0;
 }
 
-/* line 179, ../sass/form.scss */
+/* line 182, ../sass/form.scss */
 .footer-error input {
   background: inherit;
   padding: 8px 21px 9px 15px;
@@ -204,21 +208,21 @@
   color: #675652;
   border-radius: 14px 0 0 14px;
 }
-/* line 190, ../sass/form.scss */
+/* line 193, ../sass/form.scss */
 .footer-error input::-webkit-input-placeholder {
   color: #675652;
 }
-/* line 193, ../sass/form.scss */
+/* line 196, ../sass/form.scss */
 .footer-error input:focus {
   outline: none;
 }
 
-/* line 199, ../sass/form.scss */
+/* line 202, ../sass/form.scss */
 .test-create-question_page {
   margin-top: 15px;
 }
 
-/* line 204, ../sass/form.scss */
+/* line 207, ../sass/form.scss */
 .user-form .build-name, .user-form .street-name, .user-form .city-name {
   display: none;
 }
