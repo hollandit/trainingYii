@@ -91,7 +91,10 @@ $this->title = 'Картотека';
                         'label' => 'Дата приема'
                     ],
 
-                    ['class' => 'yii\grid\ActionColumn'],
+                    [
+                        'class' => 'yii\grid\ActionColumn',
+                        'template' => '{view}{update}'
+                    ],
                 ],
             ]);
         } catch (Exception $e) {
