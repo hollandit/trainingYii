@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    let urlSite = 'http://hosttraining';
+    let urlSite = window.location.origin;
     //navigation question
     $('.nextTest').click(function() {
         if ($('.test-block:visible input[type="radio"]:checked').length){
@@ -35,34 +35,46 @@ $(document).ready(function(){
         let id = $(this).data('id');
         let form = $(this).serialize();
         $.post({
-            url: urlSite+'/frontend/web/index.php?r=test%2Ftesting&id='+id,
+            url: urlSite+'/frontend/web/index.php?r=test%2Fresult&id='+id,
             data: form,
         })
-            .done(data => {
-                let result = JSON.parse(data);
-                $('#modalResult').modal('show');
-                $('#modalResult').on('hide.bs.modal', function () {
-                    window.location.replace(urlSite+'/frontend/web/index.php?r=site%2Findex');
-                });
-                if (result.status === 1){
-                    clearInterval(intervalID);
-                    $('.modal-result_test').html('<div class="modal-result_title">Поздравляем Вас с успешным прохождением теста!<br/>' +
-                        'Количество допустимых ошибок: 2.</div><div class="modal-result_information">Это неплохой результат.<br>' +
-                        'Этот тест Вы сможете пройти не раньше, чем через 2 недели.<br>' +
-                        'Однако, Вы можете запросить более сложный.</div><div class="modal-result_information">' +
-                        'Дерзайте!' +
-                        '</div>')
-                } else {
-                    clearInterval(intervalID);
-                    $('.modal-result_test').html('<div class="modal-result_title">К сожалению, Вы не прошли тест.<br/>' +
-                        '</div><div class="modal-result_information">Это плохой результат.<br>' +
-                        'Этот тест Вы сможете пройти не раньше, чем через 2 недели.<br>' +
-                        'Рекомендую Вам не тратить это время зря и основательно подготовиться.</div><div class="modal-result_information">' +
-                        'Успехов!' +
-                        '</div>')
-                }
-            })
-            .fail(err => console.log(err.responseText));
+        .done(data => {
+            let result = JSON.parse(data);
+            $('#modalResult').modal('show');
+            $('#modalResult').on('hide.bs.modal', function () {
+                window.location.replace(urlSite+'/frontend/web/index.php?r=site%2Findex');
+            });
+            if (result.status === 1){
+                clearInterval(intervalID);
+                $('.modal-result_test').html('<div class="modal-result_title">Поздравляем Вас с успешным прохождением теста!<br/>' +
+                    'Количество допустимых ошибок: 2.</div><div class="modal-result_information">Это неплохой результат.<br>' +
+                    'Этот тест Вы сможете пройти не раньше, чем через 2 недели.<br>' +
+                    'Однако, Вы можете запросить более сложный.</div><div class="modal-result_information">' +
+                    'Дерзайте!' +
+                    '</div>')
+            } else {
+                clearInterval(intervalID);
+                console.log(result);
+                $('.modal-result_test').html('<div class="modal-result_title">К сожалению, Вы не прошли тест.<br/>' +
+                    '</div><div class="modal-result_information">Это плохой результат.<br>' +
+                    'Этот тест Вы сможете пройти не раньше, чем через 2 недели.<br>' +
+                    'Рекомендую Вам не тратить это время зря и основательно подготовиться.</div><div class="modal-result_information">' +
+                    'Успехов!' +
+                    '</div>')
+            }
+        })
+    });
+
+    $('.form-apoint').submit(function (e) {
+        e.preventDefault();
+        let id = $(this).attr('id');
+        $.post({
+            url: urlSite+'/frontend/web/index.php?r=test%2Ftest&id='+id,
+            data: $(this).serialize()
+        }).done(()   => {
+            $.pjax.reload('#pjax-apoint');
+        })
+            .fail(err => console.log(err));
     });
 
     //FileImage
