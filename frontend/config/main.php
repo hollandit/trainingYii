@@ -51,6 +51,10 @@ return [
                 ],
             ],
         ],
+        'bot' => [
+            'class' => 'SonkoDmitry\Yii\TelegramBot\Component',
+            'apiToken' => '411890271:AAGOEkFv8aZSMnNNMK2qmKG5X94Cr4JtxS8',
+        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
