@@ -2,9 +2,12 @@
 
 namespace frontend\controllers;
 
+use app\models\Access;
 use app\models\Choice;
 use app\models\Testing;
 use app\models\Thema;
+use app\models\User;
+use frontend\models\Telegram;
 use \Yii;
 use app\models\Questions;
 use yii\data\Pagination;
@@ -144,54 +147,22 @@ class TestController extends Controller
         return $this->redirect(['test/test', 'id' => 1]);
     }
 
+    /**
+     * @param $id
+     * @return string|\yii\web\Response
+     */
     public function actionTesting($id)
     {
-        if ((int)Testing::find()->andWhere(['=', 'id_user', Yii::$app->user->id])->andWhere(['in', 'id_theme', $id])->count() !== 0){
+        if ((int)Testing::find()->andWhere(['=', 'id_user', Yii::$app->user->id])->andWhere(['in', 'id_theme', $id])->count() !== 0 && !Yii::$app->request->isAjax){
             return $this->redirect(['site/index']);
         }
         $idUser = Yii::$app->user->id;
         $startTest = new Testing();
-        $startTest->id_user = $idUser;
-        $startTest->id_theme = $id;
-        $startTest->save();
+        $startTest->saveTesting($idUser, $id);
         $this->layout = 'test';
         $model = Questions::find()->where(['id_theme' => $id])->all();
-        $right = 0;
-        $done = null;
-        //result test for user
-        if (Yii::$app->request->post('Answear')){
-            $result = [];
-            foreach ($model as $value){
-                foreach ($value->correct as $key => $correct){
-                    if (Yii::$app->request->post('Answear')[$value->id] == $correct){
-                        $right++;
-                    };
-                }
-            }
-            $choice = new Choice();
-            $choice->id_user = $idUser;
-            $choice->id_theme = $model[0]->id_theme;
-            $choice->answear = json_encode(Yii::$app->request->post('Answear'), JSON_UNESCAPED_UNICODE);
-            $choice->result = $right;
-            if (!$choice->save()){
-                print_r($choice->getErrors());
-            }
-            if ($right == count($model)) {
-                $result['right'] = $right;
-                $result['status'] = 1;
-                return json_encode($result, JSON_UNESCAPED_UNICODE);
-            } else {
-                $result['right'] = $right;
-                $result['status'] = 0;
-                return json_encode($result, JSON_UNESCAPED_UNICODE);
-            }
-        }
 
-        return $this->render('test', [
-            'model' => $model,
-            'right' => $right,
-            'done' => $done,
-        ]);
+        return $this->render('test', compact('model', 'right', 'done'));
     }
 
     public function actionResultTest()
@@ -207,23 +178,72 @@ class TestController extends Controller
         ]);
     }
 
-    public function actionResult($message, $right)
+    public function actionResult($id)
     {
-        return $this->render('result', [
-            'message' => $message,
-            'right' => $right
-        ]);
+        $idUser = Yii::$app->user->id;
+        $this->layout = 'test';
+        $model = Questions::find()->select(['correct', 'id_theme'])->where(['id_theme' => $id])->all();
+
+        $right = 0;
+        //result test for user
+        if (Yii::$app->request->post('Answear')){
+            $result = [];
+            foreach ($model as $value){
+                foreach ($value->correct as $key => $correct){
+                    if (Yii::$app->request->post('Answear')[$value->id] == $correct){
+                        $right++;
+                    };
+                }
+            }
+            $choice = new Choice();
+            $choice->saveDB($idUser, $model, $right, Yii::$app->request->post('Answear'));
+            $access = Access::find()->where(['id_theme' => $id, 'done' => 0, 'id_user' => $idUser])->one();
+            $access->done = Access::DONE;
+            $access->save();
+            if ($right == count($model)) {
+                $result['right'] = $right;
+                $result['status'] = Choice::PASS;
+                return json_encode($result, JSON_UNESCAPED_UNICODE);
+            } else {
+                $result['right'] = $right;
+                $result['status'] = Choice::NOT_PASS;
+                return json_encode($result, JSON_UNESCAPED_UNICODE);
+            }
+        }
+
     }
 
+    /**
+     * @param $id
+     * @return array|string|\yii\web\Response
+     */
     public function actionTest($id)
     {
+        $idUser = Yii::$app->request->post('apoint');
         $thema = Thema::find()->where(['id' => $id])->one();
+        $user = User::find()->select(['id', 'last_name', 'name', 'patronymic'])->where(['active' => 1])->all();
         $model = Questions::find()->with('idThemeQuestion')->where(['id_theme' => $id, 'active' => Questions::ACTIVE])->all();
+        $access = Access::find()->select(['id_theme', 'create_at', 'id_user'])->limit(6)->all();
 
-        return $this->render('admin-test', [
-            'model' => $model,
-            'thema' => $thema
-        ]);
+        if ($idUser){
+            $accessDelete = Access::find()->where(['id_theme' => $id, 'id_user' => $idUser])->one();
+            $testing = Testing::find()->where(['id_theme' => $id, 'id_user' => $idUser])->one();
+            if ($accessDelete != null){
+                $accessDelete->delete();
+            }
+            if ($testing != null){
+                $testing->delete();
+            }
+            $model = new Access();
+            $model->id_user = $idUser;
+            $model->id_theme = $id;
+            if (!$model->save()){
+                return $model->getErrors();
+            } else {
+                return true;
+            }
+        }
+        return $this->render('admin-test', compact('model', 'thema', 'user', 'access'));
     }
 
     public function actionTerm($id)
