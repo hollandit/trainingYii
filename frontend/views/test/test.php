@@ -100,7 +100,7 @@ $second = stringLenght($model[0]->idThemeQuestion->second);
     ]);
     echo '<div class="modal-result_test"></div>';
     echo '<div class="modal-footer">'.
-        Html::a('ОК', ['test/index'], ['class' => 'btn modal-result_button'])
+        Html::a('ОК', ['site/index'], ['class' => 'btn modal-result_button'])
     .'</div>';
     Modal::end()?>
 
@@ -118,7 +118,7 @@ $second = stringLenght($model[0]->idThemeQuestion->second);
   window.onkeydown = function(evt) {
      if(evt.keyCode === 116) return false;
   };
-  let urlSite = 'http://hosttraining';
+  let urlSite = window.location.origin;
   function timer(){
     let minute = document.getElementById("m").innerHTML + document.getElementById("mm").innerHTML;
     let second = document.getElementById("s").innerHTML + document.getElementById("ss").innerHTML;
@@ -174,6 +174,5 @@ $second = stringLenght($model[0]->idThemeQuestion->second);
       div.innerHTML='<div><h1>Уверены?...</h1><br/><p>Если Вы завершите тест сейчас, то он будет считаться непройденным. Это отрицательно отразится на Вашем рейтинге.</p></div><input type="button" value="Вернуться к тесту"><input type="button" class="completion-button" value="Завершить">';
       return document.body.appendChild(div);
   });
-
 JS;
 $this->registerJs($script)?>
