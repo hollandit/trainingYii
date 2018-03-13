@@ -66,4 +66,11 @@ class Testing extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'id_user']);
     }
+
+    public function saveTesting($idUser, $id)
+    {
+        $this->id_user = $idUser;
+        $this->id_theme = $id;
+        $this->save();
+    }
 }
