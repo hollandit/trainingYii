@@ -13,6 +13,7 @@ use yii\db\ActiveRecord;
  * @property string $answear
  * @property int $id_theme
  * @property int $done
+ * @property int $number
  * @property int $result
  * @property string $date
  *
@@ -38,7 +39,7 @@ class Choice extends ActiveRecord
     {
         return [
             [['id_user', 'answear', 'id_theme'], 'required'],
-            [['id_user', 'id_theme', 'result', 'done'], 'integer'],
+            [['id_user', 'id_theme', 'result', 'done', 'number'], 'integer'],
             [['answear'], 'string'],
             [['date'], 'safe'],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
@@ -58,6 +59,7 @@ class Choice extends ActiveRecord
             'id_theme' => 'Id Theme',
             'done' => 'Выполнено',
             'result' => 'Result',
+            'number' => 'Количество всего вопросов',
             'date' => 'Дата',
         ];
     }
@@ -90,5 +92,21 @@ class Choice extends ActiveRecord
     public function afterFind()
     {
         $this->answear = json_decode($this->answear, true);
+    }
+
+    public function saveDB($id, $model, $right, $answer)
+    {
+        $count = count($model);
+
+        $this->id_user = $id;
+        $this->id_theme = $model[0]->id_theme;
+        $this->answear = json_encode($answer, JSON_UNESCAPED_UNICODE);
+        $this->result = $right;
+        $this->done = $right == $count ? Choice::PASS : Choice::NOT_PASS;
+        $this->number = $count;
+        if (!$this->save()){
+            return json_encode($this->getErrors(), JSON_UNESCAPED_UNICODE);
+        }
+        return $this;
     }
 }
