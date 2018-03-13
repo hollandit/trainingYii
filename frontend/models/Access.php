@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\models\query\AccessQuery;
 use Yii;
 
 /**
@@ -10,12 +11,15 @@ use Yii;
  * @property int $id
  * @property int $id_user
  * @property int $id_theme
+ * @property string $create_at
  *
  * @property User $user
  * @property Thema $theme
  */
 class Access extends \yii\db\ActiveRecord
 {
+    const DONE = 1;
+    const NOT_DONE = 0;
     /**
      * @inheritdoc
      */
@@ -32,6 +36,7 @@ class Access extends \yii\db\ActiveRecord
         return [
             [['id_user', 'id_theme'], 'required'],
             [['id_user', 'id_theme'], 'integer'],
+            ['create_at', 'safe'],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
             [['id_theme'], 'exist', 'skipOnError' => true, 'targetClass' => Thema::className(), 'targetAttribute' => ['id_theme' => 'id']],
         ];
@@ -46,6 +51,7 @@ class Access extends \yii\db\ActiveRecord
             'id' => 'ID',
             'id_user' => 'Id User',
             'id_theme' => 'Id Theme',
+            'create_at' => 'Create At'
         ];
     }
 
