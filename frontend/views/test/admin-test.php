@@ -1,17 +1,22 @@
 <?php
 
+use app\models\Choice;
 use frontend\components\NavThema;
+use kartik\select2\Select2;
 use yii\bootstrap\Modal;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use app\models\Image;
 
 /** @var $model \app\models\Questions */
 /** @var $thema \app\models\Thema */
+/** @var $user \app\models\User */
+/** @var $access \app\models\Access */
 
 $lenght = count($model) - 1;
 $this->title = 'Тестирование';
-
+$user = ArrayHelper::map($user, 'id', 'nameEmployee');
 ?>
 
 <div class="test-adminTest">
@@ -115,53 +120,66 @@ $this->title = 'Тестирование';
         <div class="purpose">
             <p>СПИСОК НАЗНАЧЕНИЯ <?= Html::img('@web/images/u3045.png', ['style' => 'float:right']) ?></p>
             <hr/>
-            <div class="statistics_appointment">
-                <?= Html::img('@web/images/u3104.png') ?>
-                <span class="statistics_appointment-date">15 мар</span>
-                <span class="statistics_appointment-name success">Руслан Абсалямов</span>
-                <span class="statistics_appointment-result">13/15</span>
-            </div>
-            <div class="statistics_appointment">
-                <?= Html::img('@web/images/u3104.png') ?>
-                <span class="statistics_appointment-date">15 мар</span>
-                <span class="statistics_appointment-name success">Альберт Закиров</span>
-                <span class="statistics_appointment-result">8/15</span>
-            </div>
-            <div class="statistics_appointment">
-                <?= Html::img('@web/images/u3108.png', ['class' => 'statistics_appointment-icon']) ?>
-                <span class="statistics_appointment-date">28 фев</span>
-                <span class="statistics_appointment-name error">Дамир Закиев</span>
-                <span class="statistics_appointment-result">10/16</span>
-            </div>
-            <div class="statistics_appointment">
-                <?= Html::img('@web/images/u3140.png') ?>
-                <span class="statistics_appointment-date">14 янв</span>
-                <span class="statistics_appointment-name">Алексей Филипсон</span>
-                <span class="statistics_appointment-result">8/18</span>
-            </div>
-            <div class="statistics_appointment">
-                <span class="glyphicon glyphicon-check statistics_appointment-icon success"></span>
-                <span class="statistics_appointment-date">13 янв</span>
-                <span class="statistics_appointment-name success">Светлана Левина</span>
-                <span class="statistics_appointment-result">15/15</span>
-            </div>
-            <div class="statistics_appointment">
-                <?= Html::img('@web/images/u3140.png') ?>
-                <span class="statistics_appointment-date">28 дек</span>
-                <span class="statistics_appointment-name">Виктория Кузнецова</span>
-                <span class="statistics_appointment-result">10/16</span>
-            </div>
+            <?php \yii\widgets\Pjax::begin([
+                'id' => 'pjax-apoint'
+            ]);
+            foreach ($access as $acc){
+                $apoint = Choice::find()->andWhere(['id_user' => $acc->id_user])->andWhere(['id_theme' => $model[0]->id_theme])->andWhere(['>=', 'date', $acc->create_at])->one();
+                $image = null;
+                if ($apoint->done === 0){
+                    $image = Html::img('@web/images/u3108.png', ['class' => 'statistics_appointment-icon']);
+                } elseif ($apoint->done === 1){
+                    $image = Html::img('@web/images/u3104.png');
+                } else {
+                    $image = Html::img('@web/images/u3140.png');
+                }
+                $date = $apoint == null ? Yii::$app->formatter->asDate($acc->create_at, 'php:d.M') : Yii::$app->formatter->asDate($apoint->date, 'php:d.M');
+                $result = $apoint == null ? '-' : $apoint->result.'/'.$apoint->number;
+                $status = '';
+                if ($apoint->done === 0){
+                    $status = 'error';
+                } elseif ($apoint->done === 1){
+                    $status = 'success';
+                } else {
+                    $status = '';
+                }
+                echo '<div class="statistics_appointment">'.
+                $image .'
+                    <span class="statistics_appointment-date">'. $date .'</span>
+                    <span class="statistics_appointment-name '.$status.'">'.$acc->user->lastNameEmployee.'</span>
+                    <span class="statistics_appointment-result">'.$result.'</span>
+                </div>';
+            }
+            \yii\widgets\Pjax::end();
+            ?>
         </div>
-        <div class="form-search">
-            <div class="input-group">
-                <span class="input-group-addon glyphicon glyphicon-user form-search-icon"></span>
-                <input type="text" class="form-control form-search-input" placeholder="Найти учстника">
-                <span class="input-group-btn">
-                    <button class="btn form-search-button" type="button">Назначить</button>
-                </span>
+            <div class="form-search">
+                <form class="form-apoint" action="<?= Url::to(['test/test', 'id' => $model[0]->id_theme]) ?>" method="post" id="<?= $model[0]->id_theme ?>">
+                    <input type="hidden" name="<?=Yii::$app->request->csrfParam; ?>" value="<?=Yii::$app->request->getCsrfToken(); ?>" />
+                    <div class="input-group">
+                        <span class="input-group-addon glyphicon glyphicon-user form-search-icon"></span>
+                        <?php try {
+                            echo Select2::widget([
+                                'name' => 'apoint',
+                                'theme' => Select2::THEME_BOOTSTRAP,
+                                'data' => $user,
+                                'options' => [
+                                    'placeholder' => 'Найти участника',
+                                    'class' => 'form-control form-search-input',
+                                    'required' => true
+                                ]
+                            ]);
+                        } catch (Exception $e) {
+                            echo $e;
+                        }
+                        ?>
+                        <span class="input-group-btn">
+                            <?= Html::submitButton('Назначить', ['class' => 'btn form-search-button']) ?>
+                        </span>
+                    </div>
+                </form>
+                <?= Html::submitButton('Создать ссылку на прохождение...', ['class' => 'btn addLinkButton']) ?>
             </div>
-            <?= Html::submitButton('Создать ссылку на прохождение...', ['class' => 'btn addLinkButton']) ?>
-        </div>
         <div class="statistics-paragraph purpose">
             <p>СТАТИСТИКА</p>
             <hr/>
