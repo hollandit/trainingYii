@@ -17,6 +17,9 @@ $this->title = $model->name;
 ?>
 <div class="user-view">
 
+    <a href="http://telegram.me/HollandSotrudbot?start=<?= $model->telegram_token; ?>" target="_blank" class="black-btn btn-lg">
+        <i class="fa fa-paper-plane"></i> Подключить
+    </a>
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
@@ -56,6 +59,7 @@ $this->title = $model->name;
                     'label' => 'Адрес'
                 ],
                 'email:email',
+                'phone',
                 'created_at:datetime',
             ],
         ]);
@@ -95,15 +99,4 @@ $this->title = $model->name;
             echo $e->getMessage();
         } ?>
     <?php Pjax::end() ?>
-
-<!--    --><?php //$events = [];
-//
-//    ?>
-<!---->
-<!--    --><?//= \yii2fullcalendar\yii2fullcalendar::widget(array(
-//        'events'=> $events,
-//        'options' => [
-//            'lang' => 'ru'
-//        ]
-//    ));?>
 </div>
