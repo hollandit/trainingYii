@@ -29,7 +29,8 @@ use yii\db\ActiveRecord;
  * @property string $password_reset_token
  * @property string $email
  * @property int $status
- * @property int $active
+ * @property string $telegram_chat_id
+ * @property string $telegram_token
  * @property int $created_at
  * @property int $updated_at
  *
@@ -63,8 +64,10 @@ class User extends ActiveRecord
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['last_name', 'name', 'patronymic', 'city', 'street', 'build', 'appartament'], 'string', 'max' => 86],
             [['city_name', 'street_name'], 'string', 'max' => 128],
+            [['telegram_chat_id', 'telegram_token'], 'string', 'max' => 50],
             [['build_name'], 'string', 'max' => 36],
             [['auth_key'], 'string', 'max' => 32],
+            [['phone'], 'string', 'max' => 20],
             [['username'], 'unique'],
             [['email'], 'unique'],
             [['password_reset_token'], 'unique'],
@@ -83,6 +86,7 @@ class User extends ActiveRecord
             'last_name' => 'Фамилия',
             'name' => 'Имя',
             'patronymic' => 'Отчетство',
+            'phone' => 'Телефон',
             'city' => 'Город',
             'city_name' => 'City Name',
             'street' => 'Улица',
@@ -98,6 +102,8 @@ class User extends ActiveRecord
             'password_reset_token' => 'Password Reset Token',
             'email' => 'Email',
             'status' => 'Status',
+            'telegram_chat_id' => 'Telegram Chat Id',
+            'telegram_token' => 'Telegram Token',
             'created_at' => 'Дата содание',
             'updated_at' => 'Updated At',
             'active' => 'Active',
@@ -159,8 +165,16 @@ class User extends ActiveRecord
         return $this->last_name.' '.$this->name.' '.$this->patronymic;
     }
 
+    public function getLastNameEmployee()
+    {
+        return $this->last_name.' '.$this->name;
+    }
+
     public function getAddress()
     {
+        if ($this->appartament == null){
+            return 'г.'.$this->city_name.' ул.'.$this->street_name.' д.'.$this->build_name;
+        }
         return 'г.'.$this->city_name.' ул.'.$this->street_name.' д.'.$this->build_name.' кв.'.$this->appartament;
     }
 }
