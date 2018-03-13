@@ -37,9 +37,9 @@ class ChoiceSearch extends Choice
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $id)
     {
-        $query = Choice::find()->with(['theme']);
+        $query = Choice::find()->with(['theme'])->where(['id_user' => $id]);
 
         // add conditions that should always apply here
 
