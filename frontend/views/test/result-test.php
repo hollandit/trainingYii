@@ -3,6 +3,7 @@ use yii\widgets\LinkPager;
 use yii\widgets\Pjax;
 
 /** @var \yii\data\Pagination $pages */
+$this->title = 'Рейтинги'
 ?>
 
 <div class="test-resultTest">
@@ -16,7 +17,7 @@ use yii\widgets\Pjax;
                     <p>Тема: <?php echo $result->theme->name ?></p>
                     <p>Дата выполнение теста <?php echo Yii::$app->formatter->asDatetime($result->date, 'dd.MM.YYYY HH:mm') ?></p>
                     <p>Правильных ответов: <?php echo $result->result ?></p>
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <table class="table table-condensed">
                             <tr>
                                 <th>Вопрос</th>
@@ -35,9 +36,12 @@ use yii\widgets\Pjax;
                 </div>
             </div>
         <?php endforeach; ?>
-        <?php echo LinkPager::widget([
+        <?php try {
+            echo LinkPager::widget([
                 'pagination' => $pages
-        ]);
+            ]);
+        } catch (Exception $e) {
+        }
         Pjax::end()?>
     </div>
 </div>
