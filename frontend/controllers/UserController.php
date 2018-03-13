@@ -70,7 +70,7 @@ class UserController extends Controller
     public function actionView($id)
     {
         $searchModel = new ChoiceSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $id);
         return $this->render('view', [
             'model' => $this->findModel($id),
             'searchModel' => $searchModel,
