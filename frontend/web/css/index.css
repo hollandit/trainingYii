@@ -460,6 +460,21 @@
   margin-top: 4px;
 }
 
+/* line 400, ../sass/column.scss */
+.salary-employee .table-salary_employee {
+  width: 241px;
+}
+
+/* line 406, ../sass/column.scss */
+#create-depreming button {
+  margin-top: 10px;
+}
+
+/* line 412, ../sass/column.scss */
+.salary-index .panel {
+  margin-bottom: 7px;
+}
+
 /* line 38, ../sass/form.scss */
 .column-basic .test-block-admin .radio {
   display: none;
@@ -687,6 +702,15 @@
 /* line 207, ../sass/form.scss */
 .user-form .build-name, .user-form .street-name, .user-form .city-name {
   display: none;
+}
+
+/* line 213, ../sass/form.scss */
+.salary-index input[type=radio]:checked + label {
+  color: green;
+}
+/* line 216, ../sass/form.scss */
+.salary-index input[type=radio] {
+  opacity: 0;
 }
 
 /* line 52, ../sass/button.scss */
@@ -1056,6 +1080,21 @@
   top: -4px;
   left: 11px;
   border-radius: 0 5px 5px 0;
+}
+
+/* line 322, ../sass/button.scss */
+.depreming .depreming-panel .delete-depreming {
+  position: relative;
+  left: 49px;
+  opacity: 0;
+  cursor: pointer;
+  transition: all .3s ease;
+  color: #da6565;
+}
+/* line 331, ../sass/button.scss */
+.depreming .depreming-panel:hover .delete-depreming {
+  left: 20px;
+  opacity: 1;
 }
 
 /* line 10, ../sass/modal.scss */

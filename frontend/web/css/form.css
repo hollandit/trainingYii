@@ -226,3 +226,12 @@
 .user-form .build-name, .user-form .street-name, .user-form .city-name {
   display: none;
 }
+
+/* line 213, ../sass/form.scss */
+.salary-index input[type=radio]:checked + label {
+  color: green;
+}
+/* line 216, ../sass/form.scss */
+.salary-index input[type=radio] {
+  opacity: 0;
+}
