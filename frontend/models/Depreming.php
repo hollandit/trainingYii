@@ -10,11 +10,14 @@ namespace app\models;
  * @property int $amount
  * @property int $id_user
  * @property string $comment
+ * @property string $create_at
  *
  * @property User $user
  */
 class Depreming extends \yii\db\ActiveRecord
 {
+    const BONUS = 0;
+    const FINE = 1;
     /**
      * @inheritdoc
      */
@@ -29,9 +32,10 @@ class Depreming extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['type', 'amount', 'id_user', 'comment'], 'required'],
+            [['id_user'], 'required'],
             [['type', 'amount', 'id_user'], 'integer'],
             [['comment'], 'string'],
+            [['create_at'], 'safe'],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
         ];
     }
@@ -48,6 +52,7 @@ class Depreming extends \yii\db\ActiveRecord
             'amount' => 'Amount',
             'id_user' => 'Id User',
             'comment' => 'Comment',
+            'create_at' => 'Create At',
         ];
     }
 
