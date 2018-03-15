@@ -42,7 +42,7 @@ AppAsset::register($this);
                     ['label' => 'Рейтинги', 'url' => ['/test/result-test'], 'visible' => Yii::$app->user->can('hr'), 'active' => Yii::$app->controller->action->id === 'result-test' ? true : false],
                     ['label' => 'Смены', 'url' => ['#'], 'visible' => Yii::$app->user->can('hr')],
                     ['label' => 'Картотека', 'url' => ['/user/index'], 'visible' => Yii::$app->user->can('hr'), 'active' => Yii::$app->controller->action->id === 'index' && Yii::$app->controller->id === 'user' ? true : false],
-                    ['label' => 'Зарплаты', 'url' => ['#'], 'visible' => Yii::$app->user->can('hr')],
+                    ['label' => 'Зарплаты', 'url' => ['salary/index'], 'visible' => Yii::$app->user->can('hr')],
                     ['label' => 'Главная страница', 'url' => ['/site/index'], 'visible' => Yii::$app->user->can('employee'), 'active' => Yii::$app->controller->action->id === 'index' && Yii::$app->controller->id === 'site' ? true : false],
                     ['label' => 'Тренинги', 'url' => ['/site/contact'], 'visible' => Yii::$app->user->can('employee'), 'active' => Yii::$app->controller->action->id === 'contact' ? true : false],
                     ['label' => 'Тесты', 'url' => ['/test/test', 'id' => $questionHeader[0]->id_theme], 'visible' => Yii::$app->user->can('hr'), 'active' => Yii::$app->controller->action->id === 'test' || Yii::$app->controller->action->id === 'admin-test' ? true : false],
