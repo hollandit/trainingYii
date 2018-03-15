@@ -65,6 +65,17 @@ $(document).ready(function(){
         })
     });
 
+    $('#create-depreming').submit(function (e) {
+        e.preventDefault();
+        $.post({
+            url: window.location.origin+'/frontend/web/index.php?r=salary%2Fcreate',
+            data: $(this).serialize()
+        }).done(() => {
+            $(this)[0].reset();
+            $.pjax.reload('#table-depreming');
+        }).fail(err => console.log(err))
+    });
+
     $('.form-apoint').submit(function (e) {
         e.preventDefault();
         let id = $(this).attr('id');
@@ -98,6 +109,18 @@ $(document).ready(function(){
         };
         div.innerHTML='<div><h1>Уверены?...</h1><br/><p>Это действие необратим. Если Вы сейчас удалите тест, то уже не сможете его восстановить.</p></div><input type="button" value="Отменить"><input type="button" class="delete-button" value="Да, уверен">';
         return document.body.appendChild(div);
+    });
+
+    $('body').on('click', '.delete-depreming',function () {
+        let id = $(this).data('id');
+        $.get({
+           url: window.location.origin+'/frontend/web/index.php?r=salary%2Fdelete&id='+id
+        })
+            .done(() => {
+                $.pjax.reload('#table-depreming');
+        })
+            .fail(err => console.log(err));
+        console.log(id);
     });
 
     modal('.editQuestion', '#modal-editQuestion');
