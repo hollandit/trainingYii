@@ -117,6 +117,7 @@ body::after {
     background: rgba(0,0,0,0);
     color: $gold;
     border-bottom: 1px solid #73694f;
+    border-radius: 0;
   }
   .nav > li> a:active, .nav>.active>a{
     background: rgba(116, 106, 79, 1);

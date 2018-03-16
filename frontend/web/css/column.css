@@ -1,21 +1,21 @@
 /*
 Error: Undefined variable: "$greenish-gray".
-        on line 309 of C:/OpenServer/domains/hostTraining/frontend/web/sass/column.scss
+        on line 311 of C:/OpenServer/domains/hostTraining/frontend/web/sass/column.scss
 
-304:     .progress{
-305:       margin-top: 24px;
-306:       margin-right: 15%;
-307:       margin-left: 26.2%;
-308:       background: rgba(0,0,0,0);
-309:       border: 2px solid $greenish-gray;
-310:       border-radius: 0 50px 50px 0;
-311:       height: 28px;
-312:       .progress-bar{
-313:         color: $greenish-gray;
-314:         background: $greenish-gray;
+306:     .progress{
+307:       margin-top: 24px;
+308:       margin-right: 15%;
+309:       margin-left: 26.2%;
+310:       background: rgba(0,0,0,0);
+311:       border: 2px solid $greenish-gray;
+312:       border-radius: 0 50px 50px 0;
+313:       height: 28px;
+314:       .progress-bar{
+315:         color: $greenish-gray;
+316:         background: $greenish-gray;
 
 Backtrace:
-C:/OpenServer/domains/hostTraining/frontend/web/sass/column.scss:309
+C:/OpenServer/domains/hostTraining/frontend/web/sass/column.scss:311
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/script/tree/variable.rb:49:in `_perform'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/script/tree/node.rb:58:in `perform'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/lib/sass/script/tree/list_literal.rb:63:in `block in _perform'
@@ -93,4 +93,4 @@ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.24/vendor/listen/lib/listen/adap
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$greenish-gray\".\A         on line 309 of C:/OpenServer/domains/hostTraining/frontend/web/sass/column.scss\A \A 304:     .progress{\A 305:       margin-top: 24px;\A 306:       margin-right: 15%;\A 307:       margin-left: 26.2%;\A 308:       background: rgba(0,0,0,0);\A 309:       border: 2px solid $greenish-gray;\A 310:       border-radius: 0 50px 50px 0;\A 311:       height: 28px;\A 312:       .progress-bar{\A 313:         color: $greenish-gray;\A 314:         background: $greenish-gray;"; }
+  content: "Error: Undefined variable: \"$greenish-gray\".\A         on line 311 of C:/OpenServer/domains/hostTraining/frontend/web/sass/column.scss\A \A 306:     .progress{\A 307:       margin-top: 24px;\A 308:       margin-right: 15%;\A 309:       margin-left: 26.2%;\A 310:       background: rgba(0,0,0,0);\A 311:       border: 2px solid $greenish-gray;\A 312:       border-radius: 0 50px 50px 0;\A 313:       height: 28px;\A 314:       .progress-bar{\A 315:         color: $greenish-gray;\A 316:         background: $greenish-gray;"; }
