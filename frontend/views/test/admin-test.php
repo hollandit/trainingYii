@@ -98,13 +98,13 @@ $user = ArrayHelper::map($user, 'id', 'nameEmployee');
                 foreach ($file as $attachment){
                     switch (count($file)){
                         case 4:
-                            echo '<div class="col-lg-3">'.Html::a(Html::img($attachment->path, ['style' => 'width:150px;', 'class' => 'thumbnail']), $attachment->path, ['data-lightbox' => 'roadtrip']).'</div>';
+                            echo '<div class="col-lg-3">'.Html::a(Html::img($attachment->path, ['style' => 'width:150px;height: 104px;', 'class' => '']), $attachment->path, ['data-lightbox' => 'roadtrip']).'</div>';
                             break;
                         case 3:
-                            echo '<div class="col-lg-4">'.Html::a(Html::img($attachment->path, ['style' => 'width:200px;', 'class' => 'thumbnail']), $attachment->path, ['data-lightbox' => 'roadtrip']).'</div>';
+                            echo '<div class="col-lg-4">'.Html::a(Html::img($attachment->path, ['style' => 'width:200px;', 'class' => '']), $attachment->path, ['data-lightbox' => 'roadtrip']).'</div>';
                             break;
                         case 2:
-                            echo '<div class="col-lg-6">'.Html::a(Html::img($attachment->path, ['style' => 'width:300px;margin-left:10px', 'class' => 'thumbnail']), $attachment->path, ['data-lightbox' => 'roadtrip']).'</div>';
+                            echo '<div class="col-lg-6">'.Html::a(Html::img($attachment->path, ['style' => 'width:300px;margin-left:10px', 'class' => '']), $attachment->path, ['data-lightbox' => 'roadtrip']).'</div>';
                             break;
                         case 1:
                             echo '<div class="col-lg-7">'.Html::a(Html::img($attachment->path, ['style' => 'width:576px;height:257px; margin-left:22px']), $attachment->path, ['data-lightbox' => 'image-1']).'</div>';
