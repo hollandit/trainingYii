@@ -20,6 +20,7 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'js/index.js',
+        'js/form.js',
         'js/question.js',
         'js/lightbox.min.js',
         'js/yii.confirm.overrides.js',
