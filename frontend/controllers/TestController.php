@@ -7,7 +7,6 @@ use app\models\Choice;
 use app\models\Testing;
 use app\models\Thema;
 use app\models\User;
-use frontend\models\Telegram;
 use \Yii;
 use app\models\Questions;
 use yii\data\Pagination;
@@ -24,7 +23,7 @@ class TestController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['create', 'update', 'delete','update-theme','delete-theme','test', 'result-test'],
+                        'actions' => ['create', 'update', 'delete','update-theme','delete-theme','test', 'result-test', 'condition'],
                         'allow' => true,
                         'roles' => ['hr']
                     ],
@@ -178,6 +177,10 @@ class TestController extends Controller
         ]);
     }
 
+    /**
+     * @param $id
+     * @return string
+     */
     public function actionResult($id)
     {
         $idUser = Yii::$app->user->id;
@@ -210,7 +213,6 @@ class TestController extends Controller
                 return json_encode($result, JSON_UNESCAPED_UNICODE);
             }
         }
-
     }
 
     /**
@@ -223,7 +225,7 @@ class TestController extends Controller
         $thema = Thema::find()->where(['id' => $id])->one();
         $user = User::find()->select(['id', 'last_name', 'name', 'patronymic'])->where(['active' => 1])->all();
         $model = Questions::find()->with('idThemeQuestion')->where(['id_theme' => $id, 'active' => Questions::ACTIVE])->all();
-        $access = Access::find()->select(['id_theme', 'create_at', 'id_user'])->limit(6)->all();
+        $access = Access::find()->select(['id_theme', 'create_at', 'id_user'])->where(['id_theme' => $id])->limit(6)->orderBy('id DESC')->all();
 
         if ($idUser){
             $accessDelete = Access::find()->where(['id_theme' => $id, 'id_user' => $idUser])->one();
@@ -244,6 +246,19 @@ class TestController extends Controller
             }
         }
         return $this->render('admin-test', compact('model', 'thema', 'user', 'access'));
+    }
+
+    public function actionCondition($id)
+    {
+        $model = Thema::findOne($id);
+        if (Yii::$app->request->post()){
+            $model->conditions = Yii::$app->request->post('conditions');
+            if (!$model->save()){
+                return json_encode($model->getErrors(), JSON_UNESCAPED_UNICODE);
+            } else {
+                return true;
+            }
+        }
     }
 
     public function actionTerm($id)
