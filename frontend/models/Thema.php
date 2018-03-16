@@ -13,9 +13,12 @@ use yii\db\ActiveRecord;
  * @property int $id_possition
  * @property string $minute
  * @property string $second
+ * @property string $conditions
  *
  * @property Access[] $accesses
- * @property Questions $questions
+ * @property Answers[] $answers
+ * @property Choice[] $choices
+ * @property Questions[] $questions
  * @property Testing[] $testings
  * @property Position $possition
  */
@@ -38,6 +41,7 @@ class Thema extends ActiveRecord
             [['name'], 'required'],
             [['id_possition'], 'integer'],
             [['name'], 'string', 'max' => 200],
+            [['conditions'], 'string'],
             [['minute', 'second'], 'string', 'max' => 2],
             ['id_possition', 'default', 'value' => 5],
             [['id_possition'], 'exist', 'skipOnError' => true, 'targetClass' => Position::className(), 'targetAttribute' => ['id_possition' => 'id']],
@@ -54,7 +58,8 @@ class Thema extends ActiveRecord
             'name' => 'Название',
             'id_possition' => 'Id Possition',
             'minute' => 'Minute',
-            'second' => 'Second'
+            'second' => 'Second',
+            'conditions' => 'Conditions',
         ];
     }
 
@@ -64,6 +69,22 @@ class Thema extends ActiveRecord
     public function getAccesses()
     {
         return $this->hasMany(Access::className(), ['id_theme' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAnswers()
+    {
+        return $this->hasMany(Answers::className(), ['id_thema' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getChoices()
+    {
+        return $this->hasMany(Choice::className(), ['id_theme' => 'id']);
     }
 
     /**
