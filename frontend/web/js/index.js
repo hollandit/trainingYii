@@ -35,14 +35,14 @@ $(document).ready(function(){
         let id = $(this).data('id');
         let form = $(this).serialize();
         $.post({
-            url: urlSite+'/frontend/web/index.php?r=test%2Fresult&id='+id,
+            url: urlSite+'/frontend/web/test/result?id='+id,
             data: form,
         })
         .done(data => {
             let result = JSON.parse(data);
             $('#modalResult').modal('show');
             $('#modalResult').on('hide.bs.modal', function () {
-                window.location.replace(urlSite+'/frontend/web/index.php?r=site%2Findex');
+                window.location.replace(urlSite+'/frontend/web/site/index');
             });
             if (result.status === 1){
                 clearInterval(intervalID);
@@ -68,7 +68,7 @@ $(document).ready(function(){
     $('#create-depreming').submit(function (e) {
         e.preventDefault();
         $.post({
-            url: window.location.origin+'/frontend/web/index.php?r=salary%2Fcreate',
+            url: window.location.origin+'/frontend/web/salary/create',
             data: $(this).serialize()
         }).done(() => {
             $(this)[0].reset();
@@ -80,10 +80,11 @@ $(document).ready(function(){
         e.preventDefault();
         let id = $(this).attr('id');
         $.post({
-            url: urlSite+'/frontend/web/index.php?r=test%2Ftest&id='+id,
+            url: urlSite+'/frontend/web/test/test?id='+id,
             data: $(this).serialize()
         }).done(()   => {
             $.pjax.reload('#pjax-apoint');
+            $(this)[0].reset();
         })
             .fail(err => console.log(err));
     });
@@ -103,7 +104,7 @@ $(document).ready(function(){
         div.onclick = function (e) {
             let t = e ? e.target : window.event.srcElement;
             if(t.tagName === 'INPUT'){
-                t.value === 'Да, уверен' && window.location.replace(urlSite+'/frontend/web/index.php?r=test%2Fdelete-theme&id='+id);
+                t.value === 'Да, уверен' && window.location.replace(urlSite+'/frontend/web/test/delete-theme?id='+id);
                 this.parentNode.removeChild(this);
             }
         };
@@ -114,7 +115,7 @@ $(document).ready(function(){
     $('body').on('click', '.delete-depreming',function () {
         let id = $(this).data('id');
         $.get({
-           url: window.location.origin+'/frontend/web/index.php?r=salary%2Fdelete&id='+id
+           url: window.location.origin+'/frontend/web/salary/delete?id='+id
         })
             .done(() => {
                 $.pjax.reload('#table-depreming');
