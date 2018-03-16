@@ -6,7 +6,6 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\widgets\Pjax;
-use yii2fullcalendar\models\Event;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\User */
@@ -17,9 +16,6 @@ $this->title = $model->name;
 ?>
 <div class="user-view">
 
-    <a href="http://telegram.me/HollandSotrudbot?start=<?= $model->telegram_token; ?>" target="_blank" class="black-btn btn-lg">
-        <i class="fa fa-paper-plane"></i> Подключить
-    </a>
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
