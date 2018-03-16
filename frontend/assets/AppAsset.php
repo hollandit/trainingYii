@@ -23,7 +23,6 @@ class AppAsset extends AssetBundle
         'js/question.js',
         'js/lightbox.min.js',
         'js/yii.confirm.overrides.js',
-        'js/jquery-ui/jquery-ui.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
