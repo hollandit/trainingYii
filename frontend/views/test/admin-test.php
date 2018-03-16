@@ -8,6 +8,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use app\models\Image;
+use yii\widgets\Pjax;
 
 /** @var $model \app\models\Questions */
 /** @var $thema \app\models\Thema */
@@ -55,8 +56,12 @@ $user = ArrayHelper::map($user, 'id', 'nameEmployee');
             Modal::end(); ?></span>
         <div class="column-basic-condition">
             <p>УСЛОВИЯ ПРОХОЖДЕНИЯ:</p>
-            <p>Время на прохождение: 1 минута.</p>
-            <p>Если Вы не прошли тест, пересдача возможна не ранее, чем через 14 дней. Результаты прохождения принимаются в расчет при начислении бонусов и премиальных, а также - при повышении должности.</p>
+            <?= Html::img('@web/images/u3045.png', ['data-target' => '#editCondition', 'data-toggle' => 'modal', 'class' => 'edit-condition']) ?>
+            <?php Pjax::begin([
+                'id' => 'pjax-condition'
+            ]) ?>
+            <?= $model[0]->idThemeQuestion->conditions ?>
+            <?php Pjax::end() ?>
         </div>
         <hr/>
         <div>
@@ -120,7 +125,7 @@ $user = ArrayHelper::map($user, 'id', 'nameEmployee');
         <div class="purpose">
             <p>СПИСОК НАЗНАЧЕНИЯ <?= Html::img('@web/images/u3045.png', ['style' => 'float:right']) ?></p>
             <hr/>
-            <?php \yii\widgets\Pjax::begin([
+            <?php Pjax::begin([
                 'id' => 'pjax-apoint'
             ]);
             foreach ($access as $acc){
@@ -150,7 +155,7 @@ $user = ArrayHelper::map($user, 'id', 'nameEmployee');
                     <span class="statistics_appointment-result">'.$result.'</span>
                 </div>';
             }
-            \yii\widgets\Pjax::end();
+            Pjax::end();
             ?>
         </div>
             <div class="form-search">
@@ -234,10 +239,18 @@ $user = ArrayHelper::map($user, 'id', 'nameEmployee');
     </div>
 </div>
 <?php Modal::begin([
+    'id' => 'editCondition',
+    'header' => 'Редактировать условие'
+]);
+
+    echo $this->render('condition', compact('thema'));
+
+Modal::end() ?>
+<?php Modal::begin([
     'id' => 'modal-editQuestion',
     'header' => 'Редактировние вопроса',
 ]);
 
-echo '<div class="modal-content"></div>';
+    echo '<div class="modal-content"></div>';
 
 Modal::end(); ?>
