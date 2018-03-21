@@ -35,6 +35,7 @@ class Shifts extends \yii\db\ActiveRecord
             [['user_id', 'start_date', 'end_date'], 'required'],
             [['id', 'user_id'], 'integer'],
             [['start_date', 'end_date', 'created_at', 'updated_at'], 'safe'],
+            ['created_at', 'default', 'value' => date('Y-m')],
             [['id'], 'unique'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
