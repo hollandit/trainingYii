@@ -29,6 +29,7 @@ $(document).ready(function(){
     kladrName('#signupform-city_kladr', '.city-name');
     kladrName('#signupform-street_kladr', '.street-name');
     kladrName('#signupform-build_kladr', '.build-name');
+
     //Form test
     $('#testForm-result').submit(function(e){
         e.preventDefault();
@@ -126,6 +127,7 @@ $(document).ready(function(){
 
     modal('.editQuestion', '#modal-editQuestion');
     modal('.editTitle', '#modal-editQuestion');
+    modalView('.result-test', '#modal-resultTest');
 
     // of input put value in radio
     valueRadio('.answer-1', '.radio-1');
@@ -137,6 +139,15 @@ $(document).ready(function(){
     function modal(id, value) {
         $(id).click(function(){
             let path = $(this).data('path');
+            $(value).modal('show')
+                .find('.modal-content')
+                .load(path);
+        });
+    }
+    function modalView(id, value) {
+        $(id).click(function (e) {
+            e.preventDefault();
+            let path = $(this).attr('href');
             $(value).modal('show')
                 .find('.modal-content')
                 .load(path);
