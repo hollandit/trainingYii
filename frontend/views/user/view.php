@@ -4,11 +4,11 @@ use app\models\Choice;
 use yii\grid\GridView;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
-use yii\widgets\DetailView;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\User */
+/* @var $access app\models\Access */
 /* @var $searchModel app\models\ChoiceSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
@@ -16,7 +16,7 @@ $this->title = $model->name;
 ?>
 <div class="user-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= Html::encode($model->nameEmployee) ?></h1>
 
     <p>
         <?= Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -29,40 +29,83 @@ $this->title = $model->name;
         ]) ?>
     </p>
 
-    <?php try {
-        echo DetailView::widget([
-            'model' => $model,
-            'attributes' => [
-                'id',
-                'username',
-                'nameEmployee',
-                [
-                    'attribute' => 'id_position',
-                    'value' => function ($value) {
-                        return $value->position->name;
-                    }
-                ],
-                [
-                    'attribute' => '',
-                    'format' => 'raw',
-                    'label' => 'Кол-во выполненых тестов',
-                    'value' => function ($value) {
-                        return Choice::find()->where(['done' => Choice::PASS, 'id_user' => $value->id])->count() . ' из ' . Choice::find()->where(['id_user' => $value->id])->count();
-                    }
-                ],
-                [
-                    'attribute' => 'address',
-                    'label' => 'Адрес'
-                ],
-                'email:email',
-                'phone',
-                'created_at:datetime',
-            ],
-        ]);
-    } catch (Exception $e) {
-        echo $e->getMessage();
-    } ?>
-
+    <div class="col-lg-4">
+        <?php Pjax::begin([
+            'id' => 'pjax-employee-contact'
+        ]) ?>
+        <div class="panel">
+            <span class="glyphicon glyphicon-pencil action-contact" data-id="<?=$model->id?>"></span>
+            <div class="panel-body">
+                <p>Контакты</p>
+                <table class="employee-table">
+                    <tr>
+                        <td class="employee-table_label">Адрес</td>
+                        <td><?= Html::encode($model->address) ?></td>
+                    </tr>
+                    <tr>
+                        <td class="employee-table_label">Email</td>
+                        <td class="employee-table_email"> <?= Html::encode($model->email) ?></td>
+                    </tr>
+                    <tr>
+                        <td class="employee-table_label">Телефон</td>
+                        <td class="employee-table_phone"> <?= Html::encode($model->phone) ?></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <?php Pjax::end() ?>
+    </div>
+    <div class="col-lg-3">
+        <div class="panel">
+            <span class="glyphicon glyphicon-pencil action-info" data-id="<?=$model->id ?>"></span>
+            <div class="panel-body">
+                <p>Информация о сотруднике</p>
+                <table class="employee-table">
+                    <tr>
+                        <td class="employee-table_label">Оклад</td>
+                        <td class="employee-table_salary"><?= Html::encode($model->salary) ?> <span class="glyphicon glyphicon-ruble"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="employee-table_label">График</td>
+                        <td>5/2</td>
+                    </tr>
+                    <tr>
+                        <td class="employee-table_label">Должность</td>
+                        <td class="employee-table_position"><?= Html::encode($model->position->name) ?></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="panel">
+            <div class="panel-body">
+                <p>Тесты</p>
+                <div>
+                    <div>Кол-во выполненых тестов</div>
+                    <div><?= Choice::find()->where(['done' => Choice::PASS, 'id_user' => $model->id])->count() . ' из ' . Choice::find()->where(['id_user' => $model->id])->count() ?></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="panel appoint-panel">
+            <div class="panel-body">
+                <div class="appoint-table">
+                    <p><?= Html::encode('Назначено') ?></p>
+                    <div class="appointment-list">
+                        <?php foreach ($access as $thema){
+                            echo '<div class="appointment-employee">
+                        <div>'.Html::a($thema->theme->name, ['test/test', 'id' => $thema->id_theme]).'</div>
+                        <span>'.Yii::$app->formatter->asDate($thema->create_at, 'php:d M').'</span>
+                    </div>';
+                        } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9">
     <?php Pjax::begin() ?>
         <?php try {
             echo GridView::widget([
@@ -95,4 +138,5 @@ $this->title = $model->name;
             echo $e->getMessage();
         } ?>
     <?php Pjax::end() ?>
+    </div>
 </div>
