@@ -128,6 +128,7 @@ $(document).ready(function(){
     modal('.editQuestion', '#modal-editQuestion');
     modal('.editTitle', '#modal-editQuestion');
     modalView('.result-test', '#modal-resultTest');
+    modalView('#button-createShifts', '#modal-createShifts');
 
     // of input put value in radio
     valueRadio('.answer-1', '.radio-1');
