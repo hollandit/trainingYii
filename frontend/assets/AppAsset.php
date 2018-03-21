@@ -22,6 +22,7 @@ class AppAsset extends AssetBundle
         'js/index.js',
         'js/form.js',
         'js/question.js',
+        'js/panel.js',
         'js/lightbox.min.js',
         'js/yii.confirm.overrides.js',
     ];
