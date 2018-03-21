@@ -1,4 +1,6 @@
 <?php
+
+use app\models\Questions;
 use yii\widgets\LinkPager;
 use yii\widgets\Pjax;
 
@@ -24,7 +26,7 @@ $this->title = 'Рейтинги'
                                 <th>Ответ</th>
                             </tr>
                             <?php foreach ($result->answear as $key => $answer){
-                                $question = \app\models\Questions::findOne($key);
+                                $question = Questions::findOne($key);
                                 if ($answer != $question->correct['right']){
                                     echo '<tr class="danger"><td>'.$question->name. '</td><td>'.$answer.'</td></tr>';
                                 } else {
