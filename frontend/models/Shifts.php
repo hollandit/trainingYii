@@ -47,9 +47,9 @@ class Shifts extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_id' => 'User ID',
-            'start_date' => 'Start Date',
-            'end_date' => 'End Date',
+            'user_id' => 'Сотрудник',
+            'start_date' => 'Начало смены',
+            'end_date' => 'Конец смены',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
