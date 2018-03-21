@@ -23,7 +23,7 @@ class TestController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['create', 'update', 'delete','update-theme','delete-theme','test', 'result-test', 'condition'],
+                        'actions' => ['create', 'update', 'delete','update-theme','delete-theme','test', 'result-test', 'condition', 'modal-result'],
                         'allow' => true,
                         'roles' => ['hr']
                     ],
@@ -175,6 +175,12 @@ class TestController extends Controller
             'model' => $model,
             'pages' => $pages
         ]);
+    }
+
+    public function actionModalResult($id)
+    {
+        $model = Choice::findOne($id);
+        return $this->renderAjax('modal-result', compact('model'));
     }
 
     /**
