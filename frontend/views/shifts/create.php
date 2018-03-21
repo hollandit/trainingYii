@@ -1,21 +1,13 @@
 <?php
 
-use yii\helpers\Html;
-
-
 /* @var $this yii\web\View */
 /* @var $model app\models\Shifts */
+/* @var $model app\models\Shifts */
 
-$this->title = 'Create Shifts';
-$this->params['breadcrumbs'][] = ['label' => 'Shifts', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Создать смену';
 ?>
 <div class="shifts-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+    <?= $this->render('_form', compact('model', 'user')) ?>
 
 </div>
