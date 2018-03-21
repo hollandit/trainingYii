@@ -1,6 +1,7 @@
 <?php
 
 use app\models\Choice;
+use yii\bootstrap\Modal;
 use yii\grid\GridView;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -77,35 +78,25 @@ $this->title = $model->name;
             </div>
         </div>
     </div>
-    <div class="col-lg-2">
-        <div class="panel">
-            <div class="panel-body">
-                <p>Тесты</p>
-                <div>
-                    <div>Кол-во выполненых тестов</div>
-                    <div><?= Choice::find()->where(['done' => Choice::PASS, 'id_user' => $model->id])->count() . ' из ' . Choice::find()->where(['id_user' => $model->id])->count() ?></div>
-                </div>
+    <div class="col-lg-3 employee-test">
+        <h3>Тесты</h3>
+        <div>
+            <div class="employee-test-label">Кол-во выполненых тестов</div>
+            <div class="employee-test_rating"><?= Choice::find()->where(['done' => Choice::PASS, 'id_user' => $model->id])->count() . ' из ' . Choice::find()->where(['id_user' => $model->id])->count() ?></div>
+        </div>
+        <div class="appoint-table">
+            <h3><?= Html::encode('Назначено') ?></h3>
+            <div class="appointment-list">
+                <?php foreach ($access as $thema){
+                    echo '<div class="appointment-employee">
+                <div>'.Html::a($thema->theme->name, ['test/test', 'id' => $thema->id_theme]).'</div>
+                <span>'.Yii::$app->formatter->asDate($thema->create_at, 'php:d M').'</span>
+            </div>';
+                } ?>
             </div>
         </div>
     </div>
-    <div class="col-lg-3">
-        <div class="panel appoint-panel">
-            <div class="panel-body">
-                <div class="appoint-table">
-                    <p><?= Html::encode('Назначено') ?></p>
-                    <div class="appointment-list">
-                        <?php foreach ($access as $thema){
-                            echo '<div class="appointment-employee">
-                        <div>'.Html::a($thema->theme->name, ['test/test', 'id' => $thema->id_theme]).'</div>
-                        <span>'.Yii::$app->formatter->asDate($thema->create_at, 'php:d M').'</span>
-                    </div>';
-                        } ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-9">
+    <div class="col-lg-7">
     <?php Pjax::begin() ?>
         <?php try {
             echo GridView::widget([
@@ -115,9 +106,10 @@ $this->title = $model->name;
                     [
                         'attribute' => 'id_theme',
                         'label' => 'Темы',
+                        'format' => 'raw',
                         'filter' => ArrayHelper::map(Choice::find()->where(['id_user' => $model->id])->groupBy('id_theme')->all(), 'id_theme', 'theme.name'),
                         'value' => function ($value) {
-                            return $value->theme->name;
+                            return Html::a($value->theme->name, ['test/modal-result', 'id' => $value->id], ['class' => 'result-test', 'data-pjax' => 0]);
                         }
                     ],
                     [
@@ -140,3 +132,10 @@ $this->title = $model->name;
     <?php Pjax::end() ?>
     </div>
 </div>
+<?php Modal::begin([
+    'id' => 'modal-resultTest'
+]);
+
+echo '<div class="content-modal"></div>';
+
+Modal::end();?>
