@@ -4,42 +4,42 @@
   font-weight: normal;
   font-style: italic;
 }
-/* line 16, ../sass/column.scss */
+/* line 25, ../sass/column.scss */
 .test-adminTest, .site-index, .site-post {
   display: flex;
   flex-flow: row nowrap;
   align-items: stretch;
   margin-left: -4%;
 }
-/* line 21, ../sass/column.scss */
+/* line 30, ../sass/column.scss */
 .test-adminTest .result, .site-index .result, .site-post .result {
   background: #272120;
   color: wheat;
   border-radius: 8px;
 }
 
-/* line 28, ../sass/column.scss */
+/* line 37, ../sass/column.scss */
 .navBar-Thema {
   background: #544f46;
   flex-grow: 1;
 }
-/* line 31, ../sass/column.scss */
+/* line 40, ../sass/column.scss */
 .navBar-Thema .navigation-menu {
   border-radius: 0;
   border-bottom: 0.1px solid #5f5a4f;
   width: 112%;
   margin-left: -6%;
 }
-/* line 36, ../sass/column.scss */
+/* line 45, ../sass/column.scss */
 .navBar-Thema .navigation-menu:hover {
   border-bottom: none;
 }
-/* line 39, ../sass/column.scss */
+/* line 48, ../sass/column.scss */
 .navBar-Thema .navigation-menu a {
   padding-left: 11%;
   font-size: 13px;
 }
-/* line 44, ../sass/column.scss */
+/* line 53, ../sass/column.scss */
 .navBar-Thema h3 {
   margin-left: 13px;
   color: #ffffff;
@@ -47,65 +47,65 @@
   border-bottom: none;
   margin-bottom: 15px;
 }
-/* line 51, ../sass/column.scss */
+/* line 60, ../sass/column.scss */
 .navBar-Thema a {
   color: #BCBCBC;
   line-height: 15px;
 }
-/* line 54, ../sass/column.scss */
+/* line 63, ../sass/column.scss */
 .navBar-Thema a:hover {
   color: #cccccc;
   border-radius: 0;
 }
-/* line 58, ../sass/column.scss */
+/* line 67, ../sass/column.scss */
 .navBar-Thema a:active {
   color: #746a4f;
 }
-/* line 62, ../sass/column.scss */
+/* line 71, ../sass/column.scss */
 .navBar-Thema .nav > li > a:hover, .navBar-Thema .nav > li > a:focus {
   background-color: #4d4840;
 }
-/* line 65, ../sass/column.scss */
+/* line 74, ../sass/column.scss */
 .navBar-Thema .nav-pills > li.active > a, .navBar-Thema .nav-pills > li.active > a:hover, .navBar-Thema .nav-pills > li.active > a:focus {
   background-color: #453e3a;
   color: #B3AE84;
 }
 
-/* line 70, ../sass/column.scss */
+/* line 79, ../sass/column.scss */
 .column-basic {
   flex-grow: 1;
 }
-/* line 72, ../sass/column.scss */
+/* line 81, ../sass/column.scss */
 .column-basic .question-one {
   margin-top: 68px;
 }
-/* line 75, ../sass/column.scss */
+/* line 84, ../sass/column.scss */
 .column-basic .title-test {
   text-transform: uppercase;
 }
-/* line 78, ../sass/column.scss */
+/* line 87, ../sass/column.scss */
 .column-basic .column-basic-condition {
   color: #675652;
   line-height: 6px;
   margin-left: 18px;
   margin-top: 19px;
 }
-/* line 83, ../sass/column.scss */
+/* line 92, ../sass/column.scss */
 .column-basic .column-basic-condition p:first-child {
   font-size: 13px;
   margin-bottom: 15px;
 }
-/* line 87, ../sass/column.scss */
+/* line 96, ../sass/column.scss */
 .column-basic .column-basic-condition p:nth-child(3) {
   line-height: 14px;
   margin-top: -5px;
 }
-/* line 91, ../sass/column.scss */
+/* line 100, ../sass/column.scss */
 .column-basic .column-basic-condition p {
   font-size: 11px;
   line-height: 5px;
 }
-/* line 96, ../sass/column.scss */
+/* line 105, ../sass/column.scss */
 .column-basic h1 {
   margin-left: -15px;
   font-weight: 400;
@@ -115,29 +115,29 @@
   background: #a29d88;
   line-height: 58px;
 }
-/* line 105, ../sass/column.scss */
+/* line 114, ../sass/column.scss */
 .column-basic hr {
   border: 0.5px solid #101010;
 }
-/* line 109, ../sass/column.scss */
+/* line 118, ../sass/column.scss */
 .column-basic .test-block-admin h3 {
   font-size: 28px;
   color: #675652;
   font-weight: bold;
   margin-top: -45px;
 }
-/* line 115, ../sass/column.scss */
+/* line 124, ../sass/column.scss */
 .column-basic .test-block-admin p {
   font-size: 28px;
   font-weight: 400;
   color: #675652;
   line-height: 34px;
 }
-/* line 121, ../sass/column.scss */
+/* line 130, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin {
   margin-left: 45px;
 }
-/* line 124, ../sass/column.scss */
+/* line 133, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin .question-one button {
   font-size: 13px;
   width: 93px;
@@ -151,20 +151,20 @@
   position: relative;
   top: -3px;
 }
-/* line 136, ../sass/column.scss */
+/* line 145, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin .question-one button:focus {
   outline: none;
 }
-/* line 141, ../sass/column.scss */
+/* line 150, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin h3 {
   text-transform: uppercase;
 }
-/* line 143, ../sass/column.scss */
+/* line 152, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin h3 span {
   position: relative;
   top: -4px;
 }
-/* line 146, ../sass/column.scss */
+/* line 155, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin h3 span button {
   font-size: 13px;
   width: 93px;
@@ -176,166 +176,166 @@
   border-radius: 3px;
   margin-left: 43px;
 }
-/* line 156, ../sass/column.scss */
+/* line 165, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin h3 span button:focus {
   outline: none;
 }
-/* line 162, ../sass/column.scss */
+/* line 171, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin .radio-answear {
   line-height: 19px;
   margin-bottom: 30px;
   font-weight: 400;
 }
-/* line 166, ../sass/column.scss */
+/* line 175, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin .radio-answear .test-admin_question {
   float: left;
   font-size: 16px;
   margin-right: 14px;
   text-transform: uppercase;
 }
-/* line 172, ../sass/column.scss */
+/* line 181, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin .radio-answear .test-admin_answer {
   float: left;
   font-size: 16px;
   width: 87%;
 }
-/* line 178, ../sass/column.scss */
+/* line 187, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin p {
   padding-right: 45px;
   line-height: 34px;
   margin-bottom: 27px;
 }
-/* line 183, ../sass/column.scss */
+/* line 192, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin .answer {
   color: #675652;
   font-size: 16px;
   font-weight: 400;
 }
-/* line 187, ../sass/column.scss */
+/* line 196, ../sass/column.scss */
 .column-basic .test-block-admin .question-test-admin .answer .key-answear {
   margin-right: 10px;
 }
-/* line 192, ../sass/column.scss */
+/* line 201, ../sass/column.scss */
 .column-basic .test-block-admin .test-image {
   margin-bottom: 35px;
   margin-right: 12px;
   margin-left: 10px;
 }
 
-/* line 200, ../sass/column.scss */
+/* line 209, ../sass/column.scss */
 .statistics {
   margin-top: 20px;
 }
-/* line 202, ../sass/column.scss */
+/* line 211, ../sass/column.scss */
 .statistics .purpose {
   padding: 0 26px 0 19px;
 }
-/* line 204, ../sass/column.scss */
+/* line 213, ../sass/column.scss */
 .statistics .purpose p {
   font-size: 13px;
   color: #675652;
 }
-/* line 208, ../sass/column.scss */
+/* line 217, ../sass/column.scss */
 .statistics .purpose hr {
   width: 103%;
   margin-left: -7px;
   border: 0.5px solid #675652;
   margin-bottom: 6px;
 }
-/* line 215, ../sass/column.scss */
+/* line 224, ../sass/column.scss */
 .statistics .passTest {
   font-size: 30px;
   line-height: 54px;
 }
-/* line 219, ../sass/column.scss */
+/* line 228, ../sass/column.scss */
 .statistics .form-search, .statistics p {
   margin-top: 11px;
 }
-/* line 222, ../sass/column.scss */
+/* line 231, ../sass/column.scss */
 .statistics hr {
   border: 0.5px solid black;
   margin-top: 0;
 }
-/* line 226, ../sass/column.scss */
+/* line 235, ../sass/column.scss */
 .statistics .statistics_appointment {
   font-size: 13px;
 }
-/* line 228, ../sass/column.scss */
+/* line 237, ../sass/column.scss */
 .statistics .statistics_appointment .success {
   color: #339900;
 }
-/* line 231, ../sass/column.scss */
+/* line 240, ../sass/column.scss */
 .statistics .statistics_appointment .error {
   color: #871414;
 }
-/* line 234, ../sass/column.scss */
+/* line 243, ../sass/column.scss */
 .statistics .statistics_appointment .statistics_appointment-icon {
   font-size: 10px;
 }
-/* line 237, ../sass/column.scss */
+/* line 246, ../sass/column.scss */
 .statistics .statistics_appointment .statistics_appointment-date {
   font-size: 10px;
   margin-left: 6px;
   color: #7C7768;
 }
-/* line 242, ../sass/column.scss */
+/* line 251, ../sass/column.scss */
 .statistics .statistics_appointment .statistics_appointment-name {
   margin-left: 10px;
 }
-/* line 245, ../sass/column.scss */
+/* line 254, ../sass/column.scss */
 .statistics .statistics_appointment .statistics_appointment-result {
   float: right;
   font-size: 10px;
   color: #7C7768;
   padding-top: 4px;
 }
-/* line 252, ../sass/column.scss */
+/* line 261, ../sass/column.scss */
 .statistics .statistics-paragraph {
   font-size: 13px;
   color: #675652;
   margin-top: 25px;
 }
-/* line 256, ../sass/column.scss */
+/* line 265, ../sass/column.scss */
 .statistics .statistics-paragraph img {
   margin-left: -33px;
 }
-/* line 259, ../sass/column.scss */
+/* line 268, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result {
   margin-top: 15px;
 }
-/* line 261, ../sass/column.scss */
+/* line 270, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result:nth-child(4) {
   margin-bottom: 30px;
 }
-/* line 264, ../sass/column.scss */
+/* line 273, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest {
   font-size: 11px;
   line-height: 6px;
   text-align: right;
 }
-/* line 265, ../sass/column.scss */
+/* line 274, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest table {
   font-size: 11px;
   margin-top: 13px;
   width: 128%;
 }
-/* line 269, ../sass/column.scss */
+/* line 278, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest table tr {
   text-align: left;
   line-height: 13px;
 }
-/* line 271, ../sass/column.scss */
+/* line 280, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest table tr .table-errors {
   text-align: right;
   color: #7C7768;
 }
-/* line 275, ../sass/column.scss */
+/* line 284, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest table tr .table-percent {
   font-size: 10px;
   color: #7C7768;
   padding-left: 8px;
 }
-/* line 286, ../sass/column.scss */
+/* line 295, ../sass/column.scss */
 .statistics .statistics-paragraph .statistics-paragraph-result .statistics-paragraph-interest .statistics-paragraph-interest_title {
   font-size: 11px;
   margin-bottom: 20px;
@@ -343,18 +343,18 @@
   width: 119%;
 }
 
-/* line 297, ../sass/column.scss */
+/* line 306, ../sass/column.scss */
 .recomendation {
   margin-bottom: 100px;
 }
 
-/* line 301, ../sass/column.scss */
+/* line 310, ../sass/column.scss */
 .test-testing {
   font-size: 24px;
   color: #312927;
   margin-bottom: 50px;
 }
-/* line 306, ../sass/column.scss */
+/* line 315, ../sass/column.scss */
 .test-testing .test-block .progress {
   margin-top: 24px;
   margin-right: 15%;
@@ -364,12 +364,12 @@
   border-radius: 0 50px 50px 0;
   height: 28px;
 }
-/* line 314, ../sass/column.scss */
+/* line 323, ../sass/column.scss */
 .test-testing .test-block .progress .progress-bar {
   color: #7C7768;
   background: #7C7768;
 }
-/* line 317, ../sass/column.scss */
+/* line 326, ../sass/column.scss */
 .test-testing .test-block .progress .progress-bar .progress-test_info {
   position: relative;
   width: 666px;
@@ -378,40 +378,40 @@
   text-transform: uppercase;
   color: #7C7768;
 }
-/* line 327, ../sass/column.scss */
+/* line 336, ../sass/column.scss */
 .test-testing .test-block .test-block-question {
   margin-right: 15%;
   margin-left: 26.2%;
   text-align: left;
   margin-top: 15px;
 }
-/* line 333, ../sass/column.scss */
+/* line 342, ../sass/column.scss */
 .test-testing .test-block .test-block-answer {
   margin-top: 20px;
   margin-left: 26.1%;
   margin-right: 15%;
 }
-/* line 338, ../sass/column.scss */
+/* line 347, ../sass/column.scss */
 .test-testing .test-block hr {
   width: 90%;
   margin-left: -63px;
   border: 1px solid;
 }
-/* line 343, ../sass/column.scss */
+/* line 352, ../sass/column.scss */
 .test-testing .test-block .test-block-images {
   margin-left: 25%;
   margin-right: 16%;
 }
-/* line 346, ../sass/column.scss */
+/* line 355, ../sass/column.scss */
 .test-testing .test-block .test-block-images div {
   margin-bottom: 5px;
 }
-/* line 348, ../sass/column.scss */
+/* line 357, ../sass/column.scss */
 .test-testing .test-block .test-block-images div img {
   border-radius: 2px;
 }
 
-/* line 356, ../sass/column.scss */
+/* line 365, ../sass/column.scss */
 .footer {
   font-size: 18px;
   background: #312927;
@@ -420,61 +420,130 @@
   color: #675652;
   padding-top: 33px;
 }
-/* line 363, ../sass/column.scss */
+/* line 372, ../sass/column.scss */
 .footer .footer-rights {
   font-size: 26px;
 }
-/* line 366, ../sass/column.scss */
+/* line 375, ../sass/column.scss */
 .footer img {
   float: left;
 }
-/* line 369, ../sass/column.scss */
+/* line 378, ../sass/column.scss */
 .footer .text-footer {
   font-size: 11px;
   position: relative;
   top: 16px;
   left: -83px;
 }
-/* line 376, ../sass/column.scss */
+/* line 385, ../sass/column.scss */
 .footer .footer-error img {
   margin-right: 14px;
 }
-/* line 379, ../sass/column.scss */
+/* line 388, ../sass/column.scss */
 .footer .footer-error .footer-text_errors {
   padding-left: 77px;
   text-align: right;
   font-size: 11px;
   margin-right: 11%;
 }
-/* line 387, ../sass/column.scss */
+/* line 396, ../sass/column.scss */
 .footer .footer-contact img {
   margin-right: 20px;
 }
-/* line 390, ../sass/column.scss */
+/* line 399, ../sass/column.scss */
 .footer .footer-contact .phone {
   font-weight: bold;
   font-size: 33px;
   line-height: 29px;
 }
-/* line 395, ../sass/column.scss */
+/* line 404, ../sass/column.scss */
 .footer .footer-contact .footer-contact_text {
   font-size: 11px;
   margin-top: 4px;
 }
 
-/* line 402, ../sass/column.scss */
+/* line 411, ../sass/column.scss */
 .salary-employee .table-salary_employee {
   width: 241px;
 }
 
-/* line 408, ../sass/column.scss */
+/* line 417, ../sass/column.scss */
 #create-depreming button {
   margin-top: 10px;
 }
 
-/* line 414, ../sass/column.scss */
+/* line 423, ../sass/column.scss */
 .salary-index .panel {
   margin-bottom: 7px;
+}
+
+/* line 429, ../sass/column.scss */
+.user-view .panel {
+  background: #312927;
+  color: #999992;
+  height: 129px;
+}
+/* line 433, ../sass/column.scss */
+.user-view .panel .action-contact, .user-view .panel .action-info {
+  float: right;
+  position: relative;
+  right: 0;
+  top: 18px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all .3s ease;
+}
+/* line 438, ../sass/column.scss */
+.user-view .panel .save-contact, .user-view .panel .save-info {
+  float: right;
+  position: relative;
+  right: 10px;
+  top: 18px;
+  cursor: pointer;
+}
+/* line 441, ../sass/column.scss */
+.user-view .panel:hover {
+  box-shadow: 0 0 20px 1px #867f7f;
+}
+/* line 443, ../sass/column.scss */
+.user-view .panel:hover .action-contact, .user-view .panel:hover .action-info {
+  right: 10px;
+  opacity: 1;
+}
+/* line 448, ../sass/column.scss */
+.user-view .panel p {
+  text-align: center;
+  font-size: 19px;
+}
+/* line 453, ../sass/column.scss */
+.user-view .panel .employee-table .employee-table_label {
+  width: 65px;
+}
+/* line 458, ../sass/column.scss */
+.user-view .panel .employee-test .employee-test_label {
+  width: 150px;
+}
+/* line 462, ../sass/column.scss */
+.user-view .panel .appointment-list {
+  width: 220px;
+}
+/* line 465, ../sass/column.scss */
+.user-view .panel .appointment-list .appointment-employee div {
+  float: left;
+  margin-right: 46px;
+  width: 135px;
+}
+/* line 472, ../sass/column.scss */
+.user-view .panel .appoint-table {
+  height: 103px;
+}
+/* line 473, ../sass/column.scss */
+.user-view .panel .appoint-table .appoint-table_label {
+  text-align: center;
+}
+/* line 479, ../sass/column.scss */
+.user-view .appoint-panel {
+  height: 151px;
 }
 
 /* line 38, ../sass/form.scss */
