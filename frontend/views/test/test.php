@@ -48,7 +48,10 @@ $second = stringLenght($model[0]->idThemeQuestion->second);
             $imageModel = Image::find()->where(['id_question' => $question->id]);
             $image = $imageModel->all();
             $imageCount = $imageModel->count();
-            echo '<div class="test-block">';
+            $arrAnswear = (array)$question->answear;
+            shuffle($arrAnswear);
+
+        echo '<div class="test-block">';
             try {
                 echo Progress::widget([
                     'percent' => ($count/$lenght)*100,
@@ -81,7 +84,7 @@ $second = stringLenght($model[0]->idThemeQuestion->second);
                 }
             echo '</div>';
             echo '<div class="test-block-answer">';
-                foreach ($question->answear as $key => $answear){
+                foreach ($arrAnswear as $key => $answear){
                     if ($count != $lenght){
                         echo Html::radio('Answear['.$question->id.']', false, ['label' => $answear, 'required' => true, 'value' => $answear, 'class' => 'test-radio nextTest']);
                     } else {
