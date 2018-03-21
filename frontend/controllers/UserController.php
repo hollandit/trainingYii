@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use app\models\Access;
 use app\models\AuthAssignment;
 use app\models\ChoiceSearch;
 use app\models\Position;
@@ -35,7 +36,7 @@ class UserController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index', 'create', 'update', 'view', 'create-position', 'dismised', 'delete'],
+                        'actions' => ['index', 'create', 'update', 'view', 'create-position', 'dismised', 'delete', 'update-contact', 'update-info'],
                         'allow' => true,
                         'roles' => ['hr']
                     ]
@@ -69,19 +70,18 @@ class UserController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
         $searchModel = new ChoiceSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $id);
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        $access = Access::find()->where(['id_user' => $id])->all();
+        return $this->render('view', compact('searchModel', 'dataProvider', 'model', 'access'));
     }
 
     /**
      * Creates a new User model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
+     * @throws \yii\base\Exception
      */
     public function actionCreate()
     {
@@ -106,7 +106,7 @@ class UserController extends Controller
     }
 
     /**
-     * @return \yii\web\Response
+     * @return Position|\yii\web\Response
      */
     public function actionCreatePosition()
     {
@@ -119,6 +119,7 @@ class UserController extends Controller
                 print_r($model->getErrors());
             }
         }
+        return $model;
     }
 
     /**
@@ -139,6 +140,53 @@ class UserController extends Controller
         return $this->render('update', [
             'model' => $model,
         ]);
+    }
+
+    public function actionUpdateContact($id)
+    {
+        $request = Yii::$app->request;
+        $model = $this->findModel($id);
+
+        if ($request->post()){
+            if ($model->email != $request->post('email') || $model->phone != $request->post('phone')){
+                $model->email = $request->post('email');
+                $model->phone = $request->post('phone');
+                if (!$model->save()){
+                    return json_encode($model->getErrors(), JSON_UNESCAPED_UNICODE);
+                }
+            }
+            $model = ['email' => $model->email, 'phone' => $model->phone];
+            return json_encode($model);
+        }
+
+        $model = ['phone' => $model->phone, 'email' => $model->email];
+        return json_encode($model);
+    }
+
+    public function actionUpdateInfo($id)
+    {
+        $request = Yii::$app->request;
+        $model = $this->findModel($id);
+        $position = Position::find()->all();
+        $arrPosition = [];
+        foreach ($position as $value){
+            $arrPosition[] = ['id' => $value->id, 'name' => $value->name];
+        }
+
+        if ($request->post()){
+            if ($model->salary != $request->post('post') || $model->id_position != $request->post('position')){
+                $model->salary = $request->post('salary');
+                $model->id_position = $request->post('position');
+                if (!$model->save()){
+                    return json_encode($model->getErrors(), JSON_UNESCAPED_UNICODE);
+                }
+            }
+            $model = ['salary' => $model->salary, 'position' => $model->position->name];
+            return json_encode($model);
+        }
+
+        $model = ['salary' => $model->salary, 'position' => ['id' => $model->id_position, 'name' => $model->position->name], 'allPosition' => $arrPosition];
+        return json_encode($model);
     }
 
     public function actionDismised($id)
