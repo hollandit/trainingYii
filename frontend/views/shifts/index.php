@@ -2,10 +2,12 @@
 
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
+use \yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ShiftsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+/** @var $shops \app\models\Shop */
 
 $this->title = 'Смены';
 ?>
@@ -17,6 +19,7 @@ $this->title = 'Смены';
         <?= Html::a('+', ['create'], ['id' => 'button-createShifts', 'class' => 'btn btn-success']) ?>
     </p>
 
+    <?php Pjax::begin() ?>
     <table class="table">
         <tr>
             <th>Магазины</th>
@@ -28,16 +31,18 @@ $this->title = 'Смены';
             <th>Сб</th>
             <th>Вс</th>
         </tr>
-        <tr>
-            <td>Сибирский</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        <?php foreach ($shops as $shop){
+            echo '<tr>
+                <td>'.$shop->name.'</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>';
+        } ?>
         <tr>
             <td>Итого</td>
             <td></td>
@@ -49,6 +54,7 @@ $this->title = 'Смены';
             <td></td>
         </tr>
     </table>
+    <?php Pjax::end() ?>
 </div>
 <?php Modal::begin([
     'id' => 'modal-createShifts'
