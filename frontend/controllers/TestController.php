@@ -160,7 +160,7 @@ class TestController extends Controller
         $startTest->saveTesting($idUser, $id);
         $this->layout = 'test';
         $model = Questions::find()->where(['id_theme' => $id])->all();
-
+        shuffle($model);
         return $this->render('test', compact('model', 'right', 'done'));
     }
 
@@ -185,15 +185,14 @@ class TestController extends Controller
     {
         $idUser = Yii::$app->user->id;
         $this->layout = 'test';
-        $model = Questions::find()->select(['correct', 'id_theme'])->where(['id_theme' => $id])->all();
+        $model = Questions::find()->select(['correct', 'id_theme', 'id'])->where(['id_theme' => $id])->all();
 
-        $right = 0;
         //result test for user
         if (Yii::$app->request->post('Answear')){
-            $result = [];
+            $right = 0;
             foreach ($model as $value){
-                foreach ($value->correct as $key => $correct){
-                    if (Yii::$app->request->post('Answear')[$value->id] == $correct){
+                for ($i = 0; $i < count($value); $i++){
+                    if (Yii::$app->request->post('Answear')[$value->id] == $value->correct['right']){
                         $right++;
                     };
                 }
@@ -213,11 +212,15 @@ class TestController extends Controller
                 return json_encode($result, JSON_UNESCAPED_UNICODE);
             }
         }
+        return $model;
     }
 
     /**
      * @param $id
      * @return array|string|\yii\web\Response
+     * @throws \Exception
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      */
     public function actionTest($id)
     {
@@ -259,6 +262,7 @@ class TestController extends Controller
                 return true;
             }
         }
+        return $model;
     }
 
     public function actionTerm($id)
