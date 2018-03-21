@@ -1,38 +1,58 @@
 <?php
 
+use yii\bootstrap\Modal;
 use yii\helpers\Html;
-use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ShiftsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Shifts';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Смены';
 ?>
 <div class="shifts-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Shifts', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('+', ['create'], ['id' => 'button-createShifts', 'class' => 'btn btn-success']) ?>
     </p>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'user_id',
-            'start_date',
-            'end_date',
-            'created_at',
-            //'updated_at',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+    <table class="table">
+        <tr>
+            <th>Магазины</th>
+            <th>Пн</th>
+            <th>Вт</th>
+            <th>Ср</th>
+            <th>Чт</th>
+            <th>Пт</th>
+            <th>Сб</th>
+            <th>Вс</th>
+        </tr>
+        <tr>
+            <td>Сибирский</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Итого</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
 </div>
+<?php Modal::begin([
+    'id' => 'modal-createShifts'
+]);
+
+echo '<div class="content-modal"></div>';
+Modal::end(); ?>
