@@ -55,7 +55,11 @@ $this->title = 'Картотека';
                     'username',
                     [
                         'attribute' => 'nameEmployee',
-                        'label' => 'ФИО'
+                        'label' => 'ФИО',
+                        'format' => 'raw',
+                        'value' => function($value){
+                            return Html::a($value->nameEmployee, ['user/view', 'id' => $value->id], ['data-pjax' => 0]);
+                        }
                     ],
                     [
                         'attribute' => 'date_birth',
@@ -93,7 +97,7 @@ $this->title = 'Картотека';
 
                     [
                         'class' => 'yii\grid\ActionColumn',
-                        'template' => '{view}{update}'
+                        'template' => '{update}'
                     ],
                 ],
             ]);
