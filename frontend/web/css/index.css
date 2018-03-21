@@ -515,33 +515,41 @@
   text-align: center;
   font-size: 19px;
 }
-/* line 453, ../sass/column.scss */
-.user-view .panel .employee-table .employee-table_label {
+/* line 454, ../sass/column.scss */
+.user-view .employee-table .employee-table_label {
   width: 65px;
 }
 /* line 458, ../sass/column.scss */
-.user-view .panel .employee-test .employee-test_label {
-  width: 150px;
+.user-view .employee-test {
+  margin-left: 63px;
 }
-/* line 462, ../sass/column.scss */
-.user-view .panel .appointment-list {
-  width: 220px;
+/* line 460, ../sass/column.scss */
+.user-view .employee-test h3 {
+  text-align: center;
 }
-/* line 465, ../sass/column.scss */
-.user-view .panel .appointment-list .appointment-employee div {
+/* line 463, ../sass/column.scss */
+.user-view .employee-test .employee-test-label {
   float: left;
-  margin-right: 46px;
-  width: 135px;
 }
-/* line 472, ../sass/column.scss */
-.user-view .panel .appoint-table {
+/* line 466, ../sass/column.scss */
+.user-view .employee-test .employee-test_rating {
+  position: relative;
+  left: 57px;
+}
+/* line 470, ../sass/column.scss */
+.user-view .employee-test .appoint-table {
   height: 103px;
 }
 /* line 473, ../sass/column.scss */
-.user-view .panel .appoint-table .appoint-table_label {
-  text-align: center;
+.user-view .employee-test .appoint-table .appointment-list .appointment-employee div {
+  width: 195px;
+  float: left;
 }
 /* line 479, ../sass/column.scss */
+.user-view .employee-test .appoint-table .appoint-table_label {
+  text-align: center;
+}
+/* line 485, ../sass/column.scss */
 .user-view .appoint-panel {
   height: 151px;
 }
