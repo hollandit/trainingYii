@@ -59,9 +59,9 @@ $radio = function ($number){
                 <p>Укажите количество времени для теста:</p>
             </div>
             <div class="col-lg-4">
-                <?= Html::input('number', 'minutes', null, ['class' => 'create-test_timeInput', 'min' => '0', 'max' => '59']).
+                <?= Html::input('number', 'minute', null, ['class' => 'create-test_timeInput', 'min' => '0', 'max' => '59', 'required' => true]).
                     Html::input('text', null, ':', ['class' => 'control-operator', 'disabled' => true]).
-                    Html::input('number', 'second', null, ['class' => 'create-test_timeInput', 'min' => '0', 'max' => '59'])
+                    Html::input('number', 'second', null, ['class' => 'create-test_timeInput', 'min' => '0', 'max' => '59', 'required' => true])
                 ?>
             </div>
             <?php endif; ?>
