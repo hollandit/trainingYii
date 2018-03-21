@@ -72,6 +72,10 @@ class TestController extends Controller
                 $model->id_theme = $themaModel->id;
             }
             $model->name = $question;
+            foreach ($answer as $key => $value){
+                $answer[$key] = preg_replace('/"/', '\'', $value);
+            }
+            $right = preg_replace('/"/', '\'', $right);
             $model->answear = Json::encode($answer, JSON_UNESCAPED_UNICODE);
             $model->correct = '{"right": "'.$right.'"}';
             if(!$model->save()){
