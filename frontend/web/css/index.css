@@ -1310,6 +1310,11 @@
   padding-right: 0;
 }
 
+/* line 115, ../sass/modal.scss */
+.shifts-create {
+  padding: 10px;
+}
+
 /* line 18, ../sass/index.scss */
 body {
   font-family: 'Oswald', sans-serif;
