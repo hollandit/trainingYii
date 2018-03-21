@@ -40,7 +40,7 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav pull-left navbar-header'],
                 'items' => [
                     ['label' => 'Рейтинги', 'url' => ['/test/result-test'], 'visible' => Yii::$app->user->can('hr'), 'active' => Yii::$app->controller->action->id === 'result-test' ? true : false],
-                    ['label' => 'Смены', 'url' => ['#'], 'visible' => Yii::$app->user->can('hr')],
+                    ['label' => 'Смены', 'url' => ['shifts/index'], 'visible' => Yii::$app->user->can('hr')],
                     ['label' => 'Картотека', 'url' => ['/user/index'], 'visible' => Yii::$app->user->can('hr'), 'active' => Yii::$app->controller->action->id === 'index' && Yii::$app->controller->id === 'user' ? true : false],
                     ['label' => 'Зарплаты', 'url' => ['salary/index'], 'visible' => Yii::$app->user->can('hr')],
                     ['label' => 'Главная страница', 'url' => ['/site/index'], 'visible' => Yii::$app->user->can('employee'), 'active' => Yii::$app->controller->action->id === 'index' && Yii::$app->controller->id === 'site' ? true : false],
