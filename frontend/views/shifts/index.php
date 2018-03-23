@@ -1,5 +1,6 @@
 <?php
 
+use app\models\Shifts;
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use \yii\widgets\Pjax;
@@ -10,6 +11,13 @@ use \yii\widgets\Pjax;
 /** @var $shops \app\models\Shop */
 
 $this->title = 'Смены';
+
+function day($shop_id, $day){
+    return Shifts::find()->andWhere(['shop_id' => $shop_id, 'date' => date('Y-m-d 00:00:00', strtotime($day))])->all();
+}
+function cell($start, $end, $employee){
+    echo Yii::$app->formatter->asTime($start, 'php:H:i').'-'.Yii::$app->formatter->asTime($end, 'php:H:i').' '.Html::a($employee->user->lastNameEmployee, ['shifts/update', 'id' => $employee->id], ['class' => 'button-editShifts', 'data-pjax' => 0]).'<br>';
+}
 ?>
 <div class="shifts-index">
 
@@ -19,28 +27,58 @@ $this->title = 'Смены';
         <?= Html::a('+', ['create'], ['id' => 'button-createShifts', 'class' => 'btn btn-success']) ?>
     </p>
 
-    <?php Pjax::begin() ?>
+    <?php Pjax::begin([
+        'id' => 'pjax-shifts'
+    ]) ?>
     <table class="table">
         <tr>
             <th>Магазины</th>
-            <th>Пн</th>
-            <th>Вт</th>
-            <th>Ср</th>
-            <th>Чт</th>
-            <th>Пт</th>
-            <th>Сб</th>
-            <th>Вс</th>
+            <th>Пн <?= date("d.m", strtotime("last Monday")) ?></th>
+            <th>Вт <?= date("d.m", strtotime("last Tuesday")); ?></th>
+            <th>Ср <?= date("d.m", strtotime("last Wednesday")); ?></th>
+            <th>Чт <?= date("d.m", strtotime("Thursday")); ?></th>
+            <th>Пт <?= date("d.m", strtotime("Friday")); ?></th>
+            <th>Сб <?= date("d.m", strtotime("Saturday")); ?></th>
+            <th>Вс <?= date("d.m", strtotime("Sunday")); ?></th>
         </tr>
         <?php foreach ($shops as $shop){
             echo '<tr>
-                <td>'.$shop->name.'</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>'.$shop->name.'</td>';
+            echo '<td>';
+            foreach (day($shop->id, 'last Monday') as $employee){
+                cell($employee->start_time, $employee->end_time, $employee);
+            }
+            echo '</td>
+                <td>';
+            foreach (day($shop->id, 'last Tuesday') as $employee){
+                cell($employee->start_time, $employee->end_time, $employee);
+            }
+            echo '</td>
+                <td>';
+            foreach (day($shop->id, 'last Wednesday') as $employee){
+                cell($employee->start_time, $employee->end_time, $employee);
+            }
+            echo '</td>
+                <td>';
+            foreach (day($shop->id, 'Thursday') as $employee){
+                cell($employee->start_time, $employee->end_time, $employee);
+            }
+            echo '</td>
+                <td>';
+            foreach (day($shop->id, 'Friday') as $employee){
+                cell($employee->start_time, $employee->end_time, $employee);
+            }
+            echo '</td>
+                <td>';
+            foreach (day($shop->id, 'Saturday') as $employee){
+                cell($employee->start_time, $employee->end_time, $employee);
+            }
+            echo '</td>
+                <td>';
+            foreach (day($shop->id, 'Sunday') as $employee){
+                cell($employee->start_time, $employee->end_time, $employee);
+            }
+            echo '</td>
             </tr>';
         } ?>
         <tr>
@@ -57,8 +95,14 @@ $this->title = 'Смены';
     <?php Pjax::end() ?>
 </div>
 <?php Modal::begin([
-    'id' => 'modal-createShifts'
+    'id' => 'modal-createShifts',
 ]);
 
 echo '<div class="content-modal"></div>';
 Modal::end(); ?>
+<?php Modal::begin([
+    'id' => 'modal-editShifts',
+]);
+
+echo '<div class="content-modal"></div>';
+Modal::end() ?>
