@@ -129,6 +129,7 @@ $(document).ready(function(){
     modal('.editTitle', '#modal-editQuestion');
     modalView('.result-test', '#modal-resultTest');
     modalView('#button-createShifts', '#modal-createShifts');
+    modalView('.button-editShifts', '#modal-editShifts');
 
     // of input put value in radio
     valueRadio('.answer-1', '.radio-1');
@@ -146,7 +147,7 @@ $(document).ready(function(){
         });
     }
     function modalView(id, value) {
-        $(id).click(function (e) {
+        $('body').on('click', id, function (e) {
             e.preventDefault();
             let path = $(this).attr('href');
             $(value).modal('show')
