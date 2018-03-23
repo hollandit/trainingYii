@@ -2,9 +2,10 @@
 
 namespace frontend\controllers;
 
+use app\models\Shop;
+use app\models\User;
 use Yii;
 use app\models\Shifts;
-use app\models\ShiftsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,13 +36,9 @@ class ShiftsController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new ShiftsSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $shops = Shop::find()->all();
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        return $this->render('index', compact('shops'));
     }
 
     /**
@@ -65,14 +62,26 @@ class ShiftsController extends Controller
     public function actionCreate()
     {
         $model = new Shifts();
+        $user = User::find()->where(['active' => User::WORK])->all();
+        $request = Yii::$app->request;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if (Yii::$app->request->post()){
+            $arr = explode(' ', $request->post('date'));
+            unset($arr[0]);
+            $date = [1 => 'Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
+            $key = array_keys($date, $arr[2])[0];
+            $model->user_id = $request->post('user');
+            $model->shop_id = $request->post('shop');
+            $model->date = $arr[3].'-'.$key.'-'.$arr[1];
+            $model->start_time = date('H:i', strtotime($request->post('start')));
+            $model->end_time = date('H:i', strtotime($request->post('end')));
+            if (!$model->save()){
+                return json_encode($model->getErrors(), JSON_UNESCAPED_UNICODE);
+            }
+            return true;
         }
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        return $this->renderAjax('create', compact('model', 'user'));
     }
 
     /**
@@ -85,14 +94,13 @@ class ShiftsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $user = User::find()->where(['active' => User::WORK])->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        return $this->renderAjax('update', compact('model', 'user'));
     }
 
     /**
