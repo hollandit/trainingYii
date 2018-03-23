@@ -48,8 +48,6 @@ $second = stringLenght($model[0]->idThemeQuestion->second);
             $imageModel = Image::find()->where(['id_question' => $question->id]);
             $image = $imageModel->all();
             $imageCount = $imageModel->count();
-            $arrAnswear = (array)$question->answear;
-            shuffle($arrAnswear);
 
         echo '<div class="test-block">';
             try {
