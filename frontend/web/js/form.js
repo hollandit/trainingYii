@@ -11,5 +11,17 @@ $(document).ready(function () {
             $.pjax.reload('#pjax-condition');
         })
             .fail(err => console.log(err.responseText))
+    });
+    $('body').on('submit', '#create-shifts', function (e) {
+        e.preventDefault();
+        $.post({
+            url: `${url}/frontend/web/shifts/create`,
+            data: $(this).serialize()
+        })
+            .done(() => {
+                $('#modal-createShifts').modal('hide');
+                $.pjax.reload('#pjax-shifts');
+            })
+            .fail(err => console.log(err.responseText));
     })
 });
