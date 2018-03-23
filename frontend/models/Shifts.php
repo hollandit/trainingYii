@@ -2,15 +2,16 @@
 
 namespace app\models;
 
-use Yii;
 
 /**
  * This is the model class for table "shifts".
  *
  * @property int $id
  * @property int $user_id
- * @property string $start_date
- * @property string $end_date
+ * @property int $shop_id
+ * @property string $date
+ * @property string $start_time
+ * @property string $end_time
  * @property string $created_at
  * @property string $updated_at
  *
@@ -32,10 +33,10 @@ class Shifts extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'start_date', 'end_date'], 'required'],
-            [['id', 'user_id'], 'integer'],
-            [['start_date', 'end_date', 'created_at', 'updated_at'], 'safe'],
-            ['created_at', 'default', 'value' => date('Y-m')],
+            [['user_id', 'shop_id', 'start_time', 'end_time', 'date'], 'required'],
+            [['user_id', 'shop_id'], 'integer'],
+            [['date', 'start_time', 'end_time', 'created_at', 'updated_at'], 'safe'],
+            ['created_at', 'default', 'value' => date('Y-m-d H:i:s')],
             [['id'], 'unique'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
@@ -49,11 +50,21 @@ class Shifts extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'user_id' => 'Сотрудник',
-            'start_date' => 'Начало смены',
-            'end_date' => 'Конец смены',
+            'shop_id' => 'Магазин',
+            'date' => 'Date',
+            'start_time' => 'Start Time',
+            'end_time' => 'End Time',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getShop()
+    {
+        return $this->hasOne(Shop::className(), ['id' => 'shop_id']);
     }
 
     /**
