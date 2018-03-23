@@ -163,7 +163,7 @@ class TestController extends Controller
         $startTest = new Testing();
         $startTest->saveTesting($idUser, $id);
         $this->layout = 'test';
-        $model = Questions::find()->where(['id_theme' => $id])->all();
+        $model = Questions::find()->where(['id_theme' => $id, 'active' => Questions::ACTIVE])->all();
         shuffle($model);
         return $this->render('test', compact('model', 'right', 'done'));
     }
