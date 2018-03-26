@@ -14,14 +14,24 @@ $(document).ready(function () {
     });
     $('body').on('submit', '#create-shifts', function (e) {
         e.preventDefault();
+        send(`${url}/frontend/web/shifts/create`, $(this).serialize());
+    });
+    $('body').on('submit', '#edit-shifts', function (e) {
+        e.preventDefault();
+        let id = $(this).data('id');
+        send(`${url}/frontend/web/shifts/update?id=${id}`, $(this).serialize());
+    });
+
+    function send(url, data) {
+        console.log(url);
         $.post({
-            url: `${url}/frontend/web/shifts/create`,
-            data: $(this).serialize()
-        })
-            .done(() => {
-                $('#modal-createShifts').modal('hide');
-                $.pjax.reload('#pjax-shifts');
+                url: url,
+                data: data
             })
-            .fail(err => console.log(err.responseText));
-    })
+                .done(() => {
+                    $('#modal-createShifts').modal('hide');
+                    $.pjax.reload('#pjax-shifts');
+                })
+                .fail(err => console.log(err.responseText))
+    }
 });
