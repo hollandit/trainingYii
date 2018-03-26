@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use app\models\ShiftsSearch;
 use app\models\Shop;
 use app\models\User;
 use Yii;
@@ -37,8 +38,10 @@ class ShiftsController extends Controller
     public function actionIndex()
     {
         $shops = Shop::find()->all();
+        $searchModel = new ShiftsSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', compact('shops'));
+        return $this->render('index', compact('shops', 'searchModel', 'dataProvider'));
     }
 
     /**
@@ -95,9 +98,22 @@ class ShiftsController extends Controller
     {
         $model = $this->findModel($id);
         $user = User::find()->where(['active' => User::WORK])->all();
+        $request = Yii::$app->request;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if($request->post()){
+            $arr = explode(' ', $request->post('date'));
+            unset($arr[0]);
+            $date = [1 => 'Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
+            $key = array_keys($date, $arr[2])[0];
+            $model->user_id = $request->post('user');
+            $model->shop_id = $request->post('shop');
+            $model->date = $arr[3].'-'.$key.'-'.$arr[1];
+            $model->start_time = date('H:i', strtotime($request->post('start')));
+            $model->end_time = date('H:i', strtotime($request->post('end')));
+            if (!$model->save()){
+                return json_encode($model->getErrors(), JSON_UNESCAPED_UNICODE);
+            }
+            return true;
         }
 
         return $this->renderAjax('update', compact('model', 'user'));
@@ -114,7 +130,8 @@ class ShiftsController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return true;
+//        return $this->redirect(['index']);
     }
 
     /**
