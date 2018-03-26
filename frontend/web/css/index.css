@@ -1311,7 +1311,7 @@
 }
 
 /* line 115, ../sass/modal.scss */
-.shifts-create {
+.shifts-create, .shifts-update {
   padding: 10px;
 }
 
