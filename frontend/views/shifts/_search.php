@@ -1,5 +1,8 @@
 <?php
 
+use app\models\Shop;
+use app\models\User;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -15,21 +18,26 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?= $form->field($model, 'user_id')->dropDownList(
+            ArrayHelper::map(User::find()->all(), 'id', 'nameEmployee'),
+            [
+                'prompt' => 'Выберите сотрудника',
+                'value' => !Yii::$app->request->get() ? null : Yii::$app->request->get('ShiftsSearch')['user_id']
+            ]
+        ) ?>
 
-    <?= $form->field($model, 'user_id') ?>
+    <?= $form->field($model, 'shop_id')->dropDownList(
+            ArrayHelper::map(Shop::find()->all(), 'id', 'name'),
+            [
+                'prompt' => 'Выберите магазиг',
+                'value' => !Yii::$app->request->get() ? null : Yii::$app->request->get('ShiftsSearch')['shop_id']
+            ]
+        ) ?>
 
-    <?= $form->field($model, 'start_date') ?>
-
-    <?= $form->field($model, 'end_date') ?>
-
-    <?= $form->field($model, 'created_at') ?>
-
-    <?php // echo $form->field($model, 'updated_at') ?>
+    <?= $form->field($model, 'date')->textInput(['type' => 'week', 'value' => !Yii::$app->request->get() ? null : Yii::$app->request->get('ShiftsSearch')['date']]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('Найти', ['class' => 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
