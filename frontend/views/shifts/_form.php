@@ -18,7 +18,7 @@ $day = date('d', strtotime($model->date));
 ?>
 
 <div class="shifts-form">
-    <?= Html::beginForm(['#'], 'post', $model->isNewRecord ? ['id' => 'create-shifts'] : ['id' => 'edit-shifts']) ?>
+    <?= Html::beginForm(['#'], 'post', $model->isNewRecord ? ['id' => 'create-shifts'] : ['id' => 'edit-shifts', 'data-id' => $model->id]) ?>
     <div class="col-lg-6 form-group">
         <?= Html::dropDownList('user', $model->isNewRecord ? null : $model->user_id, ArrayHelper::map($user, 'id', 'nameEmployee'), ['prompt' => 'Выберите сотрудника', 'class' => 'form-control']) ?>
     </div>
@@ -57,7 +57,7 @@ $day = date('d', strtotime($model->date));
     </div>
 
     <div class="form-group">
-        <?= $model->isNewRecord ? Html::submitButton('Создать смену', ['class' => 'btn btn-success']) : Html::submitButton('Редактировать') ?>
+        <?= $model->isNewRecord ? Html::submitButton('Создать смену', ['class' => 'btn btn-success']) : Html::submitButton('Редактировать', ['class' => 'btn btn-primary']).' '.Html::a('Удалить', ['shifts/delete', 'id' => $model->id],['class' => 'btn btn-danger delete-shifts']) ?>
     </div>
     <?= Html::endForm() ?>
 </div>
