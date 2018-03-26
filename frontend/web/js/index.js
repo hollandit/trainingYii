@@ -129,7 +129,22 @@ $(document).ready(function(){
     modal('.editTitle', '#modal-editQuestion');
     modalView('.result-test', '#modal-resultTest');
     modalView('#button-createShifts', '#modal-createShifts');
-    modalView('.button-editShifts', '#modal-editShifts');
+    modalView('.button-editShifts', '#modal-createShifts');
+
+    //button delete
+    $('body').on('click', '.delete-shifts', function (e) {
+       e.preventDefault();
+       let url = $(this).attr('href');
+       $.post({
+            url: `${urlSite}${url}`,
+       })
+           .done((res) => {
+               console.log(res);
+               $('#modal-createShifts').modal('hide');
+               $.pjax.reload('#pjax-shifts');
+           })
+           .fail(err => console.log(err.responseText))
+    });
 
     // of input put value in radio
     valueRadio('.answer-1', '.radio-1');
