@@ -7,6 +7,7 @@ use app\models\Shop;
 use app\models\User;
 use Yii;
 use app\models\Shifts;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -28,6 +29,16 @@ class ShiftsController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['create', 'update', 'delete','view','index'],
+                        'allow' => true,
+                        'roles' => ['hr']
+                    ],
+                ]
+            ]
         ];
     }
 
@@ -65,7 +76,7 @@ class ShiftsController extends Controller
     public function actionCreate()
     {
         $model = new Shifts();
-        $user = User::find()->where(['active' => User::WORK])->all();
+        $user = User::find()->with('shifts')->where(['active' => User::WORK])->all();
         $request = Yii::$app->request;
 
         if (Yii::$app->request->post()){
@@ -97,7 +108,7 @@ class ShiftsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $user = User::find()->where(['active' => User::WORK])->all();
+        $user = User::find()->with('shifts')->where(['active' => User::WORK])->all();
         $request = Yii::$app->request;
 
         if($request->post()){

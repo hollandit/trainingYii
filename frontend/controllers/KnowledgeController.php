@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use Yii;
 use app\models\Knowledge;
 use app\models\KnowledgeSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -26,6 +27,16 @@ class KnowledgeController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['create', 'update', 'delete','view','index'],
+                        'allow' => true,
+                        'roles' => ['hr']
+                    ],
+                ]
+            ]
         ];
     }
 
