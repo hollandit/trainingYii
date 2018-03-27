@@ -37,6 +37,7 @@ use yii\db\ActiveRecord;
  * @property Access[] $accesses
  * @property Choice[] $choices
  * @property Depreming[] $depremings
+ * @property Shifts[] $shifts
  * @property Testing[] $testings
  * @property Position $position
  */
@@ -149,6 +150,14 @@ class User extends ActiveRecord
     public function getPosition()
     {
         return $this->hasOne(Position::className(), ['id' => 'id_position']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getShifts()
+    {
+        return $this->hasMany(Shifts::className(), ['user_id' => 'id']);
     }
 
     /**
