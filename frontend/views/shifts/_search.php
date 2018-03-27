@@ -23,13 +23,13 @@ use yii\widgets\ActiveForm;
                 'prompt' => 'Выберите магазиг',
                 'value' => !Yii::$app->request->get() ? null : Yii::$app->request->get('ShiftsSearch')['shop_id']
             ]
-        ) ?>
+        )->label(false) ?>
 
     <?= $form->field($model, 'date')->textInput([
         'type' => 'week',
         'min' => date('Y').'-W01',
         'max' => date('Y').'-W52',
-        'value' => !Yii::$app->request->get() ? null : Yii::$app->request->get('ShiftsSearch')['date']])
+        'value' => !Yii::$app->request->get() ? null : Yii::$app->request->get('ShiftsSearch')['date']])->label(false)
     ?>
 
     <div class="form-group">
