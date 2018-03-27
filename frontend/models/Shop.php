@@ -10,6 +10,8 @@ use Yii;
  * @property int $id
  * @property string $name
  * @property string $created_at
+ *
+ * @property Shifts[] $shifts
  */
 class Shop extends \yii\db\ActiveRecord
 {
@@ -27,11 +29,9 @@ class Shop extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'name'], 'required'],
-            [['id'], 'integer'],
+            [['name'], 'required'],
             [['created_at'], 'safe'],
             [['name'], 'string', 'max' => 128],
-            [['id'], 'unique'],
         ];
     }
 
@@ -45,6 +45,14 @@ class Shop extends \yii\db\ActiveRecord
             'name' => 'Name',
             'created_at' => 'Created At',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getShifts()
+    {
+        return $this->hasMany(Shifts::className(), ['shop_id' => 'id']);
     }
 
     /**
