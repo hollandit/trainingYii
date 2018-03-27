@@ -82,11 +82,11 @@ $second = stringLenght($model[0]->idThemeQuestion->second);
                 }
             echo '</div>';
             echo '<div class="test-block-answer">';
-                foreach ($arrAnswear as $key => $answear){
+                foreach ($question->answear as $key => $answear){
                     if ($count != $lenght){
-                        echo Html::radio('Answear['.$question->id.']', false, ['label' => $answear, 'required' => true, 'value' => $answear, 'class' => 'test-radio nextTest']);
+                        echo Html::radio('Answear['.$question->id.']', false, ['label' => $key.'. '.$answear, 'required' => true, 'value' => $answear, 'class' => 'test-radio nextTest']);
                     } else {
-                        echo Html::radio('Answear['.$question->id.']', false, ['label' => $answear, 'required' => true, 'value' => $answear, 'class' => 'test-radio test-answer']);
+                        echo Html::radio('Answear['.$question->id.']', false, ['label' => $key.'. '.$answear, 'required' => true, 'value' => $answear, 'class' => 'test-radio test-answer']);
                     }
                 }
             echo '</div>';
