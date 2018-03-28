@@ -22,7 +22,7 @@ function cell($start, $end, $employee){
     <p>
         <?= Html::a('+', ['create'], ['id' => 'button-createShifts', 'class' => 'btn btn-success']) ?>
     </p>
-    <p><?php echo $this->render('_search', ['model' => $searchModel]); ?> </p>
+    <p><?php echo $this->render('_search', ['model' => $searchModel, 'shop' => $shops]); ?> </p>
 
     <h3 style="text-align: center"><?= date('d.m', strtotime($dataProvider->weekDay['Пн'])).' - '.date('d.m' , strtotime($dataProvider->weekDay['Вс'])) ?></h3>
     <?php Pjax::begin([
