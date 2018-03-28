@@ -73,7 +73,7 @@ class UserController extends Controller
         $model = $this->findModel($id);
         $searchModel = new ChoiceSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $id);
-        $access = Access::find()->where(['id_user' => $id])->all();
+        $access = Access::find()->with('theme')->where(['id_user' => $id])->all();
         return $this->render('view', compact('searchModel', 'dataProvider', 'model', 'access'));
     }
 
@@ -105,22 +105,22 @@ class UserController extends Controller
         ]);
     }
 
-    /**
-     * @return Position|\yii\web\Response
-     */
-    public function actionCreatePosition()
-    {
-        $model = new Position();
-        if ($model->load(Yii::$app->request->post())){
-            if ($model->validate()) {
-                $model->save();
-                return $this->redirect(['user/index']);
-            } else {
-                print_r($model->getErrors());
-            }
-        }
-        return $model;
-    }
+//    /**
+//     * @return Position|\yii\web\Response
+//     */
+//    public function actionCreatePosition()
+//    {
+//        $model = new Position();
+//        if ($model->load(Yii::$app->request->post())){
+//            if ($model->validate()) {
+//                $model->save();
+//                return $this->redirect(['user/index']);
+//            } else {
+//                print_r($model->getErrors());
+//            }
+//        }
+//        return $model;
+//    }
 
     /**
      * Updates an existing User model.
@@ -167,7 +167,7 @@ class UserController extends Controller
     {
         $request = Yii::$app->request;
         $model = $this->findModel($id);
-        $position = Position::find()->all();
+        $position = Position::find()->with('themas')->all();
         $arrPosition = [];
         foreach ($position as $value){
             $arrPosition[] = ['id' => $value->id, 'name' => $value->name];
