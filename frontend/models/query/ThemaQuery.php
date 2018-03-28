@@ -2,17 +2,19 @@
 
 namespace app\models\query;
 
+use yii\db\ActiveQuery;
+
 /**
  * This is the ActiveQuery class for [[Thema]].
  *
  * @see Thema
  */
-class ThemaQuery extends \yii\db\ActiveQuery
+class ThemaQuery extends ActiveQuery
 {
-    /*public function active()
+    public function access($arr, $accessArr)
     {
-        return $this->andWhere('[[status]]=1');
-    }*/
+        return $this->andWhere(['not in', 'id', $arr])->andWhere(['in', 'id', $accessArr])->limit(10);
+    }
 
     /**
      * @inheritdoc

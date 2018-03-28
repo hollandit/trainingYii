@@ -9,10 +9,15 @@ namespace app\models\query;
  */
 class ChoiceQuery extends \yii\db\ActiveQuery
 {
-    /*public function active()
+    public function pass($id, $done)
     {
-        return $this->andWhere('[[status]]=1');
-    }*/
+        return $this->where(['id_user' => $id, 'done' => $done]);
+    }
+
+    public function theme($acc, $idTheme)
+    {
+        return $this->andWhere(['id_user' => $acc->id_user])->andWhere(['id_theme' => $idTheme])->andWhere(['>=', 'date', $acc->create_at]);
+    }
 
     /**
      * @inheritdoc

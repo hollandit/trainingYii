@@ -1,18 +1,20 @@
 <?php
 
 namespace app\models\query;
+use app\models\Questions;
+use yii\db\ActiveQuery;
 
 /**
  * This is the ActiveQuery class for [[Questions]].
  *
  * @see Questions
  */
-class QuestionsQuery extends \yii\db\ActiveQuery
+class QuestionsQuery extends ActiveQuery
 {
-    /*public function active()
+    public function active($id)
     {
-        return $this->andWhere('[[status]]=1');
-    }*/
+        return $this->where(['id_theme' => $id, 'active' => Questions::ACTIVE]);
+    }
 
     /**
      * @inheritdoc

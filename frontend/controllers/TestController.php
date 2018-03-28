@@ -142,14 +142,14 @@ class TestController extends Controller
      */
     public function actionTesting($id)
     {
-        if ((int)Testing::find()->andWhere(['=', 'id_user', Yii::$app->user->id])->andWhere(['in', 'id_theme', $id])->count() !== 0 && !Yii::$app->request->isAjax){
+        if ((int)Testing::find()->reload($id)->count() !== 0 && !Yii::$app->request->isAjax){
             return $this->redirect(['site/index']);
         }
         $idUser = Yii::$app->user->id;
         $startTest = new Testing();
         $startTest->saveTesting($idUser, $id);
         $this->layout = 'test';
-        $model = Questions::find()->where(['id_theme' => $id, 'active' => Questions::ACTIVE])->all();
+        $model = Questions::find()->active($id)->all();
         shuffle($model);
         return $this->render('test', compact('model', 'right', 'done'));
     }
@@ -217,12 +217,12 @@ class TestController extends Controller
         $idUser = Yii::$app->request->post('apoint');
         $thema = Thema::find()->where(['id' => $id])->one();
         $user = User::find()->select(['id', 'last_name', 'name', 'patronymic'])->where(['active' => 1])->all();
-        $model = Questions::find()->with('idThemeQuestion')->where(['id_theme' => $id, 'active' => Questions::ACTIVE])->all();
+        $model = Questions::find()->with('idThemeQuestion')->active($id)->all();
         $access = Access::find()->with(['user'])->select(['id_theme', 'create_at', 'id_user'])->where(['id_theme' => $id])->limit(6)->orderBy('id DESC')->all();
 
         if ($idUser){
-            $accessDelete = Access::find()->where(['id_theme' => $id, 'id_user' => $idUser])->one();
-            $testing = Testing::find()->where(['id_theme' => $id, 'id_user' => $idUser])->one();
+            $accessDelete = Access::find()->user($id, $idUser)->one();
+            $testing = Testing::find()->user($id, $idUser)->one();
             if ($accessDelete != null){
                 $accessDelete->delete();
             }

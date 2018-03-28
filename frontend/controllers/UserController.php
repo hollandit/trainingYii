@@ -105,23 +105,6 @@ class UserController extends Controller
         ]);
     }
 
-//    /**
-//     * @return Position|\yii\web\Response
-//     */
-//    public function actionCreatePosition()
-//    {
-//        $model = new Position();
-//        if ($model->load(Yii::$app->request->post())){
-//            if ($model->validate()) {
-//                $model->save();
-//                return $this->redirect(['user/index']);
-//            } else {
-//                print_r($model->getErrors());
-//            }
-//        }
-//        return $model;
-//    }
-
     /**
      * Updates an existing User model.
      * If update is successful, the browser will be redirected to the 'view' page.

@@ -76,7 +76,7 @@ class ShiftsController extends Controller
     public function actionCreate()
     {
         $model = new Shifts();
-        $user = User::find()->with('shifts')->where(['active' => User::WORK])->all();
+        $user = User::find()->active()->all();
         $request = Yii::$app->request;
 
         if (Yii::$app->request->post()){
@@ -100,7 +100,7 @@ class ShiftsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $user = User::find()->with('shifts')->where(['active' => User::WORK])->all();
+        $user = User::find()->active()->all();
         $request = Yii::$app->request;
         $date = [1 => 'Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
 

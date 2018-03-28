@@ -84,19 +84,19 @@ class SiteController extends Controller
             return $this->redirect(['site/login']);
         } else {
             $user = User::findOne(Yii::$app->user->identity->id);
-            $testing = Testing::find()->select('id_theme')->where(['id_user' => $idUser])->andWhere(['>', 'beginning', date('Y-m-d 00:00:00', strtotime('-2 week'))])->all();
-            $access = Access::find()->select('id_theme')->where(['id_user' => $idUser, 'done' => Access::NOT_DONE])->groupBy('id_theme')->all();
+            $testing = Testing::find()->select('id_theme')->testing($idUser)->all();
+            $access = Access::find()->select('id_theme')->notdone($idUser)->all();
             foreach ($access as $acc){
                 $accessArr[] = $acc->id_theme;
             }
             foreach ($testing as $key => $test){
                 $arr[] = $test->id_theme;
             }
-            $thema = Thema::find()->andWhere(['not in', 'id', $arr])->andWhere(['in', 'id', $accessArr])->limit(10)->all();
+            $thema = Thema::find()->access($arr, $accessArr)->all();
             $choice = Choice::find();
             $count = $choice->where(['id_user' => $user->id])->count();
-            $done = $choice->where(['id_user' => $user->id, 'done' => Choice::PASS])->count();
-            $failed = $choice->where(['id_user' => $user->id, 'done' => Choice::NOT_PASS])->count();
+            $done = $choice->pass($user->id, Choice::PASS)->count();
+            $failed = $choice->pass($user->id, Choice::NOT_PASS)->count();
             return $this->render('index', compact('user', 'thema', 'count', 'done', 'failed', 'arr'));
         }
     }
