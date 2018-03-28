@@ -52,41 +52,27 @@ class TestController extends Controller
      */
     public function actionCreate()
     {
+        $request = Yii::$app->request;
         $model = new Questions();
         $themaModel = new Thema();
-        $request = Yii::$app->request;
         $thema = $request->post('Thema');
-        $question = $request->post('Question');
         $answer = $request->post('Answer');
         $right = $request->post('right');
         if ($request->post()){
             if ((int)$thema != 0){
                 $model->id_theme = (int)$thema;
             } else {
-                $themaModel->name = $thema;
-                $themaModel->minute = $request->post('minute');
-                $themaModel->second = $request->post('second');
-                if (!$themaModel->save()) {
-                    print_r($themaModel->getErrors());
-                }
+                $themaModel->getCreateTest($thema, $request);
                 $model->id_theme = $themaModel->id;
             }
-            $model->name = $question;
+            $model->name = $request->post('Question');
             foreach ($answer as $key => $value){
                 $answer[$key] = preg_replace('/"/', '\'', $value);
             }
             $right = preg_replace('/"/', '\'', $right);
             $model->answear = Json::encode($answer, JSON_UNESCAPED_UNICODE);
             $model->correct = '{"right": "'.$right.'"}';
-            if(!$model->save()){
-                print_r($model->getErrors());
-            } else {
-                $model->save();
-                if (is_uploaded_file($_FILES['attachment']['tmp_name'][0])){
-                    $model->upload($model->id);
-                };
-                return $this->redirect(['test/test', 'id' => $model->id_theme]);
-            }
+            $this->save($model, $_FILES['attachment']['tmp_name'][0]);
         }
     }
 
@@ -170,7 +156,7 @@ class TestController extends Controller
 
     public function actionResultTest()
     {
-        $query = Choice::find()->orderBy(['date' => SORT_DESC]);
+        $query = Choice::find()->with(['user', 'theme'])->orderBy(['date' => SORT_DESC]);
         $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 5]);
         $model = $query->offset($pages->offset)
             ->limit($pages->limit)
@@ -186,6 +172,7 @@ class TestController extends Controller
         $model = Choice::findOne($id);
         return $this->renderAjax('modal-result', compact('model'));
     }
+
 
     /**
      * @param $id
@@ -212,15 +199,8 @@ class TestController extends Controller
             $access = Access::find()->where(['id_theme' => $id, 'done' => 0, 'id_user' => $idUser])->one();
             $access->done = Access::DONE;
             $access->save();
-            if ($right == count($model)) {
-                $result['right'] = $right;
-                $result['status'] = Choice::PASS;
-                return json_encode($result, JSON_UNESCAPED_UNICODE);
-            } else {
-                $result['right'] = $right;
-                $result['status'] = Choice::NOT_PASS;
-                return json_encode($result, JSON_UNESCAPED_UNICODE);
-            }
+            $result = $this->result($right, $model);
+            return json_encode($result, JSON_UNESCAPED_UNICODE);
         }
         return $model;
     }
@@ -238,7 +218,7 @@ class TestController extends Controller
         $thema = Thema::find()->where(['id' => $id])->one();
         $user = User::find()->select(['id', 'last_name', 'name', 'patronymic'])->where(['active' => 1])->all();
         $model = Questions::find()->with('idThemeQuestion')->where(['id_theme' => $id, 'active' => Questions::ACTIVE])->all();
-        $access = Access::find()->select(['id_theme', 'create_at', 'id_user'])->where(['id_theme' => $id])->limit(6)->orderBy('id DESC')->all();
+        $access = Access::find()->with(['user'])->select(['id_theme', 'create_at', 'id_user'])->where(['id_theme' => $id])->limit(6)->orderBy('id DESC')->all();
 
         if ($idUser){
             $accessDelete = Access::find()->where(['id_theme' => $id, 'id_user' => $idUser])->one();
@@ -250,13 +230,8 @@ class TestController extends Controller
                 $testing->delete();
             }
             $model = new Access();
-            $model->id_user = $idUser;
-            $model->id_theme = $id;
-            if (!$model->save()){
-                return $model->getErrors();
-            } else {
-                return true;
-            }
+            $model->saveAccess($idUser, $id);
+            return !$model->save() ? $model->getErrors() : true;
         }
         return $this->render('admin-test', compact('model', 'thema', 'user', 'access'));
     }
@@ -297,5 +272,30 @@ class TestController extends Controller
             print_r($choice->getErrors());
         }
         return $this->redirect(['site/index']);
+    }
+
+    protected function save($model, $files)
+    {
+        if(!$model->save()){
+            print_r($model->getErrors());
+        } else {
+            $model->save();
+            if (is_uploaded_file($files)){
+                $model->upload($model->id);
+            };
+            return $this->redirect(['test/test', 'id' => $model->id_theme]);
+        }
+    }
+
+    protected function result($right, $model)
+    {
+        if ($right == count($model)) {
+                $result['right'] = $right;
+                $result['status'] = Choice::PASS;
+        } else {
+                $result['right'] = $right;
+                $result['status'] = Choice::NOT_PASS;
+        }
+        return $result;
     }
 }
