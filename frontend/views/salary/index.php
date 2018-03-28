@@ -7,10 +7,11 @@
 use app\models\Depreming;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\Pjax;
 
 $this->title = 'Зарплаты';
-$url = \yii\helpers\Url::to(['salary/create']);
+$url = Url::to(['salary/create']);
 ?>
 
 <div class="salary-index">
