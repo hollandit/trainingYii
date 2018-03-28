@@ -22,7 +22,7 @@ class NavThema extends Widget
         parent::init();
         $themaArr = [];
         foreach (Thema::find()->all() as $thema){
-            $themaArr[] = ['label' => $thema->name, 'url' => ['test/test', 'id' => $thema->id], 'options' => ['class' => 'navigation-menu', 'data-id' => $thema->id]];
+            $themaArr[] = ['label' => $thema->name.'<span class="buttonNavDelete glyphicon glyphicon-remove-sign" data-id="'.$thema->id.'"></span>', 'encode' => false, 'url' => ['test/test', 'id' => $thema->id], 'options' => ['class' => 'navigation-menu', 'data-id' => $thema->id]];
         }
 
         return Nav::widget([
