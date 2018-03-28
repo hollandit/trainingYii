@@ -2,6 +2,8 @@
 
 namespace app\models;
 
+use app\models\query\TestingQuery;
+
 
 /**
  * This is the model class for table "testing".
@@ -66,6 +68,16 @@ class Testing extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'id_user']);
     }
+
+    /**
+     * @inheritdoc
+     * @return TestingQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new TestingQuery(get_called_class());
+    }
+
 
     public function saveTesting($idUser, $id)
     {
