@@ -43,9 +43,9 @@ class ShiftsSearch extends Shifts
             'Вс' => $date_end->format('Y-m-d'),
         ];
         $shops = $shop == null ? Shop::find()->all() : Shop::findOne($shop);
-        if ($request->get('ShiftsSearch')['shop_id'] == null){
+        if ($shop == null){
             foreach ($shops as $shop){
-                $shifts[$shop->name] = Shifts::find()->with('shop')->andWhere(['between', 'date', $date_start->format('Y-m-d'), $date_end->format('Y-m-d')])->andWhere(['shop_id' => $shop->id])->all();
+                $shifts[$shop->name] = Shifts::find()->with(['shop', 'user'])->andWhere(['between', 'date', $date_start->format('Y-m-d'), $date_end->format('Y-m-d')])->andWhere(['shop_id' => $shop->id])->all();
             }
         } else {
             $shifts[$shops->name] = Shifts::find()->with('shop')->andWhere(['between', 'date', $date_start->format('Y-m-d'), $date_end->format('Y-m-d')])->andWhere(['shop_id' => $shop])->all();
