@@ -129,7 +129,7 @@ $user = ArrayHelper::map($user, 'id', 'nameEmployee');
                 'id' => 'pjax-apoint'
             ]);
             foreach ($access as $acc){
-                $apoint = Choice::find()->andWhere(['id_user' => $acc->id_user])->andWhere(['id_theme' => $model[0]->id_theme])->andWhere(['>=', 'date', $acc->create_at])->one();
+                $apoint = Choice::find()->with(['theme', 'user'])->andWhere(['id_user' => $acc->id_user])->andWhere(['id_theme' => $model[0]->id_theme])->andWhere(['>=', 'date', $acc->create_at])->one();
                 $image = null;
                 if ($apoint->done === 0){
                     $image = Html::img('@web/images/u3108.png', ['class' => 'statistics_appointment-icon']);
