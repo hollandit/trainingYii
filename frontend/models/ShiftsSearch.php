@@ -51,6 +51,6 @@ class ShiftsSearch extends Shifts
             $shifts[$shops->name] = Shifts::find()->with('shop')->andWhere(['between', 'date', $date_start->format('Y-m-d'), $date_end->format('Y-m-d')])->andWhere(['shop_id' => $shop])->all();
         }
 
-        return (object)compact('query', 'weekDay', 'shifts');
+        return (object)compact('weekDay', 'shifts');
     }
 }
