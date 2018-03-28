@@ -82,7 +82,7 @@ $this->title = $model->name;
         <h3>Тесты</h3>
         <div>
             <div class="employee-test-label">Кол-во выполненых тестов</div>
-            <div class="employee-test_rating"><?= Choice::find()->where(['done' => Choice::PASS, 'id_user' => $model->id])->count() . ' из ' . Choice::find()->where(['id_user' => $model->id])->count() ?></div>
+            <div class="employee-test_rating"><?= Choice::find()->with('theme')->where(['done' => Choice::PASS, 'id_user' => $model->id])->count() . ' из ' . Choice::find()->with('theme')->where(['id_user' => $model->id])->count() ?></div>
         </div>
         <div class="appoint-table">
             <h3><?= Html::encode('Назначено') ?></h3>
@@ -107,7 +107,7 @@ $this->title = $model->name;
                         'attribute' => 'id_theme',
                         'label' => 'Темы',
                         'format' => 'raw',
-                        'filter' => ArrayHelper::map(Choice::find()->where(['id_user' => $model->id])->groupBy('id_theme')->all(), 'id_theme', 'theme.name'),
+                        'filter' => ArrayHelper::map(Choice::find()->with('theme')->where(['id_user' => $model->id])->groupBy('id_theme')->all(), 'id_theme', 'theme.name'),
                         'value' => function ($value) {
                             return Html::a($value->theme->name, ['test/modal-result', 'id' => $value->id], ['class' => 'result-test', 'data-pjax' => 0]);
                         }
