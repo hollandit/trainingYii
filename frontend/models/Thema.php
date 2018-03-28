@@ -119,4 +119,15 @@ class Thema extends ActiveRecord
     {
         return new ThemaQuery(get_called_class());
     }
+
+    public function getCreateTest($thema, $request)
+    {
+        $this->name = $thema;
+        $this->minute = $request->post('minute');
+        $this->second = $request->post('second');
+        if (!$this->save()) {
+            print_r($this->getErrors());
+        }
+        return $this;
+    }
 }

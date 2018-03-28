@@ -79,4 +79,11 @@ class Access extends \yii\db\ActiveRecord
     {
         return new AccessQuery(get_called_class());
     }
+
+    public function saveAccess($idUser, $idTheme)
+    {
+        $this->id_user = $idUser;
+        $this->id_theme = $idTheme;
+        return $this;
+    }
 }
