@@ -3,7 +3,7 @@
 namespace app\models;
 
 use app\models\query\AccessQuery;
-use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "{{%access}}".
@@ -16,7 +16,7 @@ use Yii;
  * @property User $user
  * @property Thema $theme
  */
-class Access extends \yii\db\ActiveRecord
+class Access extends ActiveRecord
 {
     const DONE = 1;
     const NOT_DONE = 0;
