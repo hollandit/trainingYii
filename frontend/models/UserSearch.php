@@ -42,7 +42,7 @@ class UserSearch extends User
      */
     public function search($params)
     {
-        $query = User::find()->where(['active' => User::WORK]);
+        $query = User::find()->with('position')->where(['active' => User::WORK]);
 
         // add conditions that should always apply here
 
