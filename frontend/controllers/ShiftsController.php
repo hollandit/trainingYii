@@ -84,17 +84,9 @@ class ShiftsController extends Controller
             unset($arr[0]);
             $date = [1 => 'Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
             $key = array_keys($date, $arr[2])[0];
-            $model->user_id = $request->post('user');
-            $model->shop_id = $request->post('shop');
-            $model->date = $arr[3].'-'.$key.'-'.$arr[1];
-            $model->start_time = date('H:i', strtotime($request->post('start')));
-            $model->end_time = date('H:i', strtotime($request->post('end')));
-            if (!$model->save()){
-                return json_encode($model->getErrors(), JSON_UNESCAPED_UNICODE);
-            }
-            return true;
+            $model->saveShifts($request, $arr, $key);
+            return !$this->save() ? json_encode($this->getErrors(), JSON_UNESCAPED_UNICODE) : true;
         }
-
         return $this->renderAjax('create', compact('model', 'user'));
     }
 
@@ -110,17 +102,13 @@ class ShiftsController extends Controller
         $model = $this->findModel($id);
         $user = User::find()->with('shifts')->where(['active' => User::WORK])->all();
         $request = Yii::$app->request;
+        $date = [1 => 'Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
 
         if($request->post()){
             $arr = explode(' ', $request->post('date'));
             unset($arr[0]);
-            $date = [1 => 'Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
             $key = array_keys($date, $arr[2])[0];
-            $model->user_id = $request->post('user');
-            $model->shop_id = $request->post('shop');
-            $model->date = $arr[3].'-'.$key.'-'.$arr[1];
-            $model->start_time = date('H:i', strtotime($request->post('start')));
-            $model->end_time = date('H:i', strtotime($request->post('end')));
+            $model->saveShifts($request,$arr, $key);
             if (!$model->save()){
                 return json_encode($model->getErrors(), JSON_UNESCAPED_UNICODE);
             }

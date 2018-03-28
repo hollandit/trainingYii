@@ -83,4 +83,13 @@ class Shifts extends \yii\db\ActiveRecord
     {
         return new ShiftsQuery(get_called_class());
     }
+
+    public function saveShifts($request, $arr, $key)
+    {
+        $this->user_id = $request->post('user');
+        $this->shop_id = $request->post('shop');
+        $this->date = $arr[3].'-'.$key.'-'.$arr[1];
+        $this->start_time = date('H:i', strtotime($request->post('start')));
+        $this->end_time = date('H:i', strtotime($request->post('end')));
+    }
 }
