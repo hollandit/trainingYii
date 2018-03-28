@@ -15,12 +15,6 @@ $(document).ready(function(){
     $('.prevTestAdmin').click(function(){
         $('.test-block-admin:visible').hide().prev('.test-block-admin').show();
     });
-    //The delete button appears in the list
-    $('li.navigation-menu').hover(function(){
-        $(this).append($('<span class="buttonNavDelete glyphicon glyphicon-remove-sign" data-id="'+$(this).data('id')+'"></span>'));
-    }, function () {
-        $(this).find('span:last').remove();
-    });
 
     $('.test-answer').click(function () {
         $('.answerButton').trigger('click');
