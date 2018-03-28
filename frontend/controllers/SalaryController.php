@@ -31,7 +31,7 @@ class SalaryController extends Controller
     {
         $arr = [];
         $model = new Depreming();
-        $users = User::find()->select(['name', 'last_name', 'patronymic', 'salary', 'id_position', 'id'])->where(['active' => User::WORK])->all();
+        $users = User::find()->with('position')->select(['name', 'last_name', 'patronymic', 'salary', 'id_position', 'id'])->where(['active' => User::WORK])->all();
 
         foreach ($users as $user){
             $userArr = [];
@@ -41,7 +41,7 @@ class SalaryController extends Controller
             $userArr['salary'] = $user->salary;
             $arr[] = $userArr;
         }
-        $depreming = Depreming::find()->andWhere(['between', 'create_at', date('Y-m-01 00:00:00'), date('Y-m-31 23:59:59')])->all();
+        $depreming = Depreming::find()->with('user')->andWhere(['between', 'create_at', date('Y-m-01 00:00:00'), date('Y-m-31 23:59:59')])->all();
         $arr = ArrayHelper::index($arr, 'id', 'position');
         return $this->render('index', compact('users', 'model', 'depreming', 'arr'));
     }
