@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
     ]); ?>
 
     <?= $form->field($model, 'shop_id')->dropDownList(
-            ArrayHelper::map(Shop::find()->all(), 'id', 'name'),
+            ArrayHelper::map($shop, 'id', 'name'),
             [
                 'prompt' => 'Выберите магазиг',
                 'value' => !Yii::$app->request->get() ? null : Yii::$app->request->get('ShiftsSearch')['shop_id']
